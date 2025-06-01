@@ -1,72 +1,166 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Same head as English version -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ressources complètes en génie mécanique pour les étudiants">
+    <title>FS1 Engineering - Français</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/modules.css">
+    <link rel="stylesheet" href="css/flashcards.css">
 </head>
 <body>
-  <!-- Header Partial -->
-  <nav class="navbar">
-    <div class="container navbar-container">
-      <div class="logo">
-        <div class="logo-icon">
-          <i class="fas fa-cogs"></i>
-        </div>
-        <div class="logo-text">
-          <h1>Ressources FS1 Ingénierie</h1>
-          <p>Ressources pour étudiants en génie mécanique</p>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Partial -->
-  <section class="hero">
-    <div class="container hero-content">
-      <h1 class="hero-title">Maîtrisez le Génie Mécanique</h1>
-      <p class="hero-description">Ressources complètes pour les étudiants de première année</p>
-    </div>
-  </section>
-
-  <!-- Module Section (in French) -->
-  <section class="module-section" id="maths-module">
-    <div class="container">
-      <div class="section-title">
-        <h2>Mathématiques pour l'Ingénieur</h2>
-        <div class="engineering-badge">Module Principal</div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Topic 1 -->
-        <div class="compact-module card">
-          <div class="card-header">
-            <h3>Calcul Différentiel</h3>
-          </div>
-          <div class="card-body">
-            <p>Calcul différentiel et intégral avec applications en ingénierie</p>
-            
-            <!-- Flashcard -->
-            <div class="module-flashcard mt-4 p-3 rounded">
-              <div class="flashcard-question font-bold">Dérivée de sin(x)</div>
-              <div class="flashcard-answer hidden mt-2">cos(x)</div>
-              <button class="toggle-flashcard btn btn-sm btn-outline mt-2">
-                Montrer la Réponse
-              </button>
+    <!-- Navigation en français -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>FS1 Ingénierie</h1>
+                    <p>Ressources en Génie Mécanique</p>
+                </div>
             </div>
-          </div>
+            
+            <div class="nav-links">
+                <div class="language-selector">
+                    <button class="language-btn">
+                        <i class="fas fa-globe"></i> FR
+                    </button>
+                    <div class="language-dropdown">
+                        <a href="index.html">English</a>
+                        <a href="fr.html">Français</a>
+                    </div>
+                </div>
+                <a href="#about" class="nav-link active">À propos</a>
+                <a href="#modules" class="nav-link">Modules</a>
+                <a href="#opportunities" class="nav-link">Opportunités</a>
+                <a href="#tools" class="nav-link">Outils d'étude</a>
+                <button class="theme-toggle" id="dark-mode-toggle" aria-label="Basculer en mode sombre">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Footer Partial -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-bottom">
-        <p>&copy; 2023 FS1 Ingénierie. Tous droits réservés.</p>
-      </div>
-    </div>
-  </footer>
+    <!-- Hero section en français -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">Maîtrisez le Génie Mécanique</h1>
+            <p class="hero-description">Ressources complètes pour les étudiants en première année de génie mécanique</p>
+            <a href="#modules" class="btn btn-primary btn-lg">Explorer les Modules</a>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">9</span>
+                    <span class="hero-stat-label">Modules</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">180+</span>
+                    <span class="hero-stat-label">Fiches</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">100+</span>
+                    <span class="hero-stat-label">Problèmes</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Same JavaScript files -->
+    <!-- Main content en français -->
+    <main id="main-content">
+        <!-- About section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Mon Parcours Académique</h2>
+                    <p class="section-subtitle">De la Belgique au Royaume-Uni, surmonter les défis pour poursuivre l'ingénierie</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <div class="grid">
+                            <div>
+                                <h3>Mon Histoire</h3>
+                                <p>Originaire de Belgique, j'ai déménagé de manière inattendue au Royaume-Uni où j'ai dû apprendre l'anglais pendant mes études secondaires. Malgré un niveau d'anglais initial limité, j'ai obtenu AAB en Français, Mathématiques et Mathématiques Avancées.</p>
+                                <p>Mon parcours n'a pas été facile - j'échouais en maths en Belgique par manque de motivation pendant la pandémie et des défis familiaux. Le système éducatif en Belgique était plus théorique et moins engageant pour moi personnellement. L'approche pratique des mathématiques au Royaume-Uni, avec son accent sur les applications réelles, m'a aidé à retrouver ma passion pour la matière.</p>
+                                <p>Maintenant, j'étudie le Génie Mécanique dans une université du Russell Group, et j'ai créé cette plateforme pour partager ce que j'ai appris sur les méthodes d'étude efficaces dans les matières STEM. Mon expérience de transition entre deux systèmes éducatifs différents m'a donné des perspectives uniques sur les méthodologies d'apprentissage que je souhaite partager.</p>
+                            </div>
+                            
+                            <div class="motivation-card">
+                                <h3>Ma Motivation</h3>
+                                <ul>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Démontrer qu'une transformation académique est possible avec le bon état d'esprit et les bonnes techniques.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Simplifier les concepts complexes d'ingénierie en explications claires et digestes.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Partager des systèmes d'organisation qui rendent les études d'ingénierie plus gérables.</span>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Créer une ressource vivante qui évolue avec mes études.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rest of the French version would follow the same structure as the English version,
+             but with all content translated to French -->
+        
+        <!-- Footer in French -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-container">
+                    <div class="footer-column">
+                        <h3>FS1 Ingénierie</h3>
+                        <p>Ressources complètes en génie mécanique pour les étudiants, créées par un étudiant.</p>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Liens Rapides</h3>
+                        <ul class="footer-links">
+                            <li class="footer-link"><a href="#about"><i class="fas fa-user"></i> À propos</a></li>
+                            <li class="footer-link"><a href="#modules"><i class="fas fa-book"></i> Modules</a></li>
+                            <li class="footer-link"><a href="#tools"><i class="fas fa-tools"></i> Outils d'étude</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Contact</h3>
+                        <ul class="footer-links">
+                            <li class="footer-link"><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                            <li class="footer-link"><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                            <li class="footer-link"><a href="#"><i class="fas fa-envelope"></i> Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2023 FS1 Ingénierie. Tous droits réservés.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Same JavaScript files -->
+    <script src="js/main.js"></script>
+    <script src="js/modules.js"></script>
+    <script src="js/flashcards.js"></script>
+    <script src="js/language.js"></script>
 </body>
 </html>
