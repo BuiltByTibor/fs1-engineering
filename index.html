@@ -7,44 +7,62 @@
     <title>FS1 Engineering Resources</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* Base colors */
+            /* Enhanced color palette */
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
             --secondary: #10b981;
-            --accent: #ef4444;
-            --light: #f8fafc;
-            --dark: #0f172a;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-400: #94a3b8;
-            --gray-500: #64748b;
-            --gray-600: #475569;
-            --gray-700: #334155;
-            --gray-800: #1e293b;
-            --gray-900: #0f172a;
+            --secondary-dark: #059669;
+            --accent: #f59e0b;
+            --accent-dark: #d97706;
+            --error: #ef4444;
             --success: #10b981;
             --warning: #f59e0b;
-            --error: #ef4444;
-            --text: #334155;
-            --text-light: #f8fafc;
-            --bg: #ffffff;
-            --card: #ffffff;
-            --border: #e2e8f0;
             
-            /* Spacing */
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 3rem;
+            /* Enhanced neutrals */
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
             
-            /* Typography */
+            /* Theme variables */
+            --bg: var(--white);
+            --surface: var(--white);
+            --text: var(--gray-900);
+            --text-secondary: var(--gray-600);
+            --border: var(--gray-200);
+            --hover: var(--gray-50);
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 50%, rgba(245, 158, 11, 0.1) 100%);
+            
+            /* Spacing system */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            
+            /* Typography scale */
             --text-xs: 0.75rem;
             --text-sm: 0.875rem;
             --text-base: 1rem;
@@ -53,63 +71,75 @@
             --text-2xl: 1.5rem;
             --text-3xl: 1.875rem;
             --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            --text-6xl: 3.75rem;
             
-            /* Shadows */
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            /* Enhanced shadows */
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
             
             /* Border radius */
-            --rounded-sm: 0.125rem;
-            --rounded: 0.25rem;
-            --rounded-md: 0.375rem;
-            --rounded-lg: 0.5rem;
-            --rounded-xl: 0.75rem;
-            --rounded-2xl: 1rem;
-            --rounded-full: 9999px;
+            --radius-sm: 0.125rem;
+            --radius: 0.25rem;
+            --radius-md: 0.375rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            --radius-2xl: 1rem;
+            --radius-3xl: 1.5rem;
+            --radius-full: 9999px;
+            
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            --transition-slow: 400ms ease;
         }
 
+        /* Dark theme */
         [data-theme="dark"] {
+            --bg: var(--gray-900);
+            --surface: var(--gray-800);
+            --text: var(--gray-100);
+            --text-secondary: var(--gray-400);
+            --border: var(--gray-700);
+            --hover: var(--gray-800);
+            
             --primary: #3b82f6;
             --primary-dark: #2563eb;
             --secondary: #10b981;
-            --accent: #ef4444;
-            --light: #0f172a;
-            --dark: #f8fafc;
-            --gray-100: #1e293b;
-            --gray-200: #334155;
-            --gray-300: #475569;
-            --gray-400: #64748b;
-            --gray-500: #94a3b8;
-            --gray-600: #cbd5e1;
-            --gray-700: #e2e8f0;
-            --gray-800: #f1f5f9;
-            --gray-900: #f8fafc;
-            --text: #e2e8f0;
-            --text-light: #0f172a;
-            --bg: #0f172a;
-            --card: #1e293b;
-            --border: #334155;
+            --accent: #fbbf24;
+            
+            --gradient-hero: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 50%, rgba(251, 191, 36, 0.1) 100%);
         }
 
-        * {
+        /* Reset & Base Styles */
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: var(--text);
             background: var(--bg);
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color var(--transition-base), color var(--transition-base);
+            font-size: var(--text-base);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         code, pre {
-            font-family: 'Source Code Pro', monospace;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
         }
 
         /* Layout */
@@ -117,340 +147,458 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 var(--space-lg);
+            padding: 0 var(--space-6);
         }
 
         /* Typography */
         h1, h2, h3, h4, h5, h6 {
             font-weight: 600;
-            line-height: 1.2;
+            line-height: 1.25;
             color: var(--text);
+            letter-spacing: -0.025em;
         }
 
         h1 {
-            font-size: var(--text-4xl);
-            margin-bottom: var(--space-xl);
+            font-size: var(--text-5xl);
+            font-weight: 700;
+            margin-bottom: var(--space-6);
         }
 
         h2 {
-            font-size: var(--text-3xl);
-            margin-bottom: var(--space-lg);
+            font-size: var(--text-4xl);
+            margin-bottom: var(--space-5);
         }
 
         h3 {
             font-size: var(--text-2xl);
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-4);
         }
 
         h4 {
             font-size: var(--text-xl);
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-3);
         }
 
         p {
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-4);
+            color: var(--text-secondary);
         }
 
         a {
             color: var(--primary);
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color var(--transition-fast);
         }
 
         a:hover {
             color: var(--primary-dark);
         }
 
-        /* Buttons */
+        /* Enhanced Button System */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: var(--space-sm) var(--space-md);
-            border-radius: var(--rounded-md);
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-lg);
             font-weight: 500;
-            font-size: var(--text-base);
+            font-size: var(--text-sm);
             line-height: 1;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all var(--transition-fast);
             border: 1px solid transparent;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left var(--transition-base);
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
-            background-color: var(--primary);
+            background: var(--gradient-primary);
             color: white;
+            box-shadow: var(--shadow-sm);
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-secondary {
-            background-color: var(--secondary);
+            background: var(--gradient-secondary);
             color: white;
+            box-shadow: var(--shadow-sm);
         }
 
         .btn-secondary:hover {
-            background-color: #0d9e6e;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-outline {
-            background-color: transparent;
+            background: var(--surface);
             border-color: var(--border);
             color: var(--text);
         }
 
         .btn-outline:hover {
-            background-color: var(--gray-100);
+            background: var(--hover);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-secondary);
+        }
+
+        .btn-ghost:hover {
+            background: var(--hover);
+            color: var(--text);
         }
 
         .btn-sm {
-            padding: var(--space-xs) var(--space-sm);
-            font-size: var(--text-sm);
+            padding: var(--space-2) var(--space-4);
+            font-size: var(--text-xs);
         }
 
         .btn-lg {
-            padding: var(--space-md) var(--space-lg);
+            padding: var(--space-4) var(--space-8);
             font-size: var(--text-lg);
         }
 
-        /* Cards */
+        /* Enhanced Card System */
         .card {
-            background: var(--card);
-            border-radius: var(--rounded-lg);
+            background: var(--surface);
+            border-radius: var(--radius-xl);
             box-shadow: var(--shadow-sm);
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all var(--transition-base);
+            border: 1px solid var(--border);
         }
 
         .card:hover {
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
         }
 
         .card-header {
-            padding: var(--space-md);
+            padding: var(--space-6);
             border-bottom: 1px solid var(--border);
+            background: var(--hover);
         }
 
         .card-body {
-            padding: var(--space-md);
+            padding: var(--space-6);
         }
 
         .card-footer {
-            padding: var(--space-md);
+            padding: var(--space-6);
             border-top: 1px solid var(--border);
+            background: var(--hover);
         }
 
-        /* Navigation */
+        /* Enhanced Navigation */
         .navbar {
-            background: var(--card);
-            box-shadow: var(--shadow-sm);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: all var(--transition-base);
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(17, 24, 39, 0.8);
         }
 
         .navbar-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: var(--space-md) 0;
+            padding: var(--space-4) 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: var(--space-md);
+            gap: var(--space-4);
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--primary);
+            background: var(--gradient-primary);
             color: white;
-            border-radius: var(--rounded-md);
+            border-radius: var(--radius-xl);
             font-size: var(--text-xl);
+            box-shadow: var(--shadow-md);
         }
 
         .logo-text h1 {
-            font-size: var(--text-xl);
+            font-size: var(--text-2xl);
             margin-bottom: 0;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .logo-text p {
             font-size: var(--text-sm);
-            color: var(--gray-500);
+            color: var(--text-secondary);
             margin-bottom: 0;
         }
 
         .nav-links {
             display: flex;
-            gap: var(--space-md);
+            gap: var(--space-2);
+            align-items: center;
         }
 
         .nav-link {
-            color: var(--text);
+            color: var(--text-secondary);
             font-weight: 500;
-            padding: var(--space-sm) var(--space-md);
-            border-radius: var(--rounded-md);
-            transition: all 0.2s;
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-fast);
+            position: relative;
         }
 
-        .nav-link:hover {
-            color: var(--primary);
-            background: var(--gray-100);
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all var(--transition-fast);
+            transform: translateX(-50%);
         }
 
+        .nav-link:hover,
         .nav-link.active {
             color: var(--primary);
-            background: rgba(59, 130, 246, 0.1);
+            background: var(--hover);
         }
 
-        /* Hero section */
+        .nav-link.active::before {
+            width: 80%;
+        }
+
+        /* Enhanced Hero Section */
         .hero {
-            padding: var(--space-2xl) 0;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            padding: var(--space-20) 0;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,0,0,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
         }
 
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-title {
-            font-size: var(--text-4xl);
-            margin-bottom: var(--space-md);
+            font-size: var(--text-6xl);
+            font-weight: 800;
+            margin-bottom: var(--space-6);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
         }
 
         .hero-description {
             font-size: var(--text-xl);
-            color: var(--gray-600);
-            margin-bottom: var(--space-xl);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Sections */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-8);
+            margin-top: var(--space-10);
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .hero-stat-label {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Enhanced Sections */
         .section {
-            padding: var(--space-2xl) 0;
+            padding: var(--space-20) 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: var(--space-xl);
+            margin-bottom: var(--space-12);
         }
 
-        /* Module grid */
+        .section-subtitle {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: var(--text-lg);
+        }
+
+        /* Enhanced Module Grid */
         .module-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--space-lg);
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-8);
         }
 
         .module-card {
-            border: 1px solid var(--border);
-            border-radius: var(--rounded-lg);
+            background: var(--surface);
+            border-radius: var(--radius-2xl);
             overflow: hidden;
-            transition: all 0.3s;
+            transition: all var(--transition-base);
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
         }
 
         .module-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .module-card:hover::before {
+            transform: scaleX(1);
         }
 
         .module-card-header {
-            padding: var(--space-md);
-            background: var(--primary);
+            padding: var(--space-6);
+            background: var(--gradient-primary);
             color: white;
+            position: relative;
+        }
+
+        .module-card-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid var(--primary);
         }
 
         .module-card-body {
-            padding: var(--space-md);
+            padding: var(--space-6);
         }
 
         .module-card-footer {
-            padding: var(--space-md);
+            padding: var(--space-6);
             border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: flex-end;
+            background: var(--hover);
         }
 
-        /* Topic list */
-        .topic-list {
-            list-style: none;
-        }
-
-        .topic-item {
-            margin-bottom: var(--space-sm);
-        }
-
-        .topic-btn {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: var(--space-sm) var(--space-md);
-            background: var(--gray-100);
-            border: none;
-            border-radius: var(--rounded-md);
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: left;
-        }
-
-        .topic-btn:hover {
-            background: var(--gray-200);
-        }
-
-        .topic-btn[aria-expanded="true"] .toggle-icon {
-            transform: rotate(180deg);
-        }
-
-        .topic-content {
-            padding: var(--space-md);
-            background: var(--gray-100);
-            border-radius: var(--rounded-md);
-            margin-top: var(--space-sm);
-            display: none;
-        }
-
-        .topic-content.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Flashcards */
+        /* Enhanced Flashcard System */
         .flashcard-container {
-            margin: var(--space-xl) 0;
+            margin: var(--space-12) 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .flashcard-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-6);
         }
 
         .flashcard-progress {
             font-size: var(--text-sm);
-            color: var(--gray-500);
+            color: var(--text-secondary);
+            background: var(--hover);
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-full);
         }
 
         .flashcard {
-            background: var(--card);
-            border-radius: var(--rounded-lg);
-            box-shadow: var(--shadow-md);
-            min-height: 200px;
+            background: var(--surface);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--shadow-lg);
+            min-height: 300px;
             perspective: 1000px;
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-6);
+            cursor: pointer;
+            transition: box-shadow var(--transition-base);
+        }
+
+        .flashcard:hover {
+            box-shadow: var(--shadow-2xl);
         }
 
         .flashcard-inner {
@@ -458,7 +606,7 @@
             width: 100%;
             height: 100%;
             transform-style: preserve-3d;
-            transition: transform 0.6s;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .flashcard.flipped .flashcard-inner {
@@ -470,98 +618,116 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            padding: var(--space-xl);
+            padding: var(--space-8);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            border-radius: var(--radius-2xl);
         }
 
         .flashcard-front {
-            background: var(--primary);
+            background: var(--gradient-primary);
             color: white;
-            border-radius: var(--rounded-lg);
         }
 
         .flashcard-back {
-            background: var(--secondary);
+            background: var(--gradient-secondary);
             color: white;
-            border-radius: var(--rounded-lg);
             transform: rotateY(180deg);
         }
 
         .flashcard-question, .flashcard-answer {
             font-size: var(--text-xl);
-            margin-bottom: var(--space-md);
+            font-weight: 500;
+            margin-bottom: var(--space-4);
+            line-height: 1.4;
         }
 
         .flashcard-hint {
             font-size: var(--text-sm);
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: var(--space-md);
+            opacity: 0.8;
+            margin-top: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
         }
 
         .flashcard-actions {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-md);
-            margin-top: var(--space-md);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-3);
+            margin-top: var(--space-6);
         }
 
         .flashcard-nav {
             display: flex;
             justify-content: space-between;
-            margin-top: var(--space-md);
+            gap: var(--space-4);
+            margin-top: var(--space-6);
         }
 
-        /* Practice problems */
+        /* Enhanced Problem Cards */
         .practice-problem {
-            background: var(--card);
-            border-radius: var(--rounded-lg);
+            background: var(--surface);
+            border-radius: var(--radius-xl);
             box-shadow: var(--shadow-sm);
-            padding: var(--space-md);
-            margin-bottom: var(--space-lg);
+            padding: var(--space-6);
+            margin-bottom: var(--space-6);
             border-left: 4px solid var(--primary);
+            transition: all var(--transition-base);
+        }
+
+        .practice-problem:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
         }
 
         .solution {
             display: none;
-            padding-top: var(--space-md);
+            padding-top: var(--space-4);
             border-top: 1px solid var(--border);
-            margin-top: var(--space-md);
+            margin-top: var(--space-4);
+            background: var(--hover);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
         }
 
         .solution.active {
             display: block;
+            animation: fadeInUp 0.3s ease-out;
         }
 
-        /* Real examples */
-        .real-example {
-            background: var(--card);
-            border-radius: var(--rounded-lg);
-            box-shadow: var(--shadow-sm);
-            padding: var(--space-md);
-            margin-bottom: var(--space-lg);
-            border-left: 4px solid var(--secondary);
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Footer */
+        /* Enhanced Footer */
         .footer {
-            background: var(--gray-100);
-            padding: var(--space-2xl) 0;
-            margin-top: var(--space-2xl);
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: var(--space-16) 0 var(--space-8);
+            margin-top: var(--space-20);
         }
 
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-xl);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
         }
 
         .footer-column h3 {
             font-size: var(--text-lg);
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-4);
+            color: var(--text);
         }
 
         .footer-links {
@@ -569,12 +735,15 @@
         }
 
         .footer-link {
-            margin-bottom: var(--space-sm);
+            margin-bottom: var(--space-2);
         }
 
         .footer-link a {
-            color: var(--gray-600);
-            transition: color 0.2s;
+            color: var(--text-secondary);
+            transition: color var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
         }
 
         .footer-link a:hover {
@@ -583,51 +752,57 @@
 
         .footer-bottom {
             text-align: center;
-            margin-top: var(--space-xl);
-            padding-top: var(--space-md);
+            margin-top: var(--space-8);
+            padding-top: var(--space-6);
             border-top: 1px solid var(--border);
-            color: var(--gray-500);
+            color: var(--text-secondary);
             font-size: var(--text-sm);
         }
 
-        /* Dark mode toggle */
+        /* Enhanced Dark Mode Toggle */
         .theme-toggle {
-            background: transparent;
-            border: none;
+            background: var(--hover);
+            border: 1px solid var(--border);
             color: var(--text);
             cursor: pointer;
-            font-size: var(--text-xl);
-            width: 40px;
-            height: 40px;
-            border-radius: var(--rounded-full);
+            font-size: var(--text-lg);
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-full);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background-color 0.2s;
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
         }
 
         .theme-toggle:hover {
-            background: var(--gray-200);
-        }
-
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: var(--space-lg);
-            right: var(--space-lg);
-            width: 50px;
-            height: 50px;
             background: var(--primary);
             color: white;
-            border-radius: var(--rounded-full);
+            transform: scale(1.05);
+        }
+
+        /* Enhanced Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: var(--space-6);
+            right: var(--space-6);
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: var(--radius-full);
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: var(--shadow-lg);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s;
+            transition: all var(--transition-base);
             z-index: 99;
+            border: none;
+            cursor: pointer;
         }
 
         .back-to-top.visible {
@@ -636,14 +811,29 @@
         }
 
         .back-to-top:hover {
-            background: var(--primary-dark);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: var(--shadow-xl);
         }
 
-        /* Responsive adjustments */
+        /* Enhanced Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: var(--text-5xl);
+            }
+            
+            .hero-stats {
+                gap: var(--space-6);
+            }
+        }
+
         @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--space-4);
+            }
+            
             .navbar-container {
                 flex-direction: column;
-                gap: var(--space-md);
+                gap: var(--space-4);
             }
 
             .nav-links {
@@ -651,78 +841,184 @@
                 justify-content: center;
             }
 
+            .hero {
+                padding: var(--space-16) 0;
+            }
+            
             .hero-title {
-                font-size: var(--text-3xl);
+                font-size: var(--text-4xl);
             }
 
             .hero-description {
                 font-size: var(--text-lg);
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: var(--space-4);
             }
 
             .module-grid {
                 grid-template-columns: 1fr;
             }
 
-            .flashcard-front, .flashcard-back {
-                padding: var(--space-lg);
+            .flashcard-actions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .flashcard-nav {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: var(--space-16) 0;
             }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 var(--space-md);
-            }
-
-            .hero {
-                padding: var(--space-xl) 0;
-            }
-
             .hero-title {
-                font-size: var(--text-2xl);
+                font-size: var(--text-3xl);
             }
 
             .hero-description {
                 font-size: var(--text-base);
             }
 
-            .section {
-                padding: var(--space-xl) 0;
-            }
-
             .flashcard-actions {
-                flex-direction: column;
-                gap: var(--space-sm);
+                grid-template-columns: 1fr;
             }
-
-            .flashcard-nav {
-                flex-direction: column;
-                gap: var(--space-sm);
-            }
-
-            .flashcard-nav .btn {
-                width: 100%;
+            
+            .btn-lg {
+                padding: var(--space-3) var(--space-6);
+                font-size: var(--text-base);
             }
         }
 
-        /* Utility classes */
+        /* Enhanced Topic System */
+        .topic-list {
+            list-style: none;
+            space-y: var(--space-3);
+        }
+
+        .topic-item {
+            margin-bottom: var(--space-3);
+        }
+
+        .topic-btn {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-4) var(--space-5);
+            background: var(--hover);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .topic-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .topic-btn[aria-expanded="true"] {
+            background: var(--primary);
+            color: white;
+        }
+
+        .topic-btn[aria-expanded="true"] .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .toggle-icon {
+            transition: transform var(--transition-base);
+        }
+
+        .topic-content {
+            padding: var(--space-5);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            margin-top: -1px;
+            display: none;
+        }
+
+        .topic-content.active {
+            display: block;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        /* Enhanced Grid System */
+        .grid {
+            display: grid;
+            gap: var(--space-6);
+                    /* Language Selector (Simplified to English Only) */
+        .language-selector {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .language-btn {
+            background: var(--hover);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: var(--space-2) var(--space-3);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--text-sm);
+        }
+        
+        .language-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Utility Classes */
         .text-center {
             text-align: center;
         }
-
-        .mt-sm { margin-top: var(--space-sm); }
-        .mt-md { margin-top: var(--space-md); }
-        .mt-lg { margin-top: var(--space-lg); }
-        .mt-xl { margin-top: var(--space-xl); }
-        .mt-2xl { margin-top: var(--space-2xl); }
-
-        .mb-sm { margin-bottom: var(--space-sm); }
-        .mb-md { margin-bottom: var(--space-md); }
-        .mb-lg { margin-bottom: var(--space-lg); }
-        .mb-xl { margin-bottom: var(--space-xl); }
-        .mb-2xl { margin-bottom: var(--space-2xl); }
-
+        
+        .mt-1 { margin-top: var(--space-1); }
+        .mt-2 { margin-top: var(--space-2); }
+        .mt-3 { margin-top: var(--space-3); }
+        .mt-4 { margin-top: var(--space-4); }
+        .mt-5 { margin-top: var(--space-5); }
+        .mt-6 { margin-top: var(--space-6); }
+        .mt-8 { margin-top: var(--space-8); }
+        .mt-10 { margin-top: var(--space-10); }
+        
+        .mb-1 { margin-bottom: var(--space-1); }
+        .mb-2 { margin-bottom: var(--space-2); }
+        .mb-3 { margin-bottom: var(--space-3); }
+        .mb-4 { margin-bottom: var(--space-4); }
+        .mb-5 { margin-bottom: var(--space-5); }
+        .mb-6 { margin-bottom: var(--space-6); }
+        .mb-8 { margin-bottom: var(--space-8); }
+        .mb-10 { margin-bottom: var(--space-10); }
+        
         .hidden {
             display: none;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
         }
     </style>
 </head>
@@ -761,6 +1057,21 @@
             <h1 class="hero-title">Master Mechanical Engineering</h1>
             <p class="hero-description">Comprehensive resources for first-year mechanical engineering students</p>
             <a href="#modules" class="btn btn-primary btn-lg">Explore Modules</a>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">9</span>
+                    <span class="hero-stat-label">Modules</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">180+</span>
+                    <span class="hero-stat-label">Flashcards</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">100+</span>
+                    <span class="hero-stat-label">Practice Problems</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -771,7 +1082,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>My Academic Journey</h2>
-                    <p>From Belgium to the UK, overcoming challenges to pursue engineering</p>
+                    <p class="section-subtitle">From Belgium to the UK, overcoming challenges to pursue engineering</p>
                 </div>
                 
                 <div class="card">
@@ -816,7 +1127,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Engineering Modules</h2>
-                    <p>Comprehensive resources for all first-year mechanical engineering modules</p>
+                    <p class="section-subtitle">Comprehensive resources for all first-year mechanical engineering modules</p>
                 </div>
                 
                 <div class="module-grid" id="module-container">
@@ -824,7 +1135,7 @@
                 </div>
                 
                 <!-- Module details will be loaded here -->
-                <div id="module-details-container" class="mt-2xl"></div>
+                <div id="module-details-container" class="mt-12"></div>
             </div>
         </section>
 
@@ -832,17 +1143,17 @@
         <section id="opportunities" class="section">
             <div class="container">
                 <div class="section-title">
-                    <h2>Opportunities</h2>
-                    <p>Explore various opportunities available for mechanical engineering students</p>
+                    <h2>University Opportunities</h2>
+                    <p class="section-subtitle">Make the most of your university experience</p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Internships</h3>
+                            <h3>Summer Schools</h3>
                         </div>
                         <div class="card-body">
-                            <p>Gain practical experience with leading engineering firms through summer internships and industrial placements.</p>
+                            <p>I'm attending HKUST for a summer school program. Many universities offer these opportunities - check your institution's international office.</p>
                         </div>
                         <div class="card-footer">
                             <a href="#" class="btn btn-outline btn-sm">Learn more</a>
@@ -851,10 +1162,10 @@
                     
                     <div class="card">
                         <div class="card-header">
-                            <h3>Research</h3>
+                            <h3>Student Societies</h3>
                         </div>
                         <div class="card-body">
-                            <p>Undergraduate research opportunities to work with faculty on cutting-edge engineering projects.</p>
+                            <p>I'm active in the Rocketry Society and will be on the committee next year. Societies are great for networking and skill development.</p>
                         </div>
                         <div class="card-footer">
                             <a href="#" class="btn btn-outline btn-sm">Learn more</a>
@@ -863,46 +1174,10 @@
                     
                     <div class="card">
                         <div class="card-header">
-                            <h3>Competitions</h3>
+                            <h3>Student Representation</h3>
                         </div>
                         <div class="card-body">
-                            <p>Engineering design competitions to showcase your skills and creativity in solving real-world problems.</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Study Abroad</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>International programs like my upcoming summer school at HKUST to broaden your academic and cultural horizons.</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Societies</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>Student societies like the Rocketry Society (I'll be on the committee next year) to develop skills and network.</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Scholarships</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>Financial support through scholarships and grants for academic excellence and specific engineering disciplines.</p>
+                            <p>Being a student rep has helped me develop leadership skills and make a difference in my department.</p>
                         </div>
                         <div class="card-footer">
                             <a href="#" class="btn btn-outline btn-sm">Learn more</a>
@@ -916,8 +1191,8 @@
         <section id="tools" class="section bg-gray-50">
             <div class="container">
                 <div class="section-title">
-                    <h2>Study Tools</h2>
-                    <p>Effective tools and methods to enhance your engineering studies</p>
+                    <h2>Study Tools & Methods</h2>
+                    <p class="section-subtitle">Effective tools and methods to enhance your engineering studies</p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -926,7 +1201,7 @@
                             <h3>Anki Flashcards</h3>
                         </div>
                         <div class="card-body">
-                            <p>Great for remembering things - exercises your mind to recall information. I use it for definitions, formulas, and problem-solving methods.</p>
+                            <p>Great for active recall and spaced repetition. I use it for formulas, definitions, and problem-solving methods.</p>
                         </div>
                         <div class="card-footer">
                             <a href="#" class="btn btn-outline btn-sm">Get Started</a>
@@ -935,34 +1210,10 @@
                     
                     <div class="card">
                         <div class="card-header">
-                            <h3>Microsoft Word</h3>
+                            <h3>Organized File System</h3>
                         </div>
                         <div class="card-body">
-                            <p>I use Word to summarize lectures and write down the essential information in an organized way.</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>OneNote</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>Excellent for practice questions - it's linked to your Microsoft account and stored in the cloud so you can access it anywhere.</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>File Organization</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>Most important is to be organized. I create folders in File Explorer for each module to keep all my notes and resources structured.</p>
+                            <p>I create structured folders for each module to keep all resources organized and easily accessible.</p>
                         </div>
                         <div class="card-footer">
                             <a href="#" class="btn btn-outline btn-sm">View System</a>
@@ -971,25 +1222,13 @@
                     
                     <div class="card">
                         <div class="card-header">
-                            <h3>Makerspace</h3>
+                            <h3>Practical Work</h3>
                         </div>
                         <div class="card-body">
-                            <p>Practical work is invaluable. I make use of our university's makerspace for hands-on learning.</p>
+                            <p>The university makerspace is invaluable for hands-on learning and applying theoretical knowledge.</p>
                         </div>
                         <div class="card-footer">
                             <a href="#" class="btn btn-outline btn-sm">Explore</a>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Exam Countdown</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>I use an exam countdown app to plan my revision schedule and stay on track.</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-outline btn-sm">Download</a>
                         </div>
                     </div>
                 </div>
@@ -1001,7 +1240,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Work-Life Balance</h2>
-                    <p>Achieving academic success while enjoying university life</p>
+                    <p class="section-subtitle">Achieving academic success while enjoying university life</p>
                 </div>
                 
                 <div class="card">
@@ -1038,18 +1277,18 @@
                                 <h3>Key Strategies</h3>
                                 <div class="space-y-4 mt-4">
                                     <div class="p-4 bg-blue-50 rounded-lg">
-                                        <h4 class="font-medium">Time Management</h4>
-                                        <p class="text-sm mt-1">Effective scheduling and prioritization create space for both studies and personal activities.</p>
+                                        <h4 class="font-medium">Effective Time Management</h4>
+                                        <p class="text-sm mt-1">Prioritize tasks and use techniques like time blocking to stay productive.</p>
                                     </div>
                                     
                                     <div class="p-4 bg-blue-50 rounded-lg">
-                                        <h4 class="font-medium">Efficient Study Methods</h4>
-                                        <p class="text-sm mt-1">Using active learning techniques reduces total study time while improving retention.</p>
+                                        <h4 class="font-medium">Active Learning</h4>
+                                        <p class="text-sm mt-1">Focus on understanding rather than memorization to reduce study time.</p>
                                     </div>
                                     
                                     <div class="p-4 bg-blue-50 rounded-lg">
-                                        <h4 class="font-medium">Boundaries</h4>
-                                        <p class="text-sm mt-1">Setting clear boundaries between study time and personal time prevents burnout.</p>
+                                        <h4 class="font-medium">Work-Life Boundaries</h4>
+                                        <p class="text-sm mt-1">Schedule downtime and stick to it to prevent burnout.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1059,62 +1298,29 @@
             </div>
         </section>
 
-        <!-- Ambitions section -->
-        <section id="ambitions" class="section bg-gray-50">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Ambitions</h2>
-                    <p>My long-term goals in mechanical engineering</p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Career Aspirations</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>I want to work on meaningful engineering projects that solve real-world problems, particularly in the aerospace sector. My involvement with the Rocketry Society reflects this passion.</p>
-                            <p>Beyond technical skills, I aim to develop strong leadership abilities through committee positions in student organizations and eventually in professional settings.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>This Platform</h3>
-                        </div>
-                        <div class="card-body">
-                            <p>This website itself is part of my ambition - to create resources that help others while also solidifying my own understanding of engineering concepts.</p>
-                            <p>I plan to expand this platform as I progress through my degree, adding more advanced content and potentially developing it into a comprehensive engineering learning resource.</p>
-                        </div>
-                    </div>
-                </div>
-          
-                            </div>
-        </section>
-
         <!-- Flashcard Demo section -->
-        <section id="flashcards" class="section">
+        <section id="flashcards" class="section bg-gray-50">
             <div class="container">
                 <div class="section-title">
                     <h2>Flashcard Demo</h2>
-                    <p>Try out this interactive flashcard to see how I study</p>
+                    <p class="section-subtitle">Try out this interactive flashcard to see my study method</p>
                 </div>
                 
                 <div class="flashcard-container">
                     <div class="flashcard-header">
-                        <h3>Engineering Fundamentals</h3>
+                        <h3>Engineering Mathematics</h3>
                         <div class="flashcard-progress">Card 1 of 5</div>
                     </div>
                     
                     <div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
                         <div class="flashcard-inner">
                             <div class="flashcard-front">
-                                <div class="flashcard-question">What is the Second Law of Thermodynamics?</div>
-                                <div class="flashcard-hint">Click to flip</div>
+                                <div class="flashcard-question">What is the derivative of sin(x)?</div>
+                                <div class="flashcard-hint"><i class="fas fa-lightbulb"></i> Click to flip</div>
                             </div>
                             <div class="flashcard-back">
-                                <div class="flashcard-answer">The total entropy of an isolated system can never decrease over time, and is constant if and only if all processes are reversible.</div>
-                                <div class="flashcard-hint">Click to flip back</div>
+                                <div class="flashcard-answer">The derivative of sin(x) is cos(x)</div>
+                                <div class="flashcard-hint"><i class="fas fa-undo"></i> Click to flip back</div>
                             </div>
                         </div>
                     </div>
@@ -1123,14 +1329,8 @@
                         <button class="btn btn-outline" onclick="markCard('again')">
                             <i class="fas fa-redo mr-2"></i> Again
                         </button>
-                        <button class="btn btn-outline" onclick="markCard('hard')">
-                            <i class="fas fa-frown mr-2"></i> Hard
-                        </button>
                         <button class="btn btn-outline" onclick="markCard('good')">
-                            <i class="fas fa-meh mr-2"></i> Good
-                        </button>
-                        <button class="btn btn-outline" onclick="markCard('easy')">
-                            <i class="fas fa-smile mr-2"></i> Easy
+                            <i class="fas fa-check mr-2"></i> Good
                         </button>
                     </div>
                     
@@ -1159,20 +1359,9 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="#about">About</a></li>
-                        <li class="footer-link"><a href="#modules">Modules</a></li>
-                        <li class="footer-link"><a href="#opportunities">Opportunities</a></li>
-                        <li class="footer-link"><a href="#tools">Study Tools</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#">Lecture Notes</a></li>
-                        <li class="footer-link"><a href="#">Practice Problems</a></li>
-                        <li class="footer-link"><a href="#">Flashcards</a></li>
-                        <li class="footer-link"><a href="#">Exam Tips</a></li>
+                        <li class="footer-link"><a href="#about"><i class="fas fa-user mr-2"></i> About</a></li>
+                        <li class="footer-link"><a href="#modules"><i class="fas fa-book mr-2"></i> Modules</a></li>
+                        <li class="footer-link"><a href="#tools"><i class="fas fa-tools mr-2"></i> Study Tools</a></li>
                     </ul>
                 </div>
                 
@@ -1242,24 +1431,24 @@
         let currentCardIndex = 0;
         const cards = [
             {
-                question: "What is the Second Law of Thermodynamics?",
-                answer: "The total entropy of an isolated system can never decrease over time, and is constant if and only if all processes are reversible."
+                question: "What is the derivative of sin(x)?",
+                answer: "The derivative of sin(x) is cos(x)"
             },
             {
-                question: "Define Young's Modulus",
-                answer: "Young's Modulus (E) is a measure of the stiffness of a solid material, defined as the ratio of stress (force per unit area) to strain (proportional deformation) in the range where they are proportional."
+                question: "What is the integral of 1/x?",
+                answer: "The integral of 1/x is ln|x| + C"
             },
             {
-                question: "What is the difference between laminar and turbulent flow?",
-                answer: "Laminar flow is smooth, orderly fluid motion where layers flow parallel without mixing, while turbulent flow is chaotic with eddies and mixing between layers."
+                question: "What is the product rule for differentiation?",
+                answer: "d(uv)/dx = u(dv/dx) + v(du/dx)"
             },
             {
-                question: "State Bernoulli's principle",
-                answer: "In fluid dynamics, Bernoulli's principle states that an increase in the speed of a fluid occurs simultaneously with a decrease in pressure or a decrease in the fluid's potential energy."
+                question: "What is the chain rule?",
+                answer: "dy/dx = dy/du * du/dx"
             },
             {
-                question: "What is the definition of a moment in mechanics?",
-                answer: "A moment is the turning effect produced by a force about a point, calculated as the product of the force and the perpendicular distance from the point to the line of action of the force."
+                question: "What is L'Hôpital's Rule used for?",
+                answer: "Evaluating limits of indeterminate forms (0/0 or ∞/∞) by differentiating numerator and denominator"
             }
         ];
         
@@ -1298,152 +1487,135 @@
         // Module data and rendering
         const modules = [
             {
-                id: 'thermodynamics',
-                title: 'Thermodynamics',
-                description: 'Study of energy, heat, work, and their transformations in physical systems.',
+                id: 'maths',
+                title: 'Engineering Mathematics',
+                description: 'Mathematical methods for solving engineering problems including calculus, linear algebra, and differential equations.',
                 topics: [
-                    {
-                        title: 'First Law of Thermodynamics',
-                        content: 'Energy cannot be created or destroyed, only transformed from one form to another.'
-                    },
-                    {
-                        title: 'Second Law of Thermodynamics',
-                        content: 'The total entropy of an isolated system can never decrease over time.'
-                    },
-                    {
-                        title: 'Heat Engines',
-                        content: 'Devices that convert heat energy into mechanical work, governed by thermodynamic cycles.'
-                    }
+                    { title: 'Calculus', content: 'Differential and integral calculus with engineering applications' },
+                    { title: 'Linear Algebra', content: 'Vectors, matrices, and systems of linear equations' },
+                    { title: 'Differential Equations', content: 'First and second order differential equations' },
+                    { title: 'Fourier Analysis', content: 'Signal processing and frequency domain analysis' }
                 ],
                 problems: [
                     {
-                        question: 'Calculate the efficiency of a Carnot engine operating between 500K and 300K.',
-                        solution: 'η = 1 - (T_cold/T_hot) = 1 - (300/500) = 0.4 or 40%'
+                        question: 'Find the derivative of f(x) = 3x² + 2x - 5',
+                        solution: 'f\'(x) = 6x + 2'
+                    },
+                    {
+                        question: 'Solve the differential equation dy/dx = 2x',
+                        solution: 'y = x² + C'
+                    }
+                ]
+            },
+            {
+                id: 'electrical',
+                title: 'Electrical and Magnetic Systems',
+                description: 'Fundamentals of electrical circuits and electromagnetic fields.',
+                topics: [
+                    { title: 'Circuit Analysis', content: 'Ohm\'s Law, Kirchhoff\'s Laws, and network theorems' },
+                    { title: 'Electromagnetism', content: 'Maxwell\'s equations and electromagnetic fields' },
+                    { title: 'AC Circuits', content: 'Phasors, impedance, and power in alternating current circuits' }
+                ],
+                problems: [
+                    {
+                        question: 'Calculate the equivalent resistance of two 10Ω resistors in parallel',
+                        solution: 'R_eq = (10 × 10)/(10 + 10) = 5Ω'
+                    }
+                ]
+            },
+            {
+                id: 'electronics',
+                title: 'Electronics and Sensors',
+                description: 'Introduction to electronic components and sensor technologies.',
+                topics: [
+                    { title: 'Semiconductors', content: 'Diodes, transistors, and basic semiconductor theory' },
+                    { title: 'Digital Electronics', content: 'Logic gates and digital circuits' },
+                    { title: 'Sensors', content: 'Types of sensors and their applications in engineering' }
+                ],
+                problems: [
+                    {
+                        question: 'What is the purpose of a pull-up resistor?',
+                        solution: 'To ensure a defined voltage level when a switch is open'
+                    }
+                ]
+            },
+            {
+                id: 'thermofluids',
+                title: 'Thermofluid Mechanics',
+                description: 'Thermodynamics and fluid mechanics principles for engineering applications.',
+                topics: [
+                    { title: 'Thermodynamics Laws', content: 'First and second laws of thermodynamics' },
+                    { title: 'Fluid Statics', content: 'Pressure and buoyancy in static fluids' },
+                    { title: 'Fluid Dynamics', content: 'Bernoulli\'s equation and flow in pipes' }
+                ],
+                problems: [
+                    {
+                        question: 'Calculate the efficiency of a Carnot engine operating between 500K and 300K',
+                        solution: 'η = 1 - (300/500) = 0.4 or 40%'
+                    }
+                ]
+            },
+            {
+                id: 'materials',
+                title: 'Properties of Engineering Materials',
+                description: 'Study of material properties and selection for engineering applications.',
+                topics: [
+                    { title: 'Material Classes', content: 'Metals, ceramics, polymers, and composites' },
+                    { title: 'Mechanical Properties', content: 'Stress-strain behavior and material testing' },
+                    { title: 'Material Selection', content: 'Criteria for selecting materials in design' }
+                ],
+                problems: [
+                    {
+                        question: 'What is Young\'s Modulus a measure of?',
+                        solution: 'Stiffness of a material (ratio of stress to strain in elastic region)'
                     }
                 ]
             },
             {
                 id: 'mechanics',
                 title: 'Mechanics',
-                description: 'Study of motion, forces, and energy in physical systems.',
+                description: 'Statics and dynamics of mechanical systems.',
                 topics: [
-                    {
-                        title: 'Newton\'s Laws of Motion',
-                        content: 'Three fundamental laws describing the relationship between motion and forces.'
-                    },
-                    {
-                        title: 'Kinematics',
-                        content: 'Description of motion without considering its causes (position, velocity, acceleration).'
-                    },
-                    {
-                        title: 'Dynamics',
-                        content: 'Study of forces and torques and their effect on motion.'
-                    }
+                    { title: 'Statics', content: 'Forces and moments in equilibrium' },
+                    { title: 'Dynamics', content: 'Newton\'s laws and motion analysis' },
+                    { title: 'Vibrations', content: 'Simple harmonic motion and damping' }
                 ],
                 problems: [
                     {
-                        question: 'A 5kg box is pulled with a force of 20N across a frictionless surface. What is its acceleration?',
-                        solution: 'F = ma → a = F/m = 20N/5kg = 4 m/s²'
+                        question: 'A 5kg mass is accelerated at 2m/s². What force is required?',
+                        solution: 'F = ma = 5 × 2 = 10N'
                     }
                 ]
             },
             {
-                id: 'materials',
-                title: 'Materials Science',
-                description: 'Study of the properties and applications of materials in engineering.',
+                id: 'programming',
+                title: 'Introduction to Programming',
+                description: 'Programming fundamentals using MATLAB, Python, and C.',
                 topics: [
-                    {
-                        title: 'Crystal Structures',
-                        content: 'Ordered arrangements of atoms in crystalline materials (BCC, FCC, HCP).'
-                    },
-                    {
-                        title: 'Stress-Strain Curves',
-                        content: 'Graphical representation of a material\'s response to applied forces.'
-                    },
-                    {
-                        title: 'Phase Diagrams',
-                        content: 'Maps showing the stability of phases under different conditions of composition and temperature.'
-                    }
+                    { title: 'MATLAB', content: 'Numerical computing and data visualization' },
+                    { title: 'Python', content: 'General purpose programming for engineering' },
+                    { title: 'C Programming', content: 'Low-level programming and microcontrollers' }
                 ],
                 problems: [
                     {
-                        question: 'Calculate the stress on a 10mm diameter rod subjected to a 5000N tensile load.',
-                        solution: 'σ = F/A = 5000N/(π*(0.005m)²) ≈ 63.66 MPa'
+                        question: 'What is the MATLAB command to create a 3×3 identity matrix?',
+                        solution: 'eye(3)'
                     }
                 ]
             },
             {
-                id: 'fluids',
-                title: 'Fluid Mechanics',
-                description: 'Study of fluids (liquids and gases) and the forces on them.',
+                id: 'design',
+                title: 'Sustainable Design and Professionalism',
+                description: 'Engineering design process with emphasis on sustainability and professional practice.',
                 topics: [
-                    {
-                        title: 'Bernoulli\'s Equation',
-                        content: 'Relates pressure, velocity, and elevation in a flowing fluid.'
-                    },
-                    {
-                        title: 'Reynolds Number',
-                        content: 'Dimensionless number predicting flow patterns (laminar vs turbulent).'
-                    },
-                    {
-                        title: 'Navier-Stokes Equations',
-                        content: 'Fundamental equations describing fluid motion.'
-                    }
+                    { title: 'Design Process', content: 'Stages of engineering design from concept to implementation' },
+                    { title: 'Sustainability', content: 'Life cycle assessment and sustainable materials' },
+                    { title: 'Professional Ethics', content: 'Ethical responsibilities of engineers' }
                 ],
                 problems: [
                     {
-                        question: 'Water flows through a pipe that narrows from 0.1m to 0.05m diameter. If the velocity in the wide section is 2m/s, what is it in the narrow section?',
-                        solution: 'A1V1 = A2V2 → V2 = (A1/A2)V1 = (D1²/D2²)V1 = (0.1²/0.05²)*2 = 8 m/s'
-                    }
-                ]
-            },
-            {
-                id: 'dynamics',
-                title: 'Dynamics',
-                description: 'Study of motion considering the forces that cause it.',
-                topics: [
-                    {
-                        title: 'Kinetics',
-                        content: 'Study of forces causing motion.'
-                    },
-                    {
-                        title: 'Vibration Analysis',
-                        content: 'Study of oscillatory motion in mechanical systems.'
-                    },
-                    {
-                        title: 'Lagrangian Mechanics',
-                        content: 'Energy-based approach to analyzing mechanical systems.'
-                    }
-                ],
-                problems: [
-                    {
-                        question: 'A 2kg mass oscillates on a spring with k=200N/m. What is its natural frequency?',
-                        solution: 'ω = √(k/m) = √(200/2) = 10 rad/s → f = ω/2π ≈ 1.59 Hz'
-                    }
-                ]
-            },
-            {
-                id: 'maths',
-                title: 'Engineering Mathematics',
-                description: 'Mathematical methods for solving engineering problems.',
-                topics: [
-                    {
-                        title: 'Differential Equations',
-                        content: 'Equations involving derivatives, used to model dynamic systems.'
-                    },
-                    {
-                        title: 'Linear Algebra',
-                        content: 'Study of vectors, matrices, and linear transformations.'
-                    },
-                    {
-                        title: 'Fourier Analysis',
-                        content: 'Decomposition of functions into frequency components.'
-                    }
-                ],
-                problems: [
-                    {
-                        question: 'Solve the differential equation dy/dx = 3x² with y(0) = 1.',
-                        solution: 'y = ∫3x² dx = x³ + C → y(0) = 1 = 0 + C → y = x³ + 1'
+                        question: 'What are the three pillars of sustainable development?',
+                        solution: 'Environmental, economic, and social sustainability'
                     }
                 ]
             }
