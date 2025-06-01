@@ -23,12 +23,6 @@
             --card: #fff;
             --border: #ddd;
             
-            /* Language theme defaults */
-            --theme-primary: #2c3e50;
-            --theme-secondary: #3498db;
-            --theme-accent: #e74c3c;
-            --theme-header: #2c3e50;
-            
             /* Mechanical design elements */
             --gear-color: #7f8c8d;
             --bolt-color: #bdc3c7;
@@ -49,14 +43,6 @@
             --text-3xl: 1.875rem;
         }
 
-        /* French flag colors */
-        [data-language="fr"] {
-            --theme-primary: #0055A4;
-            --theme-secondary: #FFFFFF;
-            --theme-accent: #EF4135;
-            --theme-header: #0055A4;
-        }
-        
         [data-theme="dark"] {
             --text: #ecf0f1;
             --bg: #121212;
@@ -129,7 +115,7 @@
             position: absolute;
             top: -40px;
             left: 0;
-            background: var(--theme-primary);
+            background: var(--primary);
             color: white;
             padding: var(--space-sm);
             z-index: 100;
@@ -141,7 +127,7 @@
         }
 
         header {
-            background: var(--theme-header);
+            background: var(--primary);
             color: white;
             padding: var(--space-md) var(--space-xl);
             position: sticky;
@@ -179,19 +165,13 @@
             align-items: center;
         }
 
-        select, button {
+        button {
             padding: var(--space-sm);
             border-radius: 4px;
             border: none;
             font-family: inherit;
             font-size: var(--text-base);
             cursor: pointer;
-        }
-
-        #language-select {
-            background: rgba(255,255,255,0.9);
-            min-width: 120px;
-            color: var(--primary);
         }
 
         #dark-mode-toggle {
@@ -258,13 +238,13 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             overflow: hidden;
-            border-left: 5px solid var(--theme-primary);
+            border-left: 5px solid var(--primary);
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .section-header {
             padding: var(--space-lg) var(--space-xl);
-            background: var(--theme-primary);
+            background: var(--primary);
             color: white;
             cursor: pointer;
             display: flex;
@@ -302,7 +282,7 @@
 
         .motivation-box {
             background: rgba(52, 152, 219, 0.1);
-            border-left: 4px solid var(--theme-secondary);
+            border-left: 4px solid var(--secondary);
             padding: var(--space-lg);
             border-radius: 0 8px 8px 0;
         }
@@ -320,7 +300,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
-            border-left: 5px solid var(--theme-primary);
+            border-left: 5px solid var(--primary);
         }
 
         .module-card:hover {
@@ -329,7 +309,7 @@
         }
 
         .module-header {
-            background: var(--theme-primary);
+            background: var(--primary);
             color: white;
             padding: var(--space-md);
             transition: background-color 0.3s ease;
@@ -340,7 +320,7 @@
         }
 
         .view-module-btn {
-            background: var(--theme-primary);
+            background: var(--primary);
             color: white;
             border: none;
             padding: var(--space-sm) var(--space-md);
@@ -352,7 +332,7 @@
         }
 
         .view-module-btn:hover {
-            background: var(--theme-secondary);
+            background: var(--secondary);
         }
 
         .topic-list {
@@ -383,7 +363,7 @@
             margin-top: var(--space-md);
             background: rgba(52, 152, 219, 0.05);
             border-radius: 8px;
-            border-left: 3px solid var(--theme-secondary);
+            border-left: 3px solid var(--secondary);
         }
 
         .topic-content.active {
@@ -395,37 +375,26 @@
             position: relative;
         }
 
-        .flashcard-counter {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background: var(--theme-accent);
-            color: white;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--text-sm);
-            font-weight: bold;
-        }
-
         .flashcard {
-            background: var(--theme-secondary);
+            background: var(--primary);
             color: white;
             padding: var(--space-lg);
             border-radius: 8px;
             cursor: pointer;
-            height: 200px;
+            min-height: 150px;
             position: relative;
             transform-style: preserve-3d;
-            transition: transform 0.6s;
+            transition: transform 0.6s, background-color 0.3s;
             margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
         .flashcard.flipped {
             transform: rotateY(180deg);
+            background: var(--secondary);
         }
 
         .flashcard-front, .flashcard-back {
@@ -438,7 +407,6 @@
             align-items: center;
             justify-content: center;
             padding: var(--space-md);
-            text-align: center;
         }
 
         .flashcard-back {
@@ -451,9 +419,16 @@
             margin-top: var(--space-md);
         }
 
+        .flashcard-feedback {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+
         .flashcard-btn {
             padding: var(--space-sm) var(--space-md);
-            background: var(--theme-primary);
+            background: var(--primary);
             color: white;
             border: none;
             border-radius: 4px;
@@ -461,8 +436,26 @@
             transition: background-color 0.2s;
         }
 
+        .feedback-btn {
+            padding: var(--space-sm) var(--space-md);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .easy-btn {
+            background: var(--success);
+            color: white;
+        }
+
+        .hard-btn {
+            background: var(--warning);
+            color: white;
+        }
+
         .flashcard-btn:hover:not(:disabled) {
-            background: var(--theme-secondary);
+            background: var(--secondary);
         }
 
         .flashcard-btn:disabled {
@@ -473,12 +466,12 @@
         .practice-question {
             margin: var(--space-lg) 0;
             padding: var(--space-md);
-            border-left: 3px solid var(--theme-accent);
+            border-left: 3px solid var(--accent);
             background: rgba(231, 76, 60, 0.05);
         }
 
         .show-solution-btn {
-            background: var(--theme-primary);
+            background: var(--primary);
             color: white;
             border: none;
             padding: var(--space-sm) var(--space-md);
@@ -489,7 +482,7 @@
         }
 
         .show-solution-btn:hover {
-            background: var(--theme-secondary);
+            background: var(--secondary);
         }
 
         .solution {
@@ -531,7 +524,7 @@
             padding: var(--space-md);
             border-radius: 8px;
             background: rgba(52, 152, 219, 0.1);
-            border-left: 4px solid var(--theme-secondary);
+            border-left: 4px solid var(--secondary);
             transition: transform 0.2s;
         }
 
@@ -543,8 +536,17 @@
             margin-bottom: var(--space-sm);
         }
 
+        .completion-message {
+            text-align: center;
+            padding: var(--space-lg);
+            background: rgba(46, 204, 113, 0.1);
+            border-radius: 8px;
+            margin: var(--space-lg) 0;
+            border-left: 4px solid var(--success);
+        }
+
         footer {
-            background: var(--theme-primary);
+            background: var(--primary);
             color: white;
             text-align: center;
             padding: var(--space-xl);
@@ -557,7 +559,7 @@
             display: inline-block;
             margin-bottom: var(--space-md);
             padding: var(--space-sm) var(--space-md);
-            background: var(--theme-primary);
+            background: var(--primary);
             color: white;
             border-radius: 4px;
             text-decoration: none;
@@ -565,22 +567,7 @@
         }
 
         .back-button:hover {
-            background: var(--theme-secondary);
-        }
-
-        /* Loading spinner */
-        .loader {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+            background: var(--secondary);
         }
 
         /* Responsive adjustments */
@@ -637,7 +624,7 @@
 </head>
 <body>
     <!-- Skip to content link for accessibility -->
-    <a href="#main-content" class="skip-link" data-translate="skipLink">Skip to content</a>
+    <a href="#main-content" class="skip-link">Skip to content</a>
 
     <!-- Mechanical Design Background Elements -->
     <div class="mechanical-design">
@@ -652,16 +639,11 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <h1 data-translate="siteTitle">FS1 Engineering</h1>
-                <p data-translate="siteSubtitle">Mechanical Engineering Resources</p>
+                <h1>FS1 Engineering</h1>
+                <p>Mechanical Engineering Resources</p>
             </div>
             
             <div class="controls">
-                <select id="language-select" aria-label="Select language">
-                    <option value="en">English</option>
-                    <option value="fr">Français</option>
-                </select>
-                
                 <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
             </div>
         </div>
@@ -669,12 +651,12 @@
         <nav aria-label="Main navigation">
             <div class="header-container">
                 <ul>
-                    <li><a href="#about" data-translate="navAbout">About</a></li>
-                    <li><a href="#modules" data-translate="navModules">Modules</a></li>
-                    <li><a href="#opportunities" data-translate="navOpportunities">Opportunities</a></li>
-                    <li><a href="#tools" data-translate="navTools">Study Tools</a></li>
-                    <li><a href="#balance" data-translate="navBalance">Work-Life Balance</a></li>
-                    <li><a href="#ambitions" data-translate="navAmbitions">Ambitions</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#modules">Modules</a></li>
+                    <li><a href="#opportunities">Opportunities</a></li>
+                    <li><a href="#tools">Study Tools</a></li>
+                    <li><a href="#balance">Work-Life Balance</a></li>
+                    <li><a href="#ambitions">Ambitions</a></li>
                 </ul>
             </div>
         </nav>
@@ -683,24 +665,24 @@
     <main id="main-content">
         <section id="about">
             <div class="section-header" onclick="toggleSection('about-content')" tabindex="0" role="button" aria-expanded="false" aria-controls="about-content">
-                <h2 data-translate="aboutTitle">My Academic Journey</h2>
+                <h2>My Academic Journey</h2>
                 <span class="toggle-icon">+</span>
             </div>
             <div class="section-content" id="about-content">
                 <div class="bio-card">
                     <div>
-                        <p data-translate="aboutText1">Originally from Belgium, I moved unexpectedly to the UK where I faced the challenge of learning English during sixth form. Despite starting with limited English knowledge, I achieved AAB in French, Mathematics, and Further Mathematics.</p>
-                        <p data-translate="aboutText2">My journey wasn't easy - I was failing maths in Belgium due to lack of motivation during the pandemic and family challenges. The education system in Belgium was more theoretical and less engaging for me personally. The UK's practical approach to mathematics, with its emphasis on real-world applications, helped me rediscover my passion for the subject.</p>
-                        <p data-translate="aboutText3">Now I'm studying Mechanical Engineering at a Russell Group university, and I created this platform to share what I've learned about effective studying in STEM subjects. My experience of transitioning between two different education systems has given me unique insights into learning methodologies that I want to share with others.</p>
+                        <p>Originally from Belgium, I moved unexpectedly to the UK where I faced the challenge of learning English during sixth form. Despite starting with limited English knowledge, I achieved AAB in French, Mathematics, and Further Mathematics.</p>
+                        <p>My journey wasn't easy - I was failing maths in Belgium due to lack of motivation during the pandemic and family challenges. The education system in Belgium was more theoretical and less engaging for me personally. The UK's practical approach to mathematics, with its emphasis on real-world applications, helped me rediscover my passion for the subject.</p>
+                        <p>Now I'm studying Mechanical Engineering at a Russell Group university, and I created this platform to share what I've learned about effective studying in STEM subjects. My experience of transitioning between two different education systems has given me unique insights into learning methodologies that I want to share with others.</p>
                     </div>
                     
                     <div class="motivation-box">
-                        <h3 data-translate="motivationTitle">My Motivation</h3>
+                        <h3>My Motivation</h3>
                         <ul>
-                            <li data-translate="motivation1">To demonstrate that academic transformation is possible with the right mindset and techniques. My own journey from failing maths to achieving top grades in a new language proves this.</li>
-                            <li data-translate="motivation2">To break down complex engineering concepts into clear, digestible explanations. I remember struggling with certain topics and want to provide the explanations I wish I had.</li>
-                            <li data-translate="motivation3">To share organizational systems that make engineering studies more manageable. Proper note-taking and revision planning were game-changers for me.</li>
-                            <li data-translate="motivation4">To create a living resource that evolves with my studies, serving both as a personal knowledge base and a guide for others navigating similar challenges.</li>
+                            <li>To demonstrate that academic transformation is possible with the right mindset and techniques. My own journey from failing maths to achieving top grades in a new language proves this.</li>
+                            <li>To break down complex engineering concepts into clear, digestible explanations. I remember struggling with certain topics and want to provide the explanations I wish I had.</li>
+                            <li>To share organizational systems that make engineering studies more manageable. Proper note-taking and revision planning were game-changers for me.</li>
+                            <li>To create a living resource that evolves with my studies, serving both as a personal knowledge base and a guide for others navigating similar challenges.</li>
                         </ul>
                     </div>
                 </div>
@@ -709,11 +691,11 @@
 
         <section id="modules">
             <div class="section-header" onclick="toggleSection('modules-content')" tabindex="0" role="button" aria-expanded="false" aria-controls="modules-content">
-                <h2 data-translate="modulesTitle">Engineering Modules</h2>
+                <h2>Engineering Modules</h2>
                 <span class="toggle-icon">+</span>
             </div>
             <div class="section-content" id="modules-content">
-                <p data-translate="modulesIntro">Below you'll find comprehensive resources for all first-year mechanical engineering modules. Each module is broken down into fundamental topics with detailed explanations, interactive flashcards, practice problems with solutions, and real-world applications to connect theory with practice.</p>
+                <p>Below you'll find comprehensive resources for all first-year mechanical engineering modules. Each module is broken down into fundamental topics with detailed explanations, interactive flashcards, practice problems with solutions, and real-world applications to connect theory with practice.</p>
                 
                 <div class="module-grid" id="module-container" aria-live="polite">
                     <!-- Modules will be loaded dynamically -->
@@ -726,38 +708,53 @@
 
         <section id="opportunities">
             <div class="section-header" onclick="toggleSection('opportunities-content')" tabindex="0" role="button" aria-expanded="false" aria-controls="opportunities-content">
-                <h2 data-translate="navOpportunities">Opportunities</h2>
+                <h2>Opportunities</h2>
                 <span class="toggle-icon">+</span>
             </div>
             <div class="section-content" id="opportunities-content">
-                <p data-translate="opportunitiesIntro">Explore various opportunities available for mechanical engineering students.</p>
+                <p>Explore various opportunities available for mechanical engineering students.</p>
                 <ul class="opportunities-list">
-                    <li data-translate="internshipOpp">Internship programs with leading engineering firms</li>
-                    <li data-translate="researchOpp">Undergraduate research opportunities</li>
-                    <li data-translate="competitionOpp">Engineering design competitions</li>
-                    <li data-translate="scholarshipOpp">Scholarships and grants</li>
+                    <li>Internship programs with leading engineering firms</li>
+                    <li>Undergraduate research opportunities</li>
+                    <li>Engineering design competitions</li>
+                    <li>Scholarships and grants</li>
+                    <li>Study abroad programs (like my upcoming summer school at HKUST)</li>
+                    <li>Student societies (I'm part of the Rocketry Society and will be on the committee next year)</li>
                 </ul>
             </div>
         </section>
 
         <section id="tools">
             <div class="section-header" onclick="toggleSection('tools-content')" tabindex="0" role="button" aria-expanded="false" aria-controls="tools-content">
-                <h2 data-translate="navTools">Study Tools</h2>
+                <h2>Study Tools</h2>
                 <span class="toggle-icon">+</span>
             </div>
             <div class="section-content" id="tools-content">
+                <p>Use study methods that fit you the most. Here are the tools that work well for me:</p>
                 <div class="tools-list">
                     <div class="tool-card">
-                        <h4 data-translate="tool1Title">CAD Software</h4>
-                        <p data-translate="tool1Desc">Industry-standard tools for 3D modeling and simulation</p>
+                        <h4>Anki Flashcards</h4>
+                        <p>Great for remembering things - exercises your mind to recall information. I use it for definitions, formulas, and problem-solving methods.</p>
                     </div>
                     <div class="tool-card">
-                        <h4 data-translate="tool2Title">Math Software</h4>
-                        <p data-translate="tool2Desc">Tools for symbolic and numerical computation</p>
+                        <h4>Microsoft Word</h4>
+                        <p>I use Word to summarize lectures and write down the essential information in an organized way.</p>
                     </div>
                     <div class="tool-card">
-                        <h4 data-translate="tool3Title">Reference Materials</h4>
-                        <p data-translate="tool3Desc">Curated collection of textbooks and online resources</p>
+                        <h4>OneNote</h4>
+                        <p>Excellent for practice questions - it's linked to your Microsoft account and stored in the cloud so you can access it anywhere.</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4>File Organization</h4>
+                        <p>Most important is to be organized. I create folders in File Explorer for each module to keep all my notes and resources structured.</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Makerspace</h4>
+                        <p>Practical work is invaluable. I make use of our university's makerspace for hands-on learning.</p>
+                    </div>
+                    <div class="tool-card">
+                        <h4>Exam Countdown</h4>
+                        <p>I use an exam countdown app to plan my revision schedule and stay on track.</p>
                     </div>
                 </div>
             </div>
@@ -765,32 +762,46 @@
 
         <section id="balance">
             <div class="section-header" onclick="toggleSection('balance-content')" tabindex="0" role="button" aria-expanded="false" aria-controls="balance-content">
-                <h2 data-translate="navBalance">Work-Life Balance</h2>
+                <h2>Work-Life Balance</h2>
                 <span class="toggle-icon">+</span>
             </div>
             <div class="section-content" id="balance-content">
-                <p data-translate="balanceIntro">Maintaining a healthy balance between academic work and personal life is crucial for long-term success.</p>
+                <p>You can do well in your studies and enjoy other aspects of life at the same time. Here's how I maintain balance:</p>
                 <div class="real-example">
-                    <h4 data-translate="balanceTip1">Time Management Techniques</h4>
-                    <p data-translate="balanceTip1Desc">Effective scheduling strategies to maximize productivity while preserving personal time.</p>
+                    <h4>Personal Experience</h4>
+                    <p>During my first year, I was able to:</p>
+                    <ul>
+                        <li>Enjoy time with friends and my girlfriend</li>
+                        <li>Travel to Thailand for a month</li>
+                        <li>Serve as a student representative</li>
+                        <li>Participate actively in the Rocketry Society</li>
+                        <li>Do extensive DIY projects in my house</li>
+                    </ul>
+                    <p>The key is effective time management and setting clear priorities. When you're organized with your studies, you create space for other activities that enrich your university experience.</p>
                 </div>
             </div>
         </section>
 
         <section id="ambitions">
             <div class="section-header" onclick="toggleSection('ambitions-content')" tabindex="0" role="button" aria-expanded="false" aria-controls="ambitions-content">
-                <h2 data-translate="navAmbitions">Ambitions</h2>
+                <h2>Ambitions</h2>
                 <span class="toggle-icon">+</span>
             </div>
             <div class="section-content" id="ambitions-content">
-                <p data-translate="ambitionsText">My long-term goals in the field of mechanical engineering and how I plan to achieve them.</p>
+                <p>My long-term goals in the field of mechanical engineering and how I plan to achieve them:</p>
+                <div class="real-example">
+                    <h4>Career Aspirations</h4>
+                    <p>I want to work on meaningful engineering projects that solve real-world problems, particularly in the aerospace sector. My involvement with the Rocketry Society reflects this passion.</p>
+                    <p>Beyond technical skills, I aim to develop strong leadership abilities through committee positions in student organizations and eventually in professional settings.</p>
+                    <p>This website itself is part of my ambition - to create resources that help others while also solidifying my own understanding of engineering concepts.</p>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; <span id="current-year"></span> <span data-translate="footerText">FS1 Engineering Resources</span></p>
-        <p data-translate="footerNote">Created by a mechanical engineering student for students</p>
+        <p>&copy; <span id="current-year"></span> FS1 Engineering Resources</p>
+        <p>Created by a mechanical engineering student for students</p>
     </footer>
 
     <script>
@@ -853,307 +864,487 @@
             });
         });
 
-        // Language system
-        const translations = {
-            en: {
-                skipLink: "Skip to content",
-                siteTitle: "FS1 Engineering",
-                siteSubtitle: "Mechanical Engineering Resources",
-                navAbout: "About",
-                navModules: "Modules",
-                navOpportunities: "Opportunities",
-                navTools: "Study Tools",
-                navBalance: "Work-Life Balance",
-                navAmbitions: "Ambitions",
-                aboutTitle: "My Academic Journey",
-                aboutText1: "Originally from Belgium, I moved unexpectedly to the UK where I faced the challenge of learning English during sixth form. Despite starting with limited English knowledge, I achieved AAB in French, Mathematics, and Further Mathematics.",
-                aboutText2: "My journey wasn't easy - I was failing maths in Belgium due to lack of motivation during the pandemic and family challenges. The education system in Belgium was more theoretical and less engaging for me personally. The UK's practical approach to mathematics, with its emphasis on real-world applications, helped me rediscover my passion for the subject.",
-                aboutText3: "Now I'm studying Mechanical Engineering at a Russell Group university, and I created this platform to share what I've learned about effective studying in STEM subjects. My experience of transitioning between two different education systems has given me unique insights into learning methodologies that I want to share with others.",
-                motivationTitle: "My Motivation",
-                motivation1: "To demonstrate that academic transformation is possible with the right mindset and techniques. My own journey from failing maths to achieving top grades in a new language proves this.",
-                motivation2: "To break down complex engineering concepts into clear, digestible explanations. I remember struggling with certain topics and want to provide the explanations I wish I had.",
-                motivation3: "To share organizational systems that make engineering studies more manageable. Proper note-taking and revision planning were game-changers for me.",
-                motivation4: "To create a living resource that evolves with my studies, serving both as a personal knowledge base and a guide for others navigating similar challenges.",
-                modulesTitle: "Engineering Modules",
-                modulesIntro: "Below you'll find comprehensive resources for all first-year mechanical engineering modules. Each module is broken down into fundamental topics with detailed explanations, interactive flashcards, practice problems with solutions, and real-world applications to connect theory with practice.",
-                opportunitiesIntro: "Explore various opportunities available for mechanical engineering students.",
-                internshipOpp: "Internship programs with leading engineering firms",
-                researchOpp: "Undergraduate research opportunities",
-                competitionOpp: "Engineering design competitions",
-                scholarshipOpp: "Scholarships and grants",
-                tool1Title: "CAD Software",
-                tool1Desc: "Industry-standard tools for 3D modeling and simulation",
-                tool2Title: "Math Software",
-                tool2Desc: "Tools for symbolic and numerical computation",
-                tool3Title: "Reference Materials",
-                tool3Desc: "Curated collection of textbooks and online resources",
-                balanceIntro: "Maintaining a healthy balance between academic work and personal life is crucial for long-term success.",
-                balanceTip1: "Time Management Techniques",
-                balanceTip1Desc: "Effective scheduling strategies to maximize productivity while preserving personal time.",
-                ambitionsText: "My long-term goals in the field of mechanical engineering and how I plan to achieve them.",
-                footerText: "FS1 Engineering Resources",
-                footerNote: "Created by a mechanical engineering student for students",
-                backButton: "Back to Modules",
-                topicsTitle: "Topics",
-                flashcardsTitle: "Flashcards",
-                practiceTitle: "Practice Problems",
-                examplesTitle: "Real-World Applications",
-                projectsTitle: "Projects",
-                showAnswer: "Show Solution",
-                hideAnswer: "Hide Solution",
-                clickToFlip: "Click to flip",
-                flashcardProgress: "Card {current} of {total}"
-            },
-            fr: {
-                skipLink: "Passer au contenu",
-                siteTitle: "Ressources d'Ingénierie FS1",
-                siteSubtitle: "Ressources en Ingénierie Mécanique",
-                navAbout: "À Propos",
-                navModules: "Modules",
-                navOpportunities: "Opportunités",
-                navTools: "Outils d'Étude",
-                navBalance: "Équilibre Vie-Études",
-                navAmbitions: "Ambitions",
-                aboutTitle: "Mon Parcours Académique",
-                aboutText1: "Originaire de Belgique, j'ai déménagé inopinément au Royaume-Uni où j'ai dû apprendre l'anglais pendant le sixth form. Malgré un niveau d'anglais initial limité, j'ai obtenu AAB en Français, Mathématiques et Mathématiques Avancées.",
-                aboutText2: "Mon parcours n'a pas été facile - j'échouais en maths en Belgique par manque de motivation pendant la pandémie et des problèmes familiaux. Le système éducatif belge, plus théorique, me correspondait moins. L'approche pratique des mathématiques au Royaume-Uni, avec son accent sur les applications concrètes, m'a permis de retrouver le goût pour cette matière.",
-                aboutText3: "Aujourd'hui, j'étudie l'Ingénierie Mécanique dans une université du Russell Group, et j'ai créé cette plateforme pour partager ce que j'ai appris sur les méthodes d'étude efficaces en STEM. Mon expérience de transition entre deux systèmes éducatifs différents m'a donné des perspectives uniques que je souhaite partager.",
-                motivationTitle: "Ma Motivation",
-                motivation1: "Démontrer que la transformation académique est possible avec le bon état d'esprit et les bonnes techniques. Mon propre parcours, passant de l'échec en mathématiques à l'obtention de bonnes notes dans une nouvelle langue, en est la preuve.",
-                motivation2: "Simplifier les concepts d'ingénierie complexes en explications claires et digestes. Je me souviens avoir eu du mal avec certains sujets et je veux fournir les explications que j'aurais aimé avoir.",
-                motivation3: "Partager des systèmes d'organisation qui rendent les études d'ingénieur plus gérables. La prise de notes structurée et la planification des révisions ont changé ma façon d'étudier.",
-                motivation4: "Créer une ressource évolutive qui grandit avec mes études, servant à la fois de base de connaissances personnelle et de guide pour d'autres confrontés à des défis similaires.",
-                modulesTitle: "Modules d'Ingénierie",
-                modulesIntro: "Vous trouverez ci-dessous des ressources complètes pour tous les modules de première année en ingénierie mécanique. Chaque module est décomposé en sujets fondamentaux avec des explications détaillées, des flashcards interactives, des problèmes pratiques avec solutions et des applications concrètes pour relier la théorie à la pratique.",
-                opportunitiesIntro: "Découvrez les différentes opportunités disponibles pour les étudiants en génie mécanique.",
-                internshipOpp: "Programmes de stage dans des entreprises d'ingénierie leaders",
-                researchOpp: "Opportunités de recherche pour étudiants",
-                competitionOpp: "Concours de conception technique",
-                scholarshipOpp: "Bourses et subventions",
-                tool1Title: "Logiciels CAO",
-                tool1Desc: "Outils professionnels pour la modélisation 3D et la simulation",
-                tool2Title: "Logiciels Mathématiques",
-                tool2Desc: "Outils pour le calcul symbolique et numérique",
-                tool3Title: "Matériels de Référence",
-                tool3Desc: "Collection organisée de manuels et ressources en ligne",
-                balanceIntro: "Maintenir un équilibre sain entre le travail académique et la vie personnelle est crucial pour le succès à long terme.",
-                balanceTip1: "Techniques de Gestion du Temps",
-                balanceTip1Desc: "Stratégies de planification efficaces pour maximiser la productivité tout en préservant le temps personnel.",
-                ambitionsText: "Mes objectifs à long terme dans le domaine du génie mécanique et comment je compte les atteindre.",
-                footerText: "Ressources d'Ingénierie FS1",
-                footerNote: "Créé par un étudiant en génie mécanique pour les étudiants",
-                backButton: "Retour aux Modules",
-                topicsTitle: "Sujets",
-                flashcardsTitle: "Flashcards",
-                practiceTitle: "Problèmes Pratiques",
-                examplesTitle: "Applications Réelles",
-                projectsTitle: "Projets",
-                showAnswer: "Montrer Solution",
-                hideAnswer: "Cacher Solution",
-                clickToFlip: "Cliquer pour retourner",
-                flashcardProgress: "Carte {current} sur {total}"
-            }
-        };
-
-        function applyTranslations(lang) {
-            document.documentElement.setAttribute('data-language', lang);
-            document.documentElement.setAttribute('lang', lang);
-            
-            const elements = document.querySelectorAll('[data-translate]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-translate');
-                if (translations[lang] && translations[lang][key]) {
-                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        el.value = translations[lang][key];
-                    } else {
-                        el.textContent = translations[lang][key];
-                    }
-                }
-            });
-        }
-
-        // Language selector
-        const languageSelect = document.getElementById('language-select');
-        languageSelect.addEventListener('change', (e) => {
-            const lang = e.target.value;
-            applyTranslations(lang);
-            localStorage.setItem('language', lang);
-        });
-
-        // Check for saved language preference
-        if (localStorage.getItem('language')) {
-            const lang = localStorage.getItem('language');
-            languageSelect.value = lang;
-            applyTranslations(lang);
-        }
-
-        // Module
-              const modules = [
+        // Module data
+        const modules = [
             {
                 id: 'mathematics',
-                title: {
-                    en: "Engineering Mathematics",
-                    fr: "Mathématiques pour l'Ingénierie"
-                },
-                description: {
-                    en: "Core mathematical techniques for engineering analysis and problem-solving.",
-                    fr: "Techniques mathématiques fondamentales pour l'analyse et la résolution de problèmes en ingénierie."
-                },
+                title: "Engineering Mathematics",
+                description: "Core mathematical techniques for engineering analysis and problem-solving.",
                 topics: [
                     {
-                        title: {
-                            en: "Linear Algebra",
-                            fr: "Algèbre Linéaire"
-                        },
-                        content: {
-                            en: "Vectors, matrices, determinants, systems of linear equations, eigenvalues and eigenvectors. Applications in structural analysis and computer graphics.",
-                            fr: "Vecteurs, matrices, déterminants, systèmes d'équations linéaires, valeurs propres et vecteurs propres. Applications dans l'analyse structurelle et l'infographie."
-                        }
+                        title: "Linear Algebra",
+                        content: "Vectors, matrices, determinants, systems of linear equations, eigenvalues and eigenvectors. Applications in structural analysis and computer graphics."
                     },
                     {
-                        title: {
-                            en: "Calculus",
-                            fr: "Calcul Différentiel et Intégral"
-                        },
-                        content: {
-                            en: "Differentiation, integration, multivariable calculus, differential equations. Essential for modeling physical systems and optimization problems.",
-                            fr: "Dérivation, intégration, calcul multivariable, équations différentielles. Essentiel pour la modélisation des systèmes physiques et les problèmes d'optimisation."
-                        }
+                        title: "Calculus",
+                        content: "Differentiation, integration, multivariable calculus, differential equations. Essential for modeling physical systems and optimization problems."
                     },
                     {
-                        title: {
-                            en: "Numerical Methods",
-                            fr: "Méthodes Numériques"
-                        },
-                        content: {
-                            en: "Numerical solutions to equations, interpolation, numerical differentiation and integration. Practical implementation using computational tools.",
-                            fr: "Solutions numériques d'équations, interpolation, différenciation et intégration numériques. Mise en œuvre pratique à l'aide d'outils informatiques."
-                        }
+                        title: "Numerical Methods",
+                        content: "Numerical solutions to equations, interpolation, numerical differentiation and integration. Practical implementation using computational tools."
+                    },
+                    {
+                        title: "Complex Numbers",
+                        content: "Operations with complex numbers, Argand diagrams, De Moivre's theorem. Applications in electrical engineering and signal processing."
+                    },
+                    {
+                        title: "Probability and Statistics",
+                        content: "Probability distributions, statistical measures, hypothesis testing. Essential for quality control and reliability engineering."
                     }
                 ],
                 flashcards: [
                     {
-                        question: {
-                            en: "What is the geometric interpretation of the determinant of a 2x2 matrix?",
-                            fr: "Quelle est l'interprétation géométrique du déterminant d'une matrice 2x2 ?"
-                        },
-                        answer: {
-                            en: "The determinant represents the scaling factor of the area when the matrix is viewed as a linear transformation. It also indicates whether the transformation preserves orientation (positive determinant) or reverses it (negative determinant).",
-                            fr: "Le déterminant représente le facteur d'échelle de l'aire lorsque la matrice est vue comme une transformation linéaire. Il indique également si la transformation préserve l'orientation (déterminant positif) ou l'inverse (déterminant négatif)."
-                        }
+                        question: "What is the geometric interpretation of the determinant of a 2x2 matrix?",
+                        answer: "The determinant represents the scaling factor of the area when the matrix is viewed as a linear transformation. It also indicates whether the transformation preserves orientation (positive determinant) or reverses it (negative determinant)."
                     },
                     {
-                        question: {
-                            en: "Explain the physical significance of the gradient in multivariable calculus.",
-                            fr: "Expliquez la signification physique du gradient dans le calcul multivariable."
-                        },
-                        answer: {
-                            en: "The gradient of a scalar field points in the direction of the greatest rate of increase of the function, and its magnitude is the slope of the function in that direction. In physics, it represents things like the direction of steepest ascent in a potential field or heat flow in thermodynamics.",
-                            fr: "Le gradient d'un champ scalaire pointe dans la direction du taux d'augmentation le plus élevé de la fonction, et son amplitude est la pente de la fonction dans cette direction. En physique, il représente des éléments comme la direction de montée la plus raide dans un champ potentiel ou le flux de chaleur en thermodynamique."
-                        }
+                        question: "Explain the physical significance of the gradient in multivariable calculus.",
+                        answer: "The gradient of a scalar field points in the direction of the greatest rate of increase of the function, and its magnitude is the slope of the function in that direction. In physics, it represents things like the direction of steepest ascent in a potential field or heat flow in thermodynamics."
+                    },
+                    {
+                        question: "What is the difference between forward and backward Euler methods for solving differential equations?",
+                        answer: "Forward Euler (explicit) uses the derivative at the current point to estimate the next point, while backward Euler (implicit) uses the derivative at the next point. Backward Euler is more stable but requires solving an equation at each step."
+                    },
+                    {
+                        question: "How do you calculate the cross product of two vectors?",
+                        answer: "For vectors a = [a1, a2, a3] and b = [b1, b2, b3], the cross product a × b = [a2b3 - a3b2, a3b1 - a1b3, a1b2 - a2b1]. The magnitude equals the area of the parallelogram formed by the two vectors."
+                    },
+                    {
+                        question: "What is the Taylor series expansion of a function f(x) about a point a?",
+                        answer: "f(x) = f(a) + f'(a)(x-a) + f''(a)(x-a)²/2! + f'''(a)(x-a)³/3! + ... It approximates functions using polynomials based on derivatives at a point."
                     }
                 ],
                 practiceProblems: [
                     {
-                        question: {
-                            en: "Solve the system of equations: 2x + 3y = 8, x - y = 1",
-                            fr: "Résolvez le système d'équations : 2x + 3y = 8, x - y = 1"
-                        },
-                        answer: {
-                            en: "Solution: x = 2.2, y = 1.2\n\nStep 1: From the second equation, x = y + 1\nStep 2: Substitute into first equation: 2(y + 1) + 3y = 8\nStep 3: Simplify: 2y + 2 + 3y = 8 → 5y = 6 → y = 1.2\nStep 4: Substitute back: x = 1.2 + 1 = 2.2",
-                            fr: "Solution : x = 2,2, y = 1,2\n\nÉtape 1 : À partir de la deuxième équation, x = y + 1\nÉtape 2 : Substituer dans la première équation : 2(y + 1) + 3y = 8\nÉtape 3 : Simplifier : 2y + 2 + 3y = 8 → 5y = 6 → y = 1,2\nÉtape 4 : Substituer à nouveau : x = 1,2 + 1 = 2,2"
-                        }
+                        question: "Solve the system of equations: 2x + 3y = 8, x - y = 1",
+                        answer: "Solution: x = 2.2, y = 1.2\n\nStep 1: From the second equation, x = y + 1\nStep 2: Substitute into first equation: 2(y + 1) + 3y = 8\nStep 3: Simplify: 2y + 2 + 3y = 8 → 5y = 6 → y = 1.2\nStep 4: Substitute back: x = 1.2 + 1 = 2.2"
                     },
                     {
-                        question: {
-                            en: "Find the derivative of f(x) = 3x² + 2sin(x) - eˣ",
-                            fr: "Trouvez la dérivée de f(x) = 3x² + 2sin(x) - eˣ"
-                        },
-                        answer: {
-                            en: "Solution: f'(x) = 6x + 2cos(x) - eˣ\n\nUsing basic differentiation rules:\n- The derivative of x² is 2x, so 3x² becomes 6x\n- The derivative of sin(x) is cos(x), so 2sin(x) becomes 2cos(x)\n- The derivative of eˣ is eˣ, so -eˣ stays as -eˣ",
-                            fr: "Solution : f'(x) = 6x + 2cos(x) - eˣ\n\nEn utilisant les règles de base de différenciation :\n- La dérivée de x² est 2x, donc 3x² devient 6x\n- La dérivée de sin(x) est cos(x), donc 2sin(x) devient 2cos(x)\n- La dérivée de eˣ est eˣ, donc -eˣ reste -eˣ"
-                        }
+                        question: "Find the derivative of f(x) = 3x² + 2sin(x) - eˣ",
+                        answer: "Solution: f'(x) = 6x + 2cos(x) - eˣ\n\nUsing basic differentiation rules:\n- The derivative of x² is 2x, so 3x² becomes 6x\n- The derivative of sin(x) is cos(x), so 2sin(x) becomes 2cos(x)\n- The derivative of eˣ is eˣ, so -eˣ stays as -eˣ"
+                    },
+                    {
+                        question: "Calculate the determinant of the matrix [[3, 1], [2, 4]]",
+                        answer: "Solution: 10\n\nFor a 2x2 matrix [[a, b], [c, d]], the determinant is ad - bc.\nSo for this matrix: (3 × 4) - (1 × 2) = 12 - 2 = 10"
                     }
                 ],
                 realExamples: [
                     {
-                        title: {
-                            en: "Structural Analysis Application",
-                            fr: "Application en Analyse Structurelle"
-                        },
-                        content: {
-                            en: "Linear algebra is fundamental in structural analysis for solving systems of equations that represent forces in truss structures. The stiffness matrix method uses matrix operations to determine displacements and stresses in complex structures.",
-                            fr: "L'algèbre linéaire est fondamentale dans l'analyse structurelle pour résoudre des systèmes d'équations qui représentent les forces dans les structures de treillis. La méthode de la matrice de rigidité utilise des opérations matricielles pour déterminer les déplacements et les contraintes dans des structures complexes."
-                        }
+                        title: "Structural Analysis Application",
+                        content: "Linear algebra is fundamental in structural analysis for solving systems of equations that represent forces in truss structures. The stiffness matrix method uses matrix operations to determine displacements and stresses in complex structures."
+                    },
+                    {
+                        title: "Control Systems",
+                        content: "Differential equations model dynamic systems like vehicle suspension or temperature control. Solving these equations helps engineers design controllers that maintain desired system behavior."
                     }
                 ]
             },
             {
-                id: 'thermodynamics',
-                title: {
-                    en: "Thermodynamics",
-                    fr: "Thermodynamique"
-                },
-                description: {
-                    en: "Study of energy, heat, work, and their transformations in physical systems.",
-                    fr: "Étude de l'énergie, de la chaleur, du travail et de leurs transformations dans les systèmes physiques."
-                },
+                id: 'electrical',
+                title: "Electrical and Magnetic Systems",
+                description: "Fundamentals of electrical circuits and electromagnetic fields with engineering applications.",
                 topics: [
                     {
-                        title: {
-                            en: "First Law of Thermodynamics",
-                            fr: "Premier Principe de la Thermodynamique"
-                        },
-                        content: {
-                            en: "Energy conservation principle: ΔU = Q - W. Applications to closed and open systems, enthalpy, and heat capacity.",
-                            fr: "Principe de conservation de l'énergie : ΔU = Q - W. Applications aux systèmes fermés et ouverts, enthalpie et capacité thermique."
-                        }
+                        title: "DC Circuit Analysis",
+                        content: "Ohm's law, Kirchhoff's laws, series and parallel circuits, voltage and current division, nodal and mesh analysis."
                     },
                     {
-                        title: {
-                            en: "Second Law of Thermodynamics",
-                            fr: "Deuxième Principe de la Thermodynamique"
-                        },
-                        content: {
-                            en: "Entropy and the direction of spontaneous processes. Carnot cycle, heat engines, refrigerators, and heat pumps.",
-                            fr: "Entropie et direction des processus spontanés. Cycle de Carnot, moteurs thermiques, réfrigérateurs et pompes à chaleur."
-                        }
+                        title: "AC Circuit Analysis",
+                        content: "Phasors, impedance, power in AC circuits, resonance, three-phase systems."
+                    },
+                    {
+                        title: "Electromagnetism",
+                        content: "Electric and magnetic fields, Maxwell's equations, electromagnetic waves, transmission lines."
+                    },
+                    {
+                        title: "Transformers and Motors",
+                        content: "Working principles of transformers, DC and AC motors, efficiency and performance characteristics."
                     }
                 ],
                 flashcards: [
                     {
-                        question: {
-                            en: "What is the difference between heat and work in thermodynamics?",
-                            fr: "Quelle est la différence entre la chaleur et le travail en thermodynamique ?"
-                        },
-                        answer: {
-                            en: "Both heat and work are energy transfer mechanisms, but heat is energy transfer due to temperature difference, while work is energy transfer due to macroscopic force acting through a distance. Heat is a disorganized form of energy transfer at the molecular level, while work is organized energy transfer.",
-                            fr: "La chaleur et le travail sont tous deux des mécanismes de transfert d'énergie, mais la chaleur est un transfert d'énergie dû à une différence de température, tandis que le travail est un transfert d'énergie dû à une force macroscopique agissant sur une distance. La chaleur est une forme désorganisée de transfert d'énergie au niveau moléculaire, tandis que le travail est un transfert d'énergie organisé."
-                        }
+                        question: "State Kirchhoff's Current Law (KCL) and Voltage Law (KVL).",
+                        answer: "KCL: The algebraic sum of currents entering any node is zero. KVL: The algebraic sum of voltages around any closed loop in a circuit is zero."
+                    },
+                    {
+                        question: "What is the difference between real power and reactive power in AC circuits?",
+                        answer: "Real power (P, in watts) is the actual power consumed by resistive elements and does useful work. Reactive power (Q, in VAR) is power that oscillates between source and reactive elements (inductors/capacitors) but does no net work."
+                    },
+                    {
+                        question: "Explain Faraday's Law of Electromagnetic Induction.",
+                        answer: "Faraday's Law states that a changing magnetic field through a loop induces an electromotive force (EMF) in the loop. The induced EMF is proportional to the rate of change of the magnetic flux through the loop."
                     }
                 ],
                 practiceProblems: [
                     {
-                        question: {
-                            en: "A gas expands from 2 L to 5 L at constant pressure of 3 atm. Calculate the work done by the gas.",
-                            fr: "Un gaz se dilate de 2 L à 5 L à une pression constante de 3 atm. Calculez le travail effectué par le gaz."
-                        },
-                        answer: {
-                            en: "Solution: W = PΔV = 3 atm × (5 L - 2 L) = 9 L·atm\nConvert to joules: 9 L·atm × 101.325 J/(L·atm) ≈ 911.93 J\n\nWork done by the gas is approximately 911.93 joules.",
-                            fr: "Solution : W = PΔV = 3 atm × (5 L - 2 L) = 9 L·atm\nConvertir en joules : 9 L·atm × 101,325 J/(L·atm) ≈ 911,93 J\n\nLe travail effectué par le gaz est d'environ 911,93 joules."
-                        }
+                        question: "Calculate the equivalent resistance of three resistors (10Ω, 20Ω, 30Ω) connected in parallel.",
+                        answer: "Solution: 5.45Ω\n\nFor parallel resistors: 1/R_eq = 1/R1 + 1/R2 + 1/R3\n1/R_eq = 1/10 + 1/20 + 1/30 = 0.1 + 0.05 + 0.033 = 0.183\nR_eq = 1/0.183 ≈ 5.45Ω"
+                    },
+                    {
+                        question: "A 50Hz AC voltage with RMS value 240V is applied to a 10Ω resistor in series with a 0.1H inductor. Calculate the impedance of the circuit.",
+                        answer: "Solution: 32.97Ω\n\nInductive reactance X_L = 2πfL = 2π×50×0.1 = 31.42Ω\nImpedance Z = √(R² + X_L²) = √(10² + 31.42²) = √(100 + 987.2) = √1087.2 ≈ 32.97Ω"
                     }
                 ],
                 realExamples: [
                     {
-                        title: {
-                            en: "Internal Combustion Engines",
-                            fr: "Moteurs à Combustion Interne"
-                        },
-                        content: {
-                            en: "The Otto cycle (spark-ignition engines) and Diesel cycle (compression-ignition engines) are practical applications of thermodynamic principles. These cycles demonstrate how thermal energy is converted to mechanical work in automotive engines.",
-                            fr: "Le cycle Otto (moteurs à allumage commandé) et le cycle Diesel (moteurs à allumage par compression) sont des applications pratiques des principes thermodynamiques. Ces cycles montrent comment l'énergie thermique est convertie en travail mécanique dans les moteurs automobiles."
-                        }
+                        title: "Power Distribution",
+                        content: "Three-phase AC systems are used in power distribution because they provide constant power transfer and are more efficient for large loads compared to single-phase systems."
+                    },
+                    {
+                        title: "Electric Vehicles",
+                        content: "DC motors are commonly used in electric vehicles due to their high torque at low speeds, while AC induction motors are used in some models for their efficiency and reliability."
+                    }
+                ]
+            },
+            {
+                id: 'electronics',
+                title: "Electronics and Sensors",
+                description: "Introduction to electronic components, circuits, and sensor technologies.",
+                topics: [
+                    {
+                        title: "Semiconductor Devices",
+                        content: "Diodes, transistors (BJT, FET), operational amplifiers, their characteristics and applications."
+                    },
+                    {
+                        title: "Digital Electronics",
+                        content: "Logic gates, Boolean algebra, combinational and sequential circuits, microcontrollers."
+                    },
+                    {
+                        title: "Sensor Technologies",
+                        content: "Principles of operation for common sensors (temperature, pressure, position, etc.) and signal conditioning."
+                    },
+                    {
+                        title: "Circuit Design",
+                        content: "PCB design, prototyping, simulation tools, and practical considerations in electronic circuits."
+                    }
+                ],
+                flashcards: [
+                    {
+                        question: "What is the purpose of a pull-up resistor in digital circuits?",
+                        answer: "A pull-up resistor ensures a defined voltage (typically Vcc) when no other device is driving the line, preventing floating inputs that could cause erratic behavior in digital circuits."
+                    },
+                    {
+                        question: "Explain the difference between analog and digital signals.",
+                        answer: "Analog signals are continuous in both time and amplitude, representing information through varying voltage levels. Digital signals are discrete in time and amplitude, representing information as binary values (0/1)."
+                    },
+                    {
+                        question: "What is the function of a Wheatstone bridge in sensor circuits?",
+                        answer: "A Wheatstone bridge is used to measure small changes in resistance very accurately. It's commonly used with strain gauges and other resistive sensors by balancing two legs of a bridge circuit."
+                    }
+                ],
+                practiceProblems: [
+                    {
+                        question: "Design a circuit using an op-amp to amplify a sensor signal by a factor of 10.",
+                        answer: "Solution: Use a non-inverting amplifier configuration.\nGain = 1 + Rf/R1 = 10\nChoose R1 = 1kΩ, then Rf = 9kΩ\nConnect input to non-inverting terminal, R1 between inverting terminal and ground, Rf between inverting terminal and output."
+                    },
+                    {
+                        question: "Convert the decimal number 25 to its 8-bit binary representation.",
+                        answer: "Solution: 00011001\n\nBreakdown: 16 (1) + 8 (1) + 1 (1) = 25\nSo positions 4, 3, and 0 are 1 (counting from 0 at right): 00011001"
+                    }
+                ],
+                realExamples: [
+                    {
+                        title: "Medical Devices",
+                        content: "Operational amplifiers are used in ECG machines to amplify tiny electrical signals from the heart while rejecting noise and interference."
+                    },
+                    {
+                        title: "Automotive Systems",
+                        content: "Modern cars use dozens of sensors monitored by microcontrollers to optimize engine performance, monitor emissions, and enhance safety systems."
+                    }
+                ]
+            },
+            {
+                id: 'thermofluids',
+                title: "Thermofluid Mechanics",
+                description: "Principles of thermodynamics, fluid mechanics, and heat transfer with engineering applications.",
+                topics: [
+                    {
+                        title: "First Law of Thermodynamics",
+                        content: "Energy conservation, work and heat transfer, enthalpy, applications to closed and open systems."
+                    },
+                    {
+                        title: "Second Law of Thermodynamics",
+                        content: "Entropy, Carnot cycle, heat engines, refrigerators, and heat pumps."
+                    },
+                    {
+                        title: "Fluid Statics and Dynamics",
+                        content: "Pressure, buoyancy, Bernoulli's equation, viscosity, laminar and turbulent flow."
+                    },
+                    {
+                        title: "Heat Transfer",
+                        content: "Conduction, convection, radiation, heat exchangers, thermal resistance networks."
+                    }
+                ],
+                flashcards: [
+                    {
+                        question: "What is the difference between heat and work in thermodynamics?",
+                        answer: "Both heat and work are energy transfer mechanisms, but heat is energy transfer due to temperature difference, while work is energy transfer due to macroscopic force acting through a distance. Heat is a disorganized form of energy transfer at the molecular level, while work is organized energy transfer."
+                    },
+                    {
+                        question: "Explain the significance of the Reynolds number in fluid mechanics.",
+                        answer: "The Reynolds number (Re = ρvL/μ) is a dimensionless quantity that predicts flow patterns in fluid motion. Low Re indicates laminar flow (smooth, orderly), while high Re indicates turbulent flow (chaotic, mixing). The transition typically occurs around Re = 2000-4000 for pipe flow."
+                    },
+                    {
+                        question: "What are the three modes of heat transfer? Give an example of each.",
+                        answer: "1. Conduction: Heat transfer through a solid material (e.g., metal rod heated at one end)\n2. Convection: Heat transfer through fluid motion (e.g., heating water in a pot)\n3. Radiation: Heat transfer through electromagnetic waves (e.g., heat from the sun)"
+                    }
+                ],
+                practiceProblems: [
+                    {
+                        question: "A gas expands from 2 L to 5 L at constant pressure of 3 atm. Calculate the work done by the gas.",
+                        answer: "Solution: W = PΔV = 3 atm × (5 L - 2 L) = 9 L·atm\nConvert to joules: 9 L·atm × 101.325 J/(L·atm) ≈ 911.93 J\n\nWork done by the gas is approximately 911.93 joules."
+                    },
+                    {
+                        question: "Calculate the heat transfer through a 10cm thick brick wall (k=0.72 W/mK) with area 15m² and temperature difference of 20°C.",
+                        answer: "Solution: Q = kAΔT/d = 0.72 × 15 × 20 / 0.1 = 2160 W\n\nHeat transfer rate is 2160 watts."
+                    }
+                ],
+                realExamples: [
+                    {
+                        title: "Internal Combustion Engines",
+                        content: "The Otto cycle (spark-ignition engines) and Diesel cycle (compression-ignition engines) are practical applications of thermodynamic principles. These cycles demonstrate how thermal energy is converted to mechanical work in automotive engines."
+                    },
+                    {
+                        title: "HVAC Systems",
+                        content: "Heating, ventilation, and air conditioning systems apply thermodynamics and fluid mechanics to maintain comfortable indoor environments while optimizing energy efficiency."
+                    }
+                ]
+            },
+            {
+                id: 'materials',
+                title: "Properties and Behavior of Engineering Materials",
+                description: "Study of material properties, selection criteria, and failure mechanisms.",
+                topics: [
+                    {
+                        title: "Material Structure",
+                        content: "Atomic bonding, crystal structures, defects, and their influence on material properties."
+                    },
+                    {
+                        title: "Mechanical Properties",
+                        content: "Stress-strain relationships, elasticity, plasticity, hardness, toughness, fatigue, and creep."
+                    },
+                    {
+                        title: "Material Classes",
+                        content: "Metals, ceramics, polymers, composites - their characteristics and typical applications."
+                    },
+                    {
+                        title: "Material Selection",
+                        content: "Criteria for material selection in engineering design, considering mechanical, thermal, and economic factors."
+                    }
+                ],
+                flashcards: [
+                    {
+                        question: "What is the difference between elastic and plastic deformation?",
+                        answer: "Elastic deformation is temporary - the material returns to its original shape when the load is removed. Plastic deformation is permanent - the material retains its deformed shape after load removal due to atomic bond breaking and rearrangement."
+                    },
+                    {
+                        question: "Explain the significance of the stress-strain curve for a material.",
+                        answer: "The stress-strain curve shows how a material responds to applied forces. Key points include:\n- Elastic region (obeys Hooke's law)\n- Yield point (onset of plastic deformation)\n- Ultimate tensile strength (maximum stress)\n- Fracture point\nIt provides essential data like Young's modulus, yield strength, and ductility."
+                    },
+                    {
+                        question: "What are the main advantages of composite materials?",
+                        answer: "Composites combine the best properties of their constituents:\n1. High strength-to-weight ratio\n2. Tailorable properties\n3. Corrosion resistance\n4. Design flexibility\n5. Often better fatigue properties than metals"
+                    }
+                ],
+                practiceProblems: [
+                    {
+                        question: "A steel rod with diameter 10mm and length 1m is subjected to a tensile load of 10kN. Calculate the stress and elongation (E=200GPa).",
+                        answer: "Solution:\nStress σ = F/A = 10000N / (π×(0.005m)²) ≈ 127.3 MPa\nStrain ε = σ/E = 127.3×10⁶ / 200×10⁹ = 0.0006365\nElongation ΔL = ε×L₀ = 0.0006365 × 1m = 0.6365 mm"
+                    },
+                    {
+                        question: "Compare the theoretical density of FCC aluminum (atomic radius 0.143nm, atomic weight 26.98g/mol) with its actual density of 2.71g/cm³.",
+                        answer: "Solution:\nFCC has 4 atoms per unit cell\nVolume of unit cell a³ = (4r/√2)³ = (4×0.143×10⁻⁷cm/√2)³ ≈ 6.616×10⁻²³ cm³\nMass of unit cell = 4 atoms × 26.98g/(6.022×10²³) ≈ 1.792×10⁻²² g\nTheoretical density = mass/volume ≈ 2.71 g/cm³\nThis matches the actual density perfectly."
+                    }
+                ],
+                realExamples: [
+                    {
+                        title: "Aircraft Materials",
+                        content: "Modern aircraft use aluminum alloys for most structures, titanium for high-temperature components, and increasingly carbon fiber composites for their high strength-to-weight ratio."
+                    },
+                    {
+                        title: "Biomedical Implants",
+                        content: "Materials like titanium and cobalt-chrome alloys are used for implants due to their biocompatibility, corrosion resistance, and mechanical properties matching bone."
+                    }
+                ]
+            },
+            {
+                id: 'mechanics',
+                title: "Mechanics",
+                description: "Statics and dynamics of particles and rigid bodies, with engineering applications.",
+                topics: [
+                    {
+                        title: "Statics",
+                        content: "Equilibrium of particles and rigid bodies, free-body diagrams, trusses, frames, friction."
+                    },
+                    {
+                        title: "Dynamics",
+                        content: "Kinematics and kinetics of particles, Newton's laws, work-energy methods, impulse and momentum."
+                    },
+                    {
+                        title: "Mechanical Vibrations",
+                        content: "Simple harmonic motion, damped and forced vibrations, natural frequency, resonance."
+                    },
+                    {
+                        title: "Mechanisms",
+                        content: "Analysis of linkages, gears, cams, and other mechanical systems."
+                    }
+                ],
+                flashcards: [
+                    {
+                        question: "What are the conditions for static equilibrium of a rigid body?",
+                        answer: "1. The sum of all forces acting on the body must be zero (ΣF = 0)\n2. The sum of all moments about any point must be zero (ΣM = 0)\nThese ensure no translational or rotational acceleration."
+                    },
+                    {
+                        question: "Explain the principle of work and energy in dynamics.",
+                        answer: "The work-energy principle states that the work done by all forces acting on a particle equals its change in kinetic energy: W = ΔKE = ½mv₂² - ½mv₁². This is useful for solving problems involving velocity and displacement without considering time."
+                    },
+                    {
+                        question: "What is the difference between kinematics and kinetics?",
+                        answer: "Kinematics studies motion without considering the forces that cause it (position, velocity, acceleration). Kinetics studies the relationship between forces and motion (Newton's laws, work-energy, impulse-momentum)."
+                    }
+                ],
+                practiceProblems: [
+                    {
+                        question: "A 5kg block slides down a 30° incline with coefficient of kinetic friction 0.2. Find its acceleration.",
+                        answer: "Solution:\nForces parallel to incline: mg sinθ - μmg cosθ = ma\ng sinθ - μg cosθ = a\n9.81×sin30° - 0.2×9.81×cos30° = a\n4.905 - 1.699 ≈ 3.206 m/s²"
+                    },
+                    {
+                        question: "Calculate the moment of inertia of a solid cylinder (mass 10kg, radius 0.5m) about its central axis.",
+                        answer: "Solution:\nFor solid cylinder: I = ½mr² = ½ × 10 × (0.5)² = 1.25 kg·m²"
+                    }
+                ],
+                realExamples: [
+                    {
+                        title: "Bridge Design",
+                        content: "Statics principles are fundamental in designing bridges to ensure they can support expected loads without collapsing or excessive deflection."
+                    },
+                    {
+                        title: "Vehicle Suspension",
+                        content: "Dynamics and vibration analysis help design vehicle suspension systems that provide a comfortable ride while maintaining control and stability."
+                    }
+                ]
+            },
+            {
+                id: 'programming',
+                title: "Introduction to Programming (Matlab, Python, C, Tinkercad)",
+                description: "Fundamentals of programming and computational thinking for engineering applications.",
+                topics: [
+                    {
+                        title: "Programming Basics",
+                        content: "Variables, data types, control structures, functions, and algorithms."
+                    },
+                    {
+                        title: "Numerical Methods",
+                        content: "Implementing numerical techniques for solving engineering problems."
+                    },
+                    {
+                        title: "Data Visualization",
+                        content: "Creating plots and graphs to analyze and present engineering data."
+                    },
+                    {
+                        title: "Microcontrollers",
+                        content: "Programming embedded systems for sensing and control applications."
+                    }
+                ],
+                flashcards: [
+                    {
+                        question: "What are the advantages of Python for engineering applications?",
+                        answer: "1. Easy to learn syntax\n2. Extensive libraries for scientific computing (NumPy, SciPy)\n3. Great for data analysis and visualization (Pandas, Matplotlib)\n4. Cross-platform compatibility\n5. Strong community support and documentation"
+                    },
+                    {
+                        question: "Explain the difference between compiled and interpreted languages.",
+                        answer: "Compiled languages (like C) are translated entirely to machine code before execution, resulting in faster programs. Interpreted languages (like Python) are translated line-by-line during execution, allowing for more flexibility and easier debugging."
+                    },
+                    {
+                        question: "What is the purpose of a PID controller in control systems?",
+                        answer: "A PID (Proportional-Integral-Derivative) controller continuously calculates an error value as the difference between a desired setpoint and a measured process variable, and applies a correction based on proportional, integral, and derivative terms to minimize the error over time."
+                    }
+                ],
+                practiceProblems: [
+                    {
+                        question: "Write a Python function to calculate the factorial of a number using recursion.",
+                        answer: "Solution:\ndef factorial(n):\n    if n == 0 or n == 1:\n        return 1\n    else:\n        return n * factorial(n-1)"
+                    },
+                    {
+                        question: "Write a MATLAB script to solve the system of equations: 2x + y = 5, x - 3y = -8",
+                        answer: "Solution:\nA = [2 1; 1 -3];\nb = [5; -8];\nx = A\\b;\ndisp(x);"
+                    }
+                ],
+                realExamples: [
+                    {
+                        title: "Data Analysis",
+                        content: "Python's Pandas library is widely used in engineering for cleaning, analyzing, and visualizing experimental data from sensors or simulations."
+                    },
+                    {
+                        title: "Control Systems",
+                        content: "MATLAB's Simulink is extensively used for modeling and simulating dynamic systems like vehicle dynamics, flight control systems, and industrial processes."
+                    }
+                ]
+            },
+            {
+                id: 'design',
+                title: "Sustainable Design, Creativity and Professionalism",
+                description: "Principles of engineering design, sustainability, and professional practice.",
+                topics: [
+                    {
+                        title: "Design Process",
+                        content: "Stages of engineering design from problem definition to final solution, including brainstorming and evaluation."
+                    },
+                    {
+                        title: "Sustainability",
+                        content: "Life cycle assessment, green materials, energy efficiency, and sustainable manufacturing practices."
+                    },
+                    {
+                        title: "Professional Ethics",
+                        content: "Engineering codes of ethics, professional responsibility, and case studies of ethical dilemmas."
+                    },
+                    {
+                        title: "Project Management",
+                        content: "Planning, scheduling, risk management, and teamwork in engineering projects."
+                    }
+                ],
+                flashcards: [
+                    {
+                        question: "What are the main stages of the engineering design process?",
+                        answer: "1. Problem definition\n2. Research and requirements\n3. Conceptual design (brainstorming)\n4. Preliminary design\n5. Detailed design\n6. Testing and evaluation\n7. Production/implementation\n8. Maintenance and disposal"
+                    },
+                    {
+                        question: "Explain the concept of 'cradle-to-cradle' design.",
+                        answer: "Cradle-to-cradle design models human industry on natural processes where materials are viewed as nutrients circulating in healthy, safe metabolisms. It emphasizes designing products so materials can be fully reclaimed or reused, eliminating waste."
+                    },
+                    {
+                        question: "What are the four fundamental principles of engineering ethics according to most professional codes?",
+                        answer: "1. Hold paramount the safety, health and welfare of the public\n2. Perform only in areas of their competence\n3. Issue public statements only in an objective and truthful manner\n4. Act for each employer or client as faithful agents or trustees"
+                    }
+                ],
+                practiceProblems: [
+                    {
+                        question: "Compare the environmental impacts of plastic vs. glass bottles using life cycle assessment criteria.",
+                        answer: "Plastic bottles:\n- Lower production energy\n- Lighter (lower transport emissions)\n- Non-biodegradable, recycling challenges\n\nGlass bottles:\n- Higher production energy\n- Heavier (higher transport emissions)\n- Infinitely recyclable without quality loss\n- Biodegradable if not recycled\n\nOverall impact depends on transport distance and recycling rates."
+                    },
+                    {
+                        question: "Develop a Gantt chart for a 3-month engineering project with the following phases: Research (2 weeks), Design (4 weeks), Prototyping (3 weeks), Testing (2 weeks), Final Report (1 week).",
+                        answer: "Solution:\nA Gantt chart would show these phases as horizontal bars on a timeline:\n- Research: Weeks 1-2\n- Design: Weeks 3-6\n- Prototyping: Weeks 7-9\n- Testing: Weeks 10-11\n- Final Report: Week 12\n\nSome overlap between phases is possible (e.g., starting prototyping while finalizing design)."
+                    }
+                ],
+                realExamples: [
+                    {
+                        title: "LEED Certification",
+                        content: "The Leadership in Energy and Environmental Design (LEED) rating system provides a framework for designing and constructing green buildings that are energy efficient and environmentally responsible."
+                    },
+                    {
+                        title: "Circular Economy",
+                        content: "Companies like Patagonia and Interface implement circular economy principles by designing products for disassembly, using recycled materials, and offering repair/recycling programs to minimize waste."
+                    }
+                ],
+                projects: [
+                    {
+                        title: "Sustainable Product Design",
+                        content: "Students designed a low-cost water filtration system using locally available materials for developing communities, considering both technical performance and sustainable manufacturing."
+                    },
+                    {
+                        title: "Energy-Efficient Housing",
+                        content: "A team project to design a net-zero energy house incorporating passive solar design, high-efficiency appliances, and renewable energy systems."
                     }
                 ]
             }
@@ -1162,7 +1353,6 @@
         // Load modules
         function loadModules() {
             const container = document.getElementById('module-container');
-            const lang = localStorage.getItem('language') || 'en';
             
             // Show loading state
             container.innerHTML = '<div class="loader"></div>';
@@ -1176,12 +1366,12 @@
                     card.className = 'module-card';
                     card.innerHTML = `
                         <div class="module-header">
-                            <h3>${module.title[lang] || module.title.en}</h3>
+                            <h3>${module.title}</h3>
                         </div>
                         <div class="module-body">
-                            <p>${module.description[lang] || module.description.en}</p>
+                            <p>${module.description}</p>
                             <button class="view-module-btn" data-module="${module.id}">
-                                ${translations[lang]?.viewModule || 'View Module'}
+                                View Module
                             </button>
                         </div>
                     `;
@@ -1201,7 +1391,6 @@
         // Show module details
         function showModuleDetails(moduleId) {
             const module = modules.find(m => m.id === moduleId);
-            const lang = localStorage.getItem('language') || 'en';
             const container = document.getElementById('module-details-container');
             
             // Show loading state
@@ -1213,8 +1402,7 @@
                 const backButton = document.createElement('a');
                 backButton.className = 'back-button';
                 backButton.href = '#';
-                backButton.setAttribute('data-translate', 'backButton');
-                backButton.textContent = translations[lang].backButton;
+                backButton.textContent = 'Back to Modules';
                 backButton.addEventListener('click', (e) => {
                     e.preventDefault();
                     container.innerHTML = '';
@@ -1224,36 +1412,51 @@
                 // Create module details
                 const details = document.createElement('div');
                 details.className = 'module-details';
+                
+                let projectsHTML = '';
+                if (module.projects) {
+                    projectsHTML = `
+                        <h3>Projects</h3>
+                        ${module.projects.map(project => `
+                            <div class="real-example">
+                                <h4>${project.title}</h4>
+                                <p>${project.content}</p>
+                            </div>
+                        `).join('')}
+                    `;
+                }
+                
                 details.innerHTML = `
-                    <h2>${module.title[lang] || module.title.en}</h2>
-                    <p>${module.description[lang] || module.description.en}</p>
+                    <h2>${module.title}</h2>
+                    <p>${module.description}</p>
                     
-                    <h3 data-translate="topicsTitle">Topics</h3>
+                    <h3>Topics</h3>
                     <ul class="topic-list">
                         ${module.topics.map(topic => `
                             <li onclick="toggleTopicContent(this)" tabindex="0" role="button" aria-expanded="false">
-                                <span>${topic.title[lang] || topic.title.en}</span>
+                                <span>${topic.title}</span>
                                 <span>+</span>
                                 <div class="topic-content">
-                                    <p>${topic.content[lang] || topic.content.en}</p>
+                                    <p>${topic.content}</p>
                                 </div>
                             </li>
                         `).join('')}
                     </ul>
                     
-                    <h3 data-translate="flashcardsTitle">Flashcards</h3>
+                    <h3>Flashcards</h3>
                     <div class="flashcard-container" id="${moduleId}-flashcards">
-                        <div class="flashcard-counter" id="${moduleId}-flashcard-counter">
-                            ${translations[lang].flashcardProgress.replace('{current}', 1).replace('{total}', module.flashcards.length)}
-                        </div>
-                        <div class="flashcard" onclick="flipFlashcard(this)" id="${moduleId}-flashcard-0" tabindex="0" role="button" aria-label="${translations[lang].clickToFlip}">
+                        <div class="flashcard" onclick="flipFlashcard(this)" id="${moduleId}-flashcard-0" tabindex="0" role="button" aria-label="Click to flip">
                             <div class="flashcard-front">
-                                <p>${module.flashcards[0].question[lang] || module.flashcards[0].question.en}</p>
-                                <small data-translate="clickToFlip">Click to flip</small>
+                                <p>${module.flashcards[0].question}</p>
+                                <small>Click to flip</small>
                             </div>
                             <div class="flashcard-back">
-                                <p>${module.flashcards[0].answer[lang] || module.flashcards[0].answer.en}</p>
+                                <p>${module.flashcards[0].answer}</p>
                             </div>
+                        </div>
+                        <div class="flashcard-feedback">
+                            <button class="feedback-btn easy-btn" onclick="rateFlashcard('${moduleId}', 'easy')">Easy</button>
+                            <button class="feedback-btn hard-btn" onclick="rateFlashcard('${moduleId}', 'hard')">Hard</button>
                         </div>
                         <div class="flashcard-navigation">
                             <button class="flashcard-btn" onclick="prevFlashcard('${moduleId}')" disabled id="${moduleId}-prev-btn">←</button>
@@ -1261,35 +1464,41 @@
                         </div>
                     </div>
                     
-                    <h3 data-translate="practiceTitle">Practice Problems</h3>
+                    <h3>Practice Problems</h3>
                     ${module.practiceProblems.map((problem, index) => `
                         <div class="practice-question">
-                            <p><strong>${translations[lang].practiceTitle} ${index + 1}:</strong> ${problem.question[lang] || problem.question.en}</p>
+                            <p><strong>Problem ${index + 1}:</strong> ${problem.question}</p>
                             <button class="show-solution-btn" onclick="toggleSolution(this)">
-                                <span data-translate="showAnswer">Show Solution</span>
+                                <span>Show Solution</span>
                             </button>
                             <div class="solution" style="display: none;">
-                                <p><strong>${translations[lang].solution}:</strong> ${problem.answer[lang] || problem.answer.en}</p>
+                                <p><strong>Solution:</strong> ${problem.answer}</p>
                             </div>
                         </div>
                     `).join('')}
                     
-                    ${module.realExamples ? `
-                    <h3 data-translate="examplesTitle">Real-World Applications</h3>
+                    <h3>Real-World Applications</h3>
                     ${module.realExamples.map(example => `
                         <div class="real-example">
-                            <h4>${example.title[lang] || example.title.en}</h4>
-                            <p>${example.content[lang] || example.content.en}</p>
+                            <h4>${example.title}</h4>
+                            <p>${example.content}</p>
                         </div>
                     `).join('')}
-                    ` : ''}
+                    
+                    ${projectsHTML}
                 `;
 
                 container.innerHTML = '';
                 container.appendChild(backButton);
                 container.appendChild(details);
-                applyTranslations(lang);
                 container.scrollIntoView({ behavior: 'smooth' });
+                
+                // Initialize flashcards
+                currentFlashcards[moduleId] = {
+                    index: 0,
+                    total: module.flashcards.length,
+                    completed: []
+                };
                 
                 // Add keyboard support for topic items
                 document.querySelectorAll('.topic-list li').forEach(item => {
@@ -1332,28 +1541,58 @@
         let currentFlashcards = {};
         
         window.nextFlashcard = function(moduleId) {
-            if (!currentFlashcards[moduleId]) currentFlashcards[moduleId] = 0;
             const module = modules.find(m => m.id === moduleId);
+            const state = currentFlashcards[moduleId];
             
-            if (currentFlashcards[moduleId] < module.flashcards.length - 1) {
-                currentFlashcards[moduleId]++;
+            if (state.index < module.flashcards.length - 1) {
+                state.index++;
                 updateFlashcard(moduleId);
+            } else if (state.completed.length < module.flashcards.length) {
+                // Find first uncompleted card
+                for (let i = 0; i < module.flashcards.length; i++) {
+                    if (!state.completed.includes(i)) {
+                        state.index = i;
+                        updateFlashcard(moduleId);
+                        break;
+                    }
+                }
+            } else {
+                // All cards completed
+                const container = document.getElementById(`${moduleId}-flashcards`);
+                container.innerHTML = `
+                    <div class="completion-message">
+                        <h3>All Flashcards Completed!</h3>
+                        <p>You've reviewed all flashcards for this module. Refresh the page to start again.</p>
+                    </div>
+                `;
             }
         };
 
         window.prevFlashcard = function(moduleId) {
-            if (!currentFlashcards[moduleId]) currentFlashcards[moduleId] = 0;
+            const state = currentFlashcards[moduleId];
             
-            if (currentFlashcards[moduleId] > 0) {
-                currentFlashcards[moduleId]--;
+            if (state.index > 0) {
+                state.index--;
                 updateFlashcard(moduleId);
             }
         };
 
+        window.rateFlashcard = function(moduleId, difficulty) {
+            const state = currentFlashcards[moduleId];
+            if (difficulty === 'easy') {
+                // Mark as completed if rated easy
+                if (!state.completed.includes(state.index)) {
+                    state.completed.push(state.index);
+                }
+            }
+            // Move to next card
+            nextFlashcard(moduleId);
+        };
+
         function updateFlashcard(moduleId) {
             const module = modules.find(m => m.id === moduleId);
-            const lang = localStorage.getItem('language') || 'en';
-            const currentIndex = currentFlashcards[moduleId];
+            const state = currentFlashcards[moduleId];
+            const currentIndex = state.index;
             const flashcard = document.getElementById(`${moduleId}-flashcard-${currentIndex}`);
             
             // Create new flashcard if it doesn't exist
@@ -1364,7 +1603,7 @@
                 newFlashcard.id = `${moduleId}-flashcard-${currentIndex}`;
                 newFlashcard.tabIndex = 0;
                 newFlashcard.setAttribute('role', 'button');
-                newFlashcard.setAttribute('aria-label', translations[lang].clickToFlip);
+                newFlashcard.setAttribute('aria-label', 'Click to flip');
                 newFlashcard.onclick = function() { flipFlashcard(this); };
                 newFlashcard.onkeydown = function(e) {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -1374,11 +1613,11 @@
                 };
                 newFlashcard.innerHTML = `
                     <div class="flashcard-front">
-                        <p>${module.flashcards[currentIndex].question[lang] || module.flashcards[currentIndex].question.en}</p>
-                        <small data-translate="clickToFlip">Click to flip</small>
+                        <p>${module.flashcards[currentIndex].question}</p>
+                        <small>Click to flip</small>
                     </div>
                     <div class="flashcard-back">
-                        <p>${module.flashcards[currentIndex].answer[lang] || module.flashcards[currentIndex].answer.en}</p>
+                        <p>${module.flashcards[currentIndex].answer}</p>
                     </div>
                 `;
                 
@@ -1388,49 +1627,32 @@
                 container.removeChild(oldFlashcard);
             }
             
-            // Update counter
-            const counter = document.getElementById(`${moduleId}-flashcard-counter`);
-            counter.textContent = translations[lang].flashcardProgress
-                .replace('{current}', currentIndex + 1)
-                .replace('{total}', module.flashcards.length);
-            
             // Update button states
             document.getElementById(`${moduleId}-prev-btn`).disabled = currentIndex === 0;
-            document.getElementById(`${moduleId}-next-btn`).disabled = currentIndex === module.flashcards.length - 1;
+            document.getElementById(`${moduleId}-next-btn`).disabled = 
+                currentIndex === module.flashcards.length - 1 && 
+                state.completed.length === module.flashcards.length;
         }
 
         // Toggle solution visibility
         window.toggleSolution = function(button) {
             const solution = button.nextElementSibling;
-            const lang = localStorage.getItem('language') || 'en';
             
             if (solution.style.display === 'none') {
                 solution.style.display = 'block';
-                button.innerHTML = `<span data-translate="hideAnswer">Hide Solution</span>`;
+                button.innerHTML = `<span>Hide Solution</span>`;
             } else {
                 solution.style.display = 'none';
-                button.innerHTML = `<span data-translate="showAnswer">Show Solution</span>`;
+                button.innerHTML = `<span>Show Solution</span>`;
             }
-            applyTranslations(lang);
         };
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
-            // Add missing translations
-            translations.en.solution = "Solution";
-            translations.fr.solution = "Solution";
-            translations.en.viewModule = "View Module";
-            translations.fr.viewModule = "Voir Module";
-            
             loadModules();
             
             // Open first section by default
             toggleSection('about-content');
-            
-            // Apply translations if language is set
-            if (localStorage.getItem('language')) {
-                applyTranslations(localStorage.getItem('language'));
-            }
         });
     </script>
 </body>
