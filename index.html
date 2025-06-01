@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,25 +7,34 @@
     <title>FS1 Engineering Resources</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             /* Base colors */
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #121212;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --text: #333;
-            --bg: #f9f9f9;
-            --card: #fff;
-            --border: #ddd;
-            
-            /* Mechanical design elements */
-            --gear-color: #7f8c8d;
-            --bolt-color: #bdc3c7;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --accent: #ef4444;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --text: #334155;
+            --text-light: #f8fafc;
+            --bg: #ffffff;
+            --card: #ffffff;
+            --border: #e2e8f0;
             
             /* Spacing */
             --space-xs: 0.25rem;
@@ -32,23 +42,56 @@
             --space-md: 1rem;
             --space-lg: 1.5rem;
             --space-xl: 2rem;
+            --space-2xl: 3rem;
             
             /* Typography */
+            --text-xs: 0.75rem;
             --text-sm: 0.875rem;
             --text-base: 1rem;
             --text-lg: 1.125rem;
             --text-xl: 1.25rem;
             --text-2xl: 1.5rem;
             --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Border radius */
+            --rounded-sm: 0.125rem;
+            --rounded: 0.25rem;
+            --rounded-md: 0.375rem;
+            --rounded-lg: 0.5rem;
+            --rounded-xl: 0.75rem;
+            --rounded-2xl: 1rem;
+            --rounded-full: 9999px;
         }
 
         [data-theme="dark"] {
-            --text: #ecf0f1;
-            --bg: #121212;
-            --card: #1e1e1e;
-            --border: #333;
-            --gear-color: #555;
-            --bolt-color: #777;
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #10b981;
+            --accent: #ef4444;
+            --light: #0f172a;
+            --dark: #f8fafc;
+            --gray-100: #1e293b;
+            --gray-200: #334155;
+            --gray-300: #475569;
+            --gray-400: #64748b;
+            --gray-500: #94a3b8;
+            --gray-600: #cbd5e1;
+            --gray-700: #e2e8f0;
+            --gray-800: #f1f5f9;
+            --gray-900: #f8fafc;
+            --text: #e2e8f0;
+            --text-light: #0f172a;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --border: #334155;
         }
 
         * {
@@ -58,7 +101,7 @@
         }
 
         body {
-            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
             color: var(--text);
             background: var(--bg);
@@ -69,201 +112,312 @@
             font-family: 'Source Code Pro', monospace;
         }
 
-        /* Mechanical Design Background Elements */
-        .mechanical-design {
-            position: fixed;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.05;
+        /* Layout */
+        .container {
             width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .gear {
-            color: var(--gear-color);
-            font-size: 15vw;
-            position: absolute;
-            animation: rotate 20s linear infinite;
-            will-change: transform;
-        }
-        
-        .gear.small {
-            font-size: 10vw;
-            animation: rotate-reverse 15s linear infinite;
-        }
-        
-        .bolt {
-            color: var(--bolt-color);
-            font-size: 5vw;
-            position: absolute;
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        @keyframes rotate-reverse {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(-360deg); }
-        }
-
-        /* Skip to content link */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--primary);
-            color: white;
-            padding: var(--space-sm);
-            z-index: 100;
-            transition: top 0.3s;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-
-        header {
-            background: var(--primary);
-            color: white;
-            padding: var(--space-md) var(--space-xl);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: var(--space-md);
+            padding: 0 var(--space-lg);
         }
 
-        .logo h1 {
-            margin: 0;
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        h1 {
+            font-size: var(--text-4xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        h2 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        h3 {
             font-size: var(--text-2xl);
-            font-weight: 700;
+            margin-bottom: var(--space-md);
         }
 
-        .logo p {
-            margin: 0;
-            opacity: 0.8;
+        h4 {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-md);
+        }
+
+        p {
+            margin-bottom: var(--space-md);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--rounded-md);
+            font-weight: 500;
+            font-size: var(--text-base);
+            line-height: 1;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #0d9e6e;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gray-100);
+        }
+
+        .btn-sm {
+            padding: var(--space-xs) var(--space-sm);
             font-size: var(--text-sm);
         }
 
-        .controls {
-            display: flex;
-            gap: var(--space-md);
-            align-items: center;
+        .btn-lg {
+            padding: var(--space-md) var(--space-lg);
+            font-size: var(--text-lg);
         }
 
-        button {
-            padding: var(--space-sm);
-            border-radius: 4px;
-            border: none;
-            font-family: inherit;
-            font-size: var(--text-base);
-            cursor: pointer;
-        }
-
-        #dark-mode-toggle {
-            background: transparent;
-            color: white;
-            cursor: pointer;
-            font-size: var(--text-xl);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            transition: background-color 0.2s;
-        }
-
-        #dark-mode-toggle:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: var(--space-lg);
-            padding: var(--space-md) 0;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            padding: var(--space-sm) 0;
-            transition: opacity 0.2s;
-        }
-
-        nav a:hover {
-            opacity: 0.9;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: var(--space-xl) auto;
-            padding: 0 var(--space-xl);
-        }
-
-        section {
-            margin-bottom: var(--space-xl);
+        /* Cards */
+        .card {
             background: var(--card);
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-radius: var(--rounded-lg);
+            box-shadow: var(--shadow-sm);
             overflow: hidden;
-            border-left: 5px solid var(--primary);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .section-header {
-            padding: var(--space-lg) var(--space-xl);
-            background: var(--primary);
-            color: white;
-            cursor: pointer;
+        .card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-header {
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-body {
+            padding: var(--space-md);
+        }
+
+        .card-footer {
+            padding: var(--space-md);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background-color 0.3s ease;
+            padding: var(--space-md) 0;
         }
 
-        .section-header h2 {
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
             color: white;
-            margin: 0;
+            border-radius: var(--rounded-md);
             font-size: var(--text-xl);
         }
 
-        .section-content {
-            padding: var(--space-xl);
+        .logo-text h1 {
+            font-size: var(--text-xl);
+            margin-bottom: 0;
+        }
+
+        .logo-text p {
+            font-size: var(--text-sm);
+            color: var(--gray-500);
+            margin-bottom: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .nav-link {
+            color: var(--text);
+            font-weight: 500;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--rounded-md);
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            background: var(--gray-100);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Hero section */
+        .hero {
+            padding: var(--space-2xl) 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: var(--text-4xl);
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-description {
+            font-size: var(--text-xl);
+            color: var(--gray-600);
+            margin-bottom: var(--space-xl);
+        }
+
+        /* Sections */
+        .section {
+            padding: var(--space-2xl) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        /* Module grid */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .module-card {
+            border: 1px solid var(--border);
+            border-radius: var(--rounded-lg);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .module-card-header {
+            padding: var(--space-md);
+            background: var(--primary);
+            color: white;
+        }
+
+        .module-card-body {
+            padding: var(--space-md);
+        }
+
+        .module-card-footer {
+            padding: var(--space-md);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Topic list */
+        .topic-list {
+            list-style: none;
+        }
+
+        .topic-item {
+            margin-bottom: var(--space-sm);
+        }
+
+        .topic-btn {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--gray-100);
+            border: none;
+            border-radius: var(--rounded-md);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+        }
+
+        .topic-btn:hover {
+            background: var(--gray-200);
+        }
+
+        .topic-btn[aria-expanded="true"] .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .topic-content {
+            padding: var(--space-md);
+            background: var(--gray-100);
+            border-radius: var(--rounded-md);
+            margin-top: var(--space-sm);
             display: none;
         }
 
-        .section-content.active {
+        .topic-content.active {
             display: block;
             animation: fadeIn 0.3s ease;
         }
@@ -273,1385 +427,1135 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .bio-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-xl);
+        /* Flashcards */
+        .flashcard-container {
+            margin: var(--space-xl) 0;
         }
 
-        .motivation-box {
-            background: rgba(52, 152, 219, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: var(--space-lg);
-            border-radius: 0 8px 8px 0;
-        }
-
-        .module-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: var(--space-lg);
-        }
-
-        .module-card {
-            background: var(--card);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
-            border-left: 5px solid var(--primary);
-        }
-
-        .module-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .module-header {
-            background: var(--primary);
-            color: white;
-            padding: var(--space-md);
-            transition: background-color 0.3s ease;
-        }
-
-        .module-body {
-            padding: var(--space-lg);
-        }
-
-        .view-module-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: var(--space-sm) var(--space-md);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            margin-top: var(--space-md);
-            display: inline-block;
-        }
-
-        .view-module-btn:hover {
-            background: var(--secondary);
-        }
-
-        .topic-list {
-            list-style: none;
-            margin-top: var(--space-md);
-        }
-
-        .topic-list li {
-            padding: var(--space-sm) 0;
-            border-bottom: 1px solid var(--border);
+        .flashcard-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            cursor: pointer;
+            margin-bottom: var(--space-md);
         }
 
-        .topic-list li:hover {
-            background: rgba(52, 152, 219, 0.05);
-        }
-
-        .topic-list li:last-child {
-            border-bottom: none;
-        }
-
-        .topic-content {
-            display: none;
-            padding: var(--space-md);
-            margin-top: var(--space-md);
-            background: rgba(52, 152, 219, 0.05);
-            border-radius: 8px;
-            border-left: 3px solid var(--secondary);
-        }
-
-        .topic-content.active {
-            display: block;
-        }
-
-        .flashcard-container {
-            margin: var(--space-lg) 0;
-            position: relative;
+        .flashcard-progress {
+            font-size: var(--text-sm);
+            color: var(--gray-500);
         }
 
         .flashcard {
-            background: var(--primary);
-            color: white;
-            padding: var(--space-lg);
-            border-radius: 8px;
-            cursor: pointer;
-            min-height: 150px;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.6s, background-color 0.3s;
+            background: var(--card);
+            border-radius: var(--rounded-lg);
+            box-shadow: var(--shadow-md);
+            min-height: 200px;
+            perspective: 1000px;
             margin-bottom: var(--space-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
         }
 
-        .flashcard.flipped {
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+
+        .flashcard.flipped .flashcard-inner {
             transform: rotateY(180deg);
-            background: var(--secondary);
         }
 
         .flashcard-front, .flashcard-back {
             position: absolute;
-            width: calc(100% - 3rem);
-            height: calc(100% - 3rem);
+            width: 100%;
+            height: 100%;
             backface-visibility: hidden;
+            padding: var(--space-xl);
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            padding: var(--space-md);
+            align-items: center;
+            text-align: center;
+        }
+
+        .flashcard-front {
+            background: var(--primary);
+            color: white;
+            border-radius: var(--rounded-lg);
         }
 
         .flashcard-back {
+            background: var(--secondary);
+            color: white;
+            border-radius: var(--rounded-lg);
             transform: rotateY(180deg);
         }
 
-        .flashcard-navigation {
-            display: flex;
-            justify-content: space-between;
+        .flashcard-question, .flashcard-answer {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-md);
+        }
+
+        .flashcard-hint {
+            font-size: var(--text-sm);
+            color: rgba(255, 255, 255, 0.8);
             margin-top: var(--space-md);
         }
 
-        .flashcard-feedback {
+        .flashcard-actions {
             display: flex;
             justify-content: center;
             gap: var(--space-md);
             margin-top: var(--space-md);
         }
 
-        .flashcard-btn {
-            padding: var(--space-sm) var(--space-md);
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.2s;
+        .flashcard-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--space-md);
         }
 
-        .feedback-btn {
-            padding: var(--space-sm) var(--space-md);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .easy-btn {
-            background: var(--success);
-            color: white;
-        }
-
-        .hard-btn {
-            background: var(--warning);
-            color: white;
-        }
-
-        .flashcard-btn:hover:not(:disabled) {
-            background: var(--secondary);
-        }
-
-        .flashcard-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .practice-question {
-            margin: var(--space-lg) 0;
+        /* Practice problems */
+        .practice-problem {
+            background: var(--card);
+            border-radius: var(--rounded-lg);
+            box-shadow: var(--shadow-sm);
             padding: var(--space-md);
-            border-left: 3px solid var(--accent);
-            background: rgba(231, 76, 60, 0.05);
-        }
-
-        .show-solution-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: var(--space-sm) var(--space-md);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            margin-top: var(--space-sm);
-        }
-
-        .show-solution-btn:hover {
-            background: var(--secondary);
+            margin-bottom: var(--space-lg);
+            border-left: 4px solid var(--primary);
         }
 
         .solution {
             display: none;
-            padding: var(--space-sm) 0;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border);
+            margin-top: var(--space-md);
         }
 
-        .solution pre {
-            background: rgba(0,0,0,0.05);
-            padding: var(--space-sm);
-            border-radius: 4px;
-            overflow-x: auto;
-            margin: var(--space-sm) 0;
+        .solution.active {
+            display: block;
         }
 
+        /* Real examples */
         .real-example {
-            background: rgba(46, 204, 113, 0.05);
+            background: var(--card);
+            border-radius: var(--rounded-lg);
+            box-shadow: var(--shadow-sm);
             padding: var(--space-md);
-            border-left: 3px solid var(--success);
-            margin: var(--space-lg) 0;
-        }
-
-        .opportunities-list {
-            list-style-type: none;
-        }
-
-        .opportunities-list li {
-            padding: var(--space-sm) 0;
-            border-bottom: 1px dashed var(--border);
-        }
-
-        .tools-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: var(--space-lg);
-        }
-
-        .tool-card {
-            padding: var(--space-md);
-            border-radius: 8px;
-            background: rgba(52, 152, 219, 0.1);
+            margin-bottom: var(--space-lg);
             border-left: 4px solid var(--secondary);
-            transition: transform 0.2s;
         }
 
-        .tool-card:hover {
-            transform: translateY(-3px);
+        /* Footer */
+        .footer {
+            background: var(--gray-100);
+            padding: var(--space-2xl) 0;
+            margin-top: var(--space-2xl);
         }
 
-        .tool-card h4 {
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .footer-column h3 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
             margin-bottom: var(--space-sm);
         }
 
-        .completion-message {
-            text-align: center;
-            padding: var(--space-lg);
-            background: rgba(46, 204, 113, 0.1);
-            border-radius: 8px;
-            margin: var(--space-lg) 0;
-            border-left: 4px solid var(--success);
+        .footer-link a {
+            color: var(--gray-600);
+            transition: color 0.2s;
         }
 
-        footer {
-            background: var(--primary);
-            color: white;
+        .footer-link a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
             text-align: center;
-            padding: var(--space-xl);
             margin-top: var(--space-xl);
-            transition: background-color 0.3s ease;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border);
+            color: var(--gray-500);
+            font-size: var(--text-sm);
         }
 
-        /* Back button */
-        .back-button {
-            display: inline-block;
-            margin-bottom: var(--space-md);
-            padding: var(--space-sm) var(--space-md);
-            background: var(--primary);
-            color: white;
-            border-radius: 4px;
-            text-decoration: none;
+        /* Dark mode toggle */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            font-size: var(--text-xl);
+            width: 40px;
+            height: 40px;
+            border-radius: var(--rounded-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: background-color 0.2s;
         }
 
-        .back-button:hover {
-            background: var(--secondary);
+        .theme-toggle:hover {
+            background: var(--gray-200);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: var(--space-lg);
+            right: var(--space-lg);
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--rounded-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .header-container {
+            .navbar-container {
                 flex-direction: column;
-                align-items: flex-start;
+                gap: var(--space-md);
             }
-            
-            .controls {
-                width: 100%;
-                justify-content: space-between;
-                margin: var(--space-md) 0;
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
             }
-            
-            nav ul {
-                flex-direction: column;
-                gap: var(--space-sm);
+
+            .hero-title {
+                font-size: var(--text-3xl);
             }
-            
-            .bio-card,
+
+            .hero-description {
+                font-size: var(--text-lg);
+            }
+
             .module-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .mechanical-design {
-                display: none;
-            }
-            
-            .section-header,
-            .section-content {
-                padding: var(--space-md);
+
+            .flashcard-front, .flashcard-back {
+                padding: var(--space-lg);
             }
         }
 
         @media (max-width: 480px) {
-            main {
+            .container {
                 padding: 0 var(--space-md);
             }
-            
-            .gear {
-                font-size: 25vw;
+
+            .hero {
+                padding: var(--space-xl) 0;
             }
-            
-            .gear.small {
-                font-size: 15vw;
+
+            .hero-title {
+                font-size: var(--text-2xl);
             }
-            
-            .bolt {
-                font-size: 10vw;
+
+            .hero-description {
+                font-size: var(--text-base);
             }
+
+            .section {
+                padding: var(--space-xl) 0;
+            }
+
+            .flashcard-actions {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+
+            .flashcard-nav {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+
+            .flashcard-nav .btn {
+                width: 100%;
+            }
+        }
+
+        /* Utility classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-sm { margin-top: var(--space-sm); }
+        .mt-md { margin-top: var(--space-md); }
+        .mt-lg { margin-top: var(--space-lg); }
+        .mt-xl { margin-top: var(--space-xl); }
+        .mt-2xl { margin-top: var(--space-2xl); }
+
+        .mb-sm { margin-bottom: var(--space-sm); }
+        .mb-md { margin-bottom: var(--space-md); }
+        .mb-lg { margin-bottom: var(--space-lg); }
+        .mb-xl { margin-bottom: var(--space-xl); }
+        .mb-2xl { margin-bottom: var(--space-2xl); }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
     <!-- Skip to content link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to content</a>
+    <a href="#main-content" class="skip-link sr-only">Skip to content</a>
 
-    <!-- Mechanical Design Background Elements -->
-    <div class="mechanical-design">
-        <div class="gear" style="top: 10%; left: 5%;">⚙️</div>
-        <div class="gear small" style="top: 25%; left: 20%;">⚙️</div>
-        <div class="bolt" style="top: 70%; left: 15%;">🔩</div>
-        <div class="gear" style="top: 60%; right: 10%;">⚙️</div>
-        <div class="gear small" style="top: 30%; right: 15%;">⚙️</div>
-        <div class="bolt" style="top: 80%; right: 20%;">🔩</div>
-    </div>
-
-    <header>
-        <div class="header-container">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
             <div class="logo">
-                <h1>FS1 Engineering</h1>
-                <p>Mechanical Engineering Resources</p>
+                <div class="logo-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>FS1 Engineering</h1>
+                    <p>Mechanical Engineering Resources</p>
+                </div>
             </div>
             
-            <div class="controls">
-                <button id="dark-mode-toggle" aria-label="Toggle dark mode">🌙</button>
+            <div class="nav-links">
+                <a href="#about" class="nav-link active">About</a>
+                <a href="#modules" class="nav-link">Modules</a>
+                <a href="#opportunities" class="nav-link">Opportunities</a>
+                <a href="#tools" class="nav-link">Study Tools</a>
+                <button class="theme-toggle" id="dark-mode-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </div>
-        
-        <nav aria-label="Main navigation">
-            <div class="header-container">
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#modules">Modules</a></li>
-                    <li><a href="#opportunities">Opportunities</a></li>
-                    <li><a href="#tools">Study Tools</a></li>
-                    <li><a href="#balance">Work-Life Balance</a></li>
-                    <li><a href="#ambitions">Ambitions</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    </nav>
 
+    <!-- Hero section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">Master Mechanical Engineering</h1>
+            <p class="hero-description">Comprehensive resources for first-year mechanical engineering students</p>
+            <a href="#modules" class="btn btn-primary btn-lg">Explore Modules</a>
+        </div>
+    </section>
+
+    <!-- Main content -->
     <main id="main-content">
-        <section id="about">
-            <div class="section-header" onclick="toggleSection('about-content')" tabindex="0" role="button" aria-expanded="false" aria-controls="about-content">
-                <h2>My Academic Journey</h2>
-                <span class="toggle-icon">+</span>
+        <!-- About section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>My Academic Journey</h2>
+                    <p>From Belgium to the UK, overcoming challenges to pursue engineering</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3>My Story</h3>
+                                <p>Originally from Belgium, I moved unexpectedly to the UK where I faced the challenge of learning English during sixth form. Despite starting with limited English knowledge, I achieved AAB in French, Mathematics, and Further Mathematics.</p>
+                                <p>My journey wasn't easy - I was failing maths in Belgium due to lack of motivation during the pandemic and family challenges. The education system in Belgium was more theoretical and less engaging for me personally. The UK's practical approach to mathematics, with its emphasis on real-world applications, helped me rediscover my passion for the subject.</p>
+                                <p>Now I'm studying Mechanical Engineering at a Russell Group university, and I created this platform to share what I've learned about effective studying in STEM subjects. My experience of transitioning between two different education systems has given me unique insights into learning methodologies that I want to share with others.</p>
+                            </div>
+                            
+                            <div class="card bg-blue-50 border-l-4 border-blue-500 p-6">
+                                <h3>My Motivation</h3>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                                        <span>To demonstrate that academic transformation is possible with the right mindset and techniques.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                                        <span>To break down complex engineering concepts into clear, digestible explanations.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                                        <span>To share organizational systems that make engineering studies more manageable.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                                        <span>To create a living resource that evolves with my studies.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="section-content" id="about-content">
-                <div class="bio-card">
-                    <div>
-                        <p>Originally from Belgium, I moved unexpectedly to the UK where I faced the challenge of learning English during sixth form. Despite starting with limited English knowledge, I achieved AAB in French, Mathematics, and Further Mathematics.</p>
-                        <p>My journey wasn't easy - I was failing maths in Belgium due to lack of motivation during the pandemic and family challenges. The education system in Belgium was more theoretical and less engaging for me personally. The UK's practical approach to mathematics, with its emphasis on real-world applications, helped me rediscover my passion for the subject.</p>
-                        <p>Now I'm studying Mechanical Engineering at a Russell Group university, and I created this platform to share what I've learned about effective studying in STEM subjects. My experience of transitioning between two different education systems has given me unique insights into learning methodologies that I want to share with others.</p>
+        </section>
+
+        <!-- Modules section -->
+        <section id="modules" class="section bg-gray-50">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Engineering Modules</h2>
+                    <p>Comprehensive resources for all first-year mechanical engineering modules</p>
+                </div>
+                
+                <div class="module-grid" id="module-container">
+                    <!-- Modules will be loaded here -->
+                </div>
+                
+                <!-- Module details will be loaded here -->
+                <div id="module-details-container" class="mt-2xl"></div>
+            </div>
+        </section>
+
+        <!-- Opportunities section -->
+        <section id="opportunities" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Opportunities</h2>
+                    <p>Explore various opportunities available for mechanical engineering students</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Internships</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Gain practical experience with leading engineering firms through summer internships and industrial placements.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
+                        </div>
                     </div>
                     
-                    <div class="motivation-box">
-                        <h3>My Motivation</h3>
-                        <ul>
-                            <li>To demonstrate that academic transformation is possible with the right mindset and techniques. My own journey from failing maths to achieving top grades in a new language proves this.</li>
-                            <li>To break down complex engineering concepts into clear, digestible explanations. I remember struggling with certain topics and want to provide the explanations I wish I had.</li>
-                            <li>To share organizational systems that make engineering studies more manageable. Proper note-taking and revision planning were game-changers for me.</li>
-                            <li>To create a living resource that evolves with my studies, serving both as a personal knowledge base and a guide for others navigating similar challenges.</li>
-                        </ul>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Research</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Undergraduate research opportunities to work with faculty on cutting-edge engineering projects.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Competitions</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Engineering design competitions to showcase your skills and creativity in solving real-world problems.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Study Abroad</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>International programs like my upcoming summer school at HKUST to broaden your academic and cultural horizons.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Societies</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Student societies like the Rocketry Society (I'll be on the committee next year) to develop skills and network.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Scholarships</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Financial support through scholarships and grants for academic excellence and specific engineering disciplines.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="modules">
-            <div class="section-header" onclick="toggleSection('modules-content')" tabindex="0" role="button" aria-expanded="false" aria-controls="modules-content">
-                <h2>Engineering Modules</h2>
-                <span class="toggle-icon">+</span>
-            </div>
-            <div class="section-content" id="modules-content">
-                <p>Below you'll find comprehensive resources for all first-year mechanical engineering modules. Each module is broken down into fundamental topics with detailed explanations, interactive flashcards, practice problems with solutions, and real-world applications to connect theory with practice.</p>
+        <!-- Study Tools section -->
+        <section id="tools" class="section bg-gray-50">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Study Tools</h2>
+                    <p>Effective tools and methods to enhance your engineering studies</p>
+                </div>
                 
-                <div class="module-grid" id="module-container" aria-live="polite">
-                    <!-- Modules will be loaded dynamically -->
-                </div>
-
-                <!-- Module detail sections will be inserted here -->
-                <div id="module-details-container" aria-live="polite"></div>
-            </div>
-        </section>
-
-        <section id="opportunities">
-            <div class="section-header" onclick="toggleSection('opportunities-content')" tabindex="0" role="button" aria-expanded="false" aria-controls="opportunities-content">
-                <h2>Opportunities</h2>
-                <span class="toggle-icon">+</span>
-            </div>
-            <div class="section-content" id="opportunities-content">
-                <p>Explore various opportunities available for mechanical engineering students.</p>
-                <ul class="opportunities-list">
-                    <li>Internship programs with leading engineering firms</li>
-                    <li>Undergraduate research opportunities</li>
-                    <li>Engineering design competitions</li>
-                    <li>Scholarships and grants</li>
-                    <li>Study abroad programs (like my upcoming summer school at HKUST)</li>
-                    <li>Student societies (I'm part of the Rocketry Society and will be on the committee next year)</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="tools">
-            <div class="section-header" onclick="toggleSection('tools-content')" tabindex="0" role="button" aria-expanded="false" aria-controls="tools-content">
-                <h2>Study Tools</h2>
-                <span class="toggle-icon">+</span>
-            </div>
-            <div class="section-content" id="tools-content">
-                <p>Use study methods that fit you the most. Here are the tools that work well for me:</p>
-                <div class="tools-list">
-                    <div class="tool-card">
-                        <h4>Anki Flashcards</h4>
-                        <p>Great for remembering things - exercises your mind to recall information. I use it for definitions, formulas, and problem-solving methods.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Anki Flashcards</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Great for remembering things - exercises your mind to recall information. I use it for definitions, formulas, and problem-solving methods.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline btn-sm">Get Started</a>
+                        </div>
                     </div>
-                    <div class="tool-card">
-                        <h4>Microsoft Word</h4>
-                        <p>I use Word to summarize lectures and write down the essential information in an organized way.</p>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Microsoft Word</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>I use Word to summarize lectures and write down the essential information in an organized way.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
+                        </div>
                     </div>
-                    <div class="tool-card">
-                        <h4>OneNote</h4>
-                        <p>Excellent for practice questions - it's linked to your Microsoft account and stored in the cloud so you can access it anywhere.</p>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>OneNote</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Excellent for practice questions - it's linked to your Microsoft account and stored in the cloud so you can access it anywhere.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline btn-sm">Learn more</a>
+                        </div>
                     </div>
-                    <div class="tool-card">
-                        <h4>File Organization</h4>
-                        <p>Most important is to be organized. I create folders in File Explorer for each module to keep all my notes and resources structured.</p>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>File Organization</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Most important is to be organized. I create folders in File Explorer for each module to keep all my notes and resources structured.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline btn-sm">View System</a>
+                        </div>
                     </div>
-                    <div class="tool-card">
-                        <h4>Makerspace</h4>
-                        <p>Practical work is invaluable. I make use of our university's makerspace for hands-on learning.</p>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Makerspace</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Practical work is invaluable. I make use of our university's makerspace for hands-on learning.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline btn-sm">Explore</a>
+                        </div>
                     </div>
-                    <div class="tool-card">
-                        <h4>Exam Countdown</h4>
-                        <p>I use an exam countdown app to plan my revision schedule and stay on track.</p>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Exam Countdown</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>I use an exam countdown app to plan my revision schedule and stay on track.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-outline btn-sm">Download</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="balance">
-            <div class="section-header" onclick="toggleSection('balance-content')" tabindex="0" role="button" aria-expanded="false" aria-controls="balance-content">
-                <h2>Work-Life Balance</h2>
-                <span class="toggle-icon">+</span>
-            </div>
-            <div class="section-content" id="balance-content">
-                <p>You can do well in your studies and enjoy other aspects of life at the same time. Here's how I maintain balance:</p>
-                <div class="real-example">
-                    <h4>Personal Experience</h4>
-                    <p>During my first year, I was able to:</p>
-                    <ul>
-                        <li>Enjoy time with friends and my girlfriend</li>
-                        <li>Travel to Thailand for a month</li>
-                        <li>Serve as a student representative</li>
-                        <li>Participate actively in the Rocketry Society</li>
-                        <li>Do extensive DIY projects in my house</li>
-                    </ul>
-                    <p>The key is effective time management and setting clear priorities. When you're organized with your studies, you create space for other activities that enrich your university experience.</p>
                 </div>
             </div>
         </section>
 
-        <section id="ambitions">
-            <div class="section-header" onclick="toggleSection('ambitions-content')" tabindex="0" role="button" aria-expanded="false" aria-controls="ambitions-content">
-                <h2>Ambitions</h2>
-                <span class="toggle-icon">+</span>
+        <!-- Work-Life Balance section -->
+        <section id="balance" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Work-Life Balance</h2>
+                    <p>Achieving academic success while enjoying university life</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3>Personal Experience</h3>
+                                <p>During my first year, I was able to:</p>
+                                <ul class="space-y-2 mt-4">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Enjoy time with friends and my girlfriend</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Travel to Thailand for a month</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Serve as a student representative</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Participate actively in the Rocketry Society</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Do extensive DIY projects in my house</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h3>Key Strategies</h3>
+                                <div class="space-y-4 mt-4">
+                                    <div class="p-4 bg-blue-50 rounded-lg">
+                                        <h4 class="font-medium">Time Management</h4>
+                                        <p class="text-sm mt-1">Effective scheduling and prioritization create space for both studies and personal activities.</p>
+                                    </div>
+                                    
+                                    <div class="p-4 bg-blue-50 rounded-lg">
+                                        <h4 class="font-medium">Efficient Study Methods</h4>
+                                        <p class="text-sm mt-1">Using active learning techniques reduces total study time while improving retention.</p>
+                                    </div>
+                                    
+                                    <div class="p-4 bg-blue-50 rounded-lg">
+                                        <h4 class="font-medium">Boundaries</h4>
+                                        <p class="text-sm mt-1">Setting clear boundaries between study time and personal time prevents burnout.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="section-content" id="ambitions-content">
-                <p>My long-term goals in the field of mechanical engineering and how I plan to achieve them:</p>
-                <div class="real-example">
-                    <h4>Career Aspirations</h4>
-                    <p>I want to work on meaningful engineering projects that solve real-world problems, particularly in the aerospace sector. My involvement with the Rocketry Society reflects this passion.</p>
-                    <p>Beyond technical skills, I aim to develop strong leadership abilities through committee positions in student organizations and eventually in professional settings.</p>
-                    <p>This website itself is part of my ambition - to create resources that help others while also solidifying my own understanding of engineering concepts.</p>
+        </section>
+
+        <!-- Ambitions section -->
+        <section id="ambitions" class="section bg-gray-50">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Ambitions</h2>
+                    <p>My long-term goals in mechanical engineering</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Career Aspirations</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>I want to work on meaningful engineering projects that solve real-world problems, particularly in the aerospace sector. My involvement with the Rocketry Society reflects this passion.</p>
+                            <p>Beyond technical skills, I aim to develop strong leadership abilities through committee positions in student organizations and eventually in professional settings.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>This Platform</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>This website itself is part of my ambition - to create resources that help others while also solidifying my own understanding of engineering concepts.</p>
+                            <p>I plan to expand this platform as I progress through my degree, adding more advanced content and potentially developing it into a comprehensive engineering learning resource.</p>
+                        </div>
+                    </div>
+                </div>
+          
+                            </div>
+        </section>
+
+        <!-- Flashcard Demo section -->
+        <section id="flashcards" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Flashcard Demo</h2>
+                    <p>Try out this interactive flashcard to see how I study</p>
+                </div>
+                
+                <div class="flashcard-container">
+                    <div class="flashcard-header">
+                        <h3>Engineering Fundamentals</h3>
+                        <div class="flashcard-progress">Card 1 of 5</div>
+                    </div>
+                    
+                    <div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <div class="flashcard-question">What is the Second Law of Thermodynamics?</div>
+                                <div class="flashcard-hint">Click to flip</div>
+                            </div>
+                            <div class="flashcard-back">
+                                <div class="flashcard-answer">The total entropy of an isolated system can never decrease over time, and is constant if and only if all processes are reversible.</div>
+                                <div class="flashcard-hint">Click to flip back</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flashcard-actions">
+                        <button class="btn btn-outline" onclick="markCard('again')">
+                            <i class="fas fa-redo mr-2"></i> Again
+                        </button>
+                        <button class="btn btn-outline" onclick="markCard('hard')">
+                            <i class="fas fa-frown mr-2"></i> Hard
+                        </button>
+                        <button class="btn btn-outline" onclick="markCard('good')">
+                            <i class="fas fa-meh mr-2"></i> Good
+                        </button>
+                        <button class="btn btn-outline" onclick="markCard('easy')">
+                            <i class="fas fa-smile mr-2"></i> Easy
+                        </button>
+                    </div>
+                    
+                    <div class="flashcard-nav">
+                        <button class="btn btn-outline" onclick="prevCard()">
+                            <i class="fas fa-arrow-left mr-2"></i> Previous
+                        </button>
+                        <button class="btn btn-primary" onclick="nextCard()">
+                            Next <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; <span id="current-year"></span> FS1 Engineering Resources</p>
-        <p>Created by a mechanical engineering student for students</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>FS1 Engineering</h3>
+                    <p>Comprehensive mechanical engineering resources for students created by a student.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#about">About</a></li>
+                        <li class="footer-link"><a href="#modules">Modules</a></li>
+                        <li class="footer-link"><a href="#opportunities">Opportunities</a></li>
+                        <li class="footer-link"><a href="#tools">Study Tools</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Lecture Notes</a></li>
+                        <li class="footer-link"><a href="#">Practice Problems</a></li>
+                        <li class="footer-link"><a href="#">Flashcards</a></li>
+                        <li class="footer-link"><a href="#">Exam Tips</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#"><i class="fab fa-linkedin mr-2"></i> LinkedIn</a></li>
+                        <li class="footer-link"><a href="#"><i class="fab fa-github mr-2"></i> GitHub</a></li>
+                        <li class="footer-link"><a href="#"><i class="fas fa-envelope mr-2"></i> Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 FS1 Engineering. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
     <script>
-        // Current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        
         // Dark mode toggle
         const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved user preference
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
         darkModeToggle.addEventListener('click', () => {
-            const isDark = document.body.getAttribute('data-theme') === 'dark';
-            document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-            localStorage.setItem('theme', isDark ? 'light' : 'dark');
-            darkModeToggle.textContent = isDark ? '🌙' : '☀️';
-            darkModeToggle.setAttribute('aria-label', isDark ? 'Switch to dark mode' : 'Switch to light mode');
-        });
-        
-        // Check for saved theme preference
-        if (localStorage.getItem('theme') === 'dark' || 
-            (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))) {
-            document.body.setAttribute('data-theme', 'dark');
-            darkModeToggle.textContent = '☀️';
-            darkModeToggle.setAttribute('aria-label', 'Switch to light mode');
-        }
-
-        // Listen for system theme changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-            if (!localStorage.getItem('theme')) {
-                document.body.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-                darkModeToggle.textContent = e.matches ? '☀️' : '🌙';
-                darkModeToggle.setAttribute('aria-label', e.matches ? 'Switch to light mode' : 'Switch to dark mode');
+            const currentTheme = html.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
             }
         });
         
-        // Toggle section content with keyboard support
-        function toggleSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            const toggleIcon = section.previousElementSibling.querySelector('.toggle-icon');
-            const isExpanded = section.classList.toggle('active');
-            
-            toggleIcon.textContent = isExpanded ? '−' : '+';
-            section.previousElementSibling.setAttribute('aria-expanded', isExpanded);
-            
-            // Focus the first interactive element when opening
-            if (isExpanded) {
-                setTimeout(() => {
-                    const focusable = section.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-                    if (focusable) focusable.focus();
-                }, 100);
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
             }
-        }
-
-        // Add keyboard support for section headers
-        document.querySelectorAll('.section-header').forEach(header => {
-            header.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    const sectionId = header.getAttribute('onclick').match(/'([^']+)'/)[1];
-                    toggleSection(sectionId);
-                }
-            });
         });
-
-        // Module data
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Flashcard functionality
+        let currentCardIndex = 0;
+        const cards = [
+            {
+                question: "What is the Second Law of Thermodynamics?",
+                answer: "The total entropy of an isolated system can never decrease over time, and is constant if and only if all processes are reversible."
+            },
+            {
+                question: "Define Young's Modulus",
+                answer: "Young's Modulus (E) is a measure of the stiffness of a solid material, defined as the ratio of stress (force per unit area) to strain (proportional deformation) in the range where they are proportional."
+            },
+            {
+                question: "What is the difference between laminar and turbulent flow?",
+                answer: "Laminar flow is smooth, orderly fluid motion where layers flow parallel without mixing, while turbulent flow is chaotic with eddies and mixing between layers."
+            },
+            {
+                question: "State Bernoulli's principle",
+                answer: "In fluid dynamics, Bernoulli's principle states that an increase in the speed of a fluid occurs simultaneously with a decrease in pressure or a decrease in the fluid's potential energy."
+            },
+            {
+                question: "What is the definition of a moment in mechanics?",
+                answer: "A moment is the turning effect produced by a force about a point, calculated as the product of the force and the perpendicular distance from the point to the line of action of the force."
+            }
+        ];
+        
+        function updateFlashcard() {
+            const flashcard = document.getElementById('flashcard');
+            flashcard.classList.remove('flipped');
+            
+            const questionElement = document.querySelector('.flashcard-question');
+            const answerElement = document.querySelector('.flashcard-answer');
+            const progressElement = document.querySelector('.flashcard-progress');
+            
+            questionElement.textContent = cards[currentCardIndex].question;
+            answerElement.textContent = cards[currentCardIndex].answer;
+            progressElement.textContent = `Card ${currentCardIndex + 1} of ${cards.length}`;
+        }
+        
+        function nextCard() {
+            currentCardIndex = (currentCardIndex + 1) % cards.length;
+            updateFlashcard();
+        }
+        
+        function prevCard() {
+            currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length;
+            updateFlashcard();
+        }
+        
+        function markCard(difficulty) {
+            // In a real implementation, this would track spaced repetition data
+            console.log(`Card marked as ${difficulty}`);
+            nextCard();
+        }
+        
+        // Initialize the first flashcard
+        updateFlashcard();
+        
+        // Module data and rendering
         const modules = [
             {
-                id: 'mathematics',
-                title: "Engineering Mathematics",
-                description: "Core mathematical techniques for engineering analysis and problem-solving.",
+                id: 'thermodynamics',
+                title: 'Thermodynamics',
+                description: 'Study of energy, heat, work, and their transformations in physical systems.',
                 topics: [
                     {
-                        title: "Linear Algebra",
-                        content: "Vectors, matrices, determinants, systems of linear equations, eigenvalues and eigenvectors. Applications in structural analysis and computer graphics."
+                        title: 'First Law of Thermodynamics',
+                        content: 'Energy cannot be created or destroyed, only transformed from one form to another.'
                     },
                     {
-                        title: "Calculus",
-                        content: "Differentiation, integration, multivariable calculus, differential equations. Essential for modeling physical systems and optimization problems."
+                        title: 'Second Law of Thermodynamics',
+                        content: 'The total entropy of an isolated system can never decrease over time.'
                     },
                     {
-                        title: "Numerical Methods",
-                        content: "Numerical solutions to equations, interpolation, numerical differentiation and integration. Practical implementation using computational tools."
-                    },
-                    {
-                        title: "Complex Numbers",
-                        content: "Operations with complex numbers, Argand diagrams, De Moivre's theorem. Applications in electrical engineering and signal processing."
-                    },
-                    {
-                        title: "Probability and Statistics",
-                        content: "Probability distributions, statistical measures, hypothesis testing. Essential for quality control and reliability engineering."
+                        title: 'Heat Engines',
+                        content: 'Devices that convert heat energy into mechanical work, governed by thermodynamic cycles.'
                     }
                 ],
-                flashcards: [
+                problems: [
                     {
-                        question: "What is the geometric interpretation of the determinant of a 2x2 matrix?",
-                        answer: "The determinant represents the scaling factor of the area when the matrix is viewed as a linear transformation. It also indicates whether the transformation preserves orientation (positive determinant) or reverses it (negative determinant)."
-                    },
-                    {
-                        question: "Explain the physical significance of the gradient in multivariable calculus.",
-                        answer: "The gradient of a scalar field points in the direction of the greatest rate of increase of the function, and its magnitude is the slope of the function in that direction. In physics, it represents things like the direction of steepest ascent in a potential field or heat flow in thermodynamics."
-                    },
-                    {
-                        question: "What is the difference between forward and backward Euler methods for solving differential equations?",
-                        answer: "Forward Euler (explicit) uses the derivative at the current point to estimate the next point, while backward Euler (implicit) uses the derivative at the next point. Backward Euler is more stable but requires solving an equation at each step."
-                    },
-                    {
-                        question: "How do you calculate the cross product of two vectors?",
-                        answer: "For vectors a = [a1, a2, a3] and b = [b1, b2, b3], the cross product a × b = [a2b3 - a3b2, a3b1 - a1b3, a1b2 - a2b1]. The magnitude equals the area of the parallelogram formed by the two vectors."
-                    },
-                    {
-                        question: "What is the Taylor series expansion of a function f(x) about a point a?",
-                        answer: "f(x) = f(a) + f'(a)(x-a) + f''(a)(x-a)²/2! + f'''(a)(x-a)³/3! + ... It approximates functions using polynomials based on derivatives at a point."
-                    }
-                ],
-                practiceProblems: [
-                    {
-                        question: "Solve the system of equations: 2x + 3y = 8, x - y = 1",
-                        answer: "Solution: x = 2.2, y = 1.2\n\nStep 1: From the second equation, x = y + 1\nStep 2: Substitute into first equation: 2(y + 1) + 3y = 8\nStep 3: Simplify: 2y + 2 + 3y = 8 → 5y = 6 → y = 1.2\nStep 4: Substitute back: x = 1.2 + 1 = 2.2"
-                    },
-                    {
-                        question: "Find the derivative of f(x) = 3x² + 2sin(x) - eˣ",
-                        answer: "Solution: f'(x) = 6x + 2cos(x) - eˣ\n\nUsing basic differentiation rules:\n- The derivative of x² is 2x, so 3x² becomes 6x\n- The derivative of sin(x) is cos(x), so 2sin(x) becomes 2cos(x)\n- The derivative of eˣ is eˣ, so -eˣ stays as -eˣ"
-                    },
-                    {
-                        question: "Calculate the determinant of the matrix [[3, 1], [2, 4]]",
-                        answer: "Solution: 10\n\nFor a 2x2 matrix [[a, b], [c, d]], the determinant is ad - bc.\nSo for this matrix: (3 × 4) - (1 × 2) = 12 - 2 = 10"
-                    }
-                ],
-                realExamples: [
-                    {
-                        title: "Structural Analysis Application",
-                        content: "Linear algebra is fundamental in structural analysis for solving systems of equations that represent forces in truss structures. The stiffness matrix method uses matrix operations to determine displacements and stresses in complex structures."
-                    },
-                    {
-                        title: "Control Systems",
-                        content: "Differential equations model dynamic systems like vehicle suspension or temperature control. Solving these equations helps engineers design controllers that maintain desired system behavior."
-                    }
-                ]
-            },
-            {
-                id: 'electrical',
-                title: "Electrical and Magnetic Systems",
-                description: "Fundamentals of electrical circuits and electromagnetic fields with engineering applications.",
-                topics: [
-                    {
-                        title: "DC Circuit Analysis",
-                        content: "Ohm's law, Kirchhoff's laws, series and parallel circuits, voltage and current division, nodal and mesh analysis."
-                    },
-                    {
-                        title: "AC Circuit Analysis",
-                        content: "Phasors, impedance, power in AC circuits, resonance, three-phase systems."
-                    },
-                    {
-                        title: "Electromagnetism",
-                        content: "Electric and magnetic fields, Maxwell's equations, electromagnetic waves, transmission lines."
-                    },
-                    {
-                        title: "Transformers and Motors",
-                        content: "Working principles of transformers, DC and AC motors, efficiency and performance characteristics."
-                    }
-                ],
-                flashcards: [
-                    {
-                        question: "State Kirchhoff's Current Law (KCL) and Voltage Law (KVL).",
-                        answer: "KCL: The algebraic sum of currents entering any node is zero. KVL: The algebraic sum of voltages around any closed loop in a circuit is zero."
-                    },
-                    {
-                        question: "What is the difference between real power and reactive power in AC circuits?",
-                        answer: "Real power (P, in watts) is the actual power consumed by resistive elements and does useful work. Reactive power (Q, in VAR) is power that oscillates between source and reactive elements (inductors/capacitors) but does no net work."
-                    },
-                    {
-                        question: "Explain Faraday's Law of Electromagnetic Induction.",
-                        answer: "Faraday's Law states that a changing magnetic field through a loop induces an electromotive force (EMF) in the loop. The induced EMF is proportional to the rate of change of the magnetic flux through the loop."
-                    }
-                ],
-                practiceProblems: [
-                    {
-                        question: "Calculate the equivalent resistance of three resistors (10Ω, 20Ω, 30Ω) connected in parallel.",
-                        answer: "Solution: 5.45Ω\n\nFor parallel resistors: 1/R_eq = 1/R1 + 1/R2 + 1/R3\n1/R_eq = 1/10 + 1/20 + 1/30 = 0.1 + 0.05 + 0.033 = 0.183\nR_eq = 1/0.183 ≈ 5.45Ω"
-                    },
-                    {
-                        question: "A 50Hz AC voltage with RMS value 240V is applied to a 10Ω resistor in series with a 0.1H inductor. Calculate the impedance of the circuit.",
-                        answer: "Solution: 32.97Ω\n\nInductive reactance X_L = 2πfL = 2π×50×0.1 = 31.42Ω\nImpedance Z = √(R² + X_L²) = √(10² + 31.42²) = √(100 + 987.2) = √1087.2 ≈ 32.97Ω"
-                    }
-                ],
-                realExamples: [
-                    {
-                        title: "Power Distribution",
-                        content: "Three-phase AC systems are used in power distribution because they provide constant power transfer and are more efficient for large loads compared to single-phase systems."
-                    },
-                    {
-                        title: "Electric Vehicles",
-                        content: "DC motors are commonly used in electric vehicles due to their high torque at low speeds, while AC induction motors are used in some models for their efficiency and reliability."
-                    }
-                ]
-            },
-            {
-                id: 'electronics',
-                title: "Electronics and Sensors",
-                description: "Introduction to electronic components, circuits, and sensor technologies.",
-                topics: [
-                    {
-                        title: "Semiconductor Devices",
-                        content: "Diodes, transistors (BJT, FET), operational amplifiers, their characteristics and applications."
-                    },
-                    {
-                        title: "Digital Electronics",
-                        content: "Logic gates, Boolean algebra, combinational and sequential circuits, microcontrollers."
-                    },
-                    {
-                        title: "Sensor Technologies",
-                        content: "Principles of operation for common sensors (temperature, pressure, position, etc.) and signal conditioning."
-                    },
-                    {
-                        title: "Circuit Design",
-                        content: "PCB design, prototyping, simulation tools, and practical considerations in electronic circuits."
-                    }
-                ],
-                flashcards: [
-                    {
-                        question: "What is the purpose of a pull-up resistor in digital circuits?",
-                        answer: "A pull-up resistor ensures a defined voltage (typically Vcc) when no other device is driving the line, preventing floating inputs that could cause erratic behavior in digital circuits."
-                    },
-                    {
-                        question: "Explain the difference between analog and digital signals.",
-                        answer: "Analog signals are continuous in both time and amplitude, representing information through varying voltage levels. Digital signals are discrete in time and amplitude, representing information as binary values (0/1)."
-                    },
-                    {
-                        question: "What is the function of a Wheatstone bridge in sensor circuits?",
-                        answer: "A Wheatstone bridge is used to measure small changes in resistance very accurately. It's commonly used with strain gauges and other resistive sensors by balancing two legs of a bridge circuit."
-                    }
-                ],
-                practiceProblems: [
-                    {
-                        question: "Design a circuit using an op-amp to amplify a sensor signal by a factor of 10.",
-                        answer: "Solution: Use a non-inverting amplifier configuration.\nGain = 1 + Rf/R1 = 10\nChoose R1 = 1kΩ, then Rf = 9kΩ\nConnect input to non-inverting terminal, R1 between inverting terminal and ground, Rf between inverting terminal and output."
-                    },
-                    {
-                        question: "Convert the decimal number 25 to its 8-bit binary representation.",
-                        answer: "Solution: 00011001\n\nBreakdown: 16 (1) + 8 (1) + 1 (1) = 25\nSo positions 4, 3, and 0 are 1 (counting from 0 at right): 00011001"
-                    }
-                ],
-                realExamples: [
-                    {
-                        title: "Medical Devices",
-                        content: "Operational amplifiers are used in ECG machines to amplify tiny electrical signals from the heart while rejecting noise and interference."
-                    },
-                    {
-                        title: "Automotive Systems",
-                        content: "Modern cars use dozens of sensors monitored by microcontrollers to optimize engine performance, monitor emissions, and enhance safety systems."
-                    }
-                ]
-            },
-            {
-                id: 'thermofluids',
-                title: "Thermofluid Mechanics",
-                description: "Principles of thermodynamics, fluid mechanics, and heat transfer with engineering applications.",
-                topics: [
-                    {
-                        title: "First Law of Thermodynamics",
-                        content: "Energy conservation, work and heat transfer, enthalpy, applications to closed and open systems."
-                    },
-                    {
-                        title: "Second Law of Thermodynamics",
-                        content: "Entropy, Carnot cycle, heat engines, refrigerators, and heat pumps."
-                    },
-                    {
-                        title: "Fluid Statics and Dynamics",
-                        content: "Pressure, buoyancy, Bernoulli's equation, viscosity, laminar and turbulent flow."
-                    },
-                    {
-                        title: "Heat Transfer",
-                        content: "Conduction, convection, radiation, heat exchangers, thermal resistance networks."
-                    }
-                ],
-                flashcards: [
-                    {
-                        question: "What is the difference between heat and work in thermodynamics?",
-                        answer: "Both heat and work are energy transfer mechanisms, but heat is energy transfer due to temperature difference, while work is energy transfer due to macroscopic force acting through a distance. Heat is a disorganized form of energy transfer at the molecular level, while work is organized energy transfer."
-                    },
-                    {
-                        question: "Explain the significance of the Reynolds number in fluid mechanics.",
-                        answer: "The Reynolds number (Re = ρvL/μ) is a dimensionless quantity that predicts flow patterns in fluid motion. Low Re indicates laminar flow (smooth, orderly), while high Re indicates turbulent flow (chaotic, mixing). The transition typically occurs around Re = 2000-4000 for pipe flow."
-                    },
-                    {
-                        question: "What are the three modes of heat transfer? Give an example of each.",
-                        answer: "1. Conduction: Heat transfer through a solid material (e.g., metal rod heated at one end)\n2. Convection: Heat transfer through fluid motion (e.g., heating water in a pot)\n3. Radiation: Heat transfer through electromagnetic waves (e.g., heat from the sun)"
-                    }
-                ],
-                practiceProblems: [
-                    {
-                        question: "A gas expands from 2 L to 5 L at constant pressure of 3 atm. Calculate the work done by the gas.",
-                        answer: "Solution: W = PΔV = 3 atm × (5 L - 2 L) = 9 L·atm\nConvert to joules: 9 L·atm × 101.325 J/(L·atm) ≈ 911.93 J\n\nWork done by the gas is approximately 911.93 joules."
-                    },
-                    {
-                        question: "Calculate the heat transfer through a 10cm thick brick wall (k=0.72 W/mK) with area 15m² and temperature difference of 20°C.",
-                        answer: "Solution: Q = kAΔT/d = 0.72 × 15 × 20 / 0.1 = 2160 W\n\nHeat transfer rate is 2160 watts."
-                    }
-                ],
-                realExamples: [
-                    {
-                        title: "Internal Combustion Engines",
-                        content: "The Otto cycle (spark-ignition engines) and Diesel cycle (compression-ignition engines) are practical applications of thermodynamic principles. These cycles demonstrate how thermal energy is converted to mechanical work in automotive engines."
-                    },
-                    {
-                        title: "HVAC Systems",
-                        content: "Heating, ventilation, and air conditioning systems apply thermodynamics and fluid mechanics to maintain comfortable indoor environments while optimizing energy efficiency."
-                    }
-                ]
-            },
-            {
-                id: 'materials',
-                title: "Properties and Behavior of Engineering Materials",
-                description: "Study of material properties, selection criteria, and failure mechanisms.",
-                topics: [
-                    {
-                        title: "Material Structure",
-                        content: "Atomic bonding, crystal structures, defects, and their influence on material properties."
-                    },
-                    {
-                        title: "Mechanical Properties",
-                        content: "Stress-strain relationships, elasticity, plasticity, hardness, toughness, fatigue, and creep."
-                    },
-                    {
-                        title: "Material Classes",
-                        content: "Metals, ceramics, polymers, composites - their characteristics and typical applications."
-                    },
-                    {
-                        title: "Material Selection",
-                        content: "Criteria for material selection in engineering design, considering mechanical, thermal, and economic factors."
-                    }
-                ],
-                flashcards: [
-                    {
-                        question: "What is the difference between elastic and plastic deformation?",
-                        answer: "Elastic deformation is temporary - the material returns to its original shape when the load is removed. Plastic deformation is permanent - the material retains its deformed shape after load removal due to atomic bond breaking and rearrangement."
-                    },
-                    {
-                        question: "Explain the significance of the stress-strain curve for a material.",
-                        answer: "The stress-strain curve shows how a material responds to applied forces. Key points include:\n- Elastic region (obeys Hooke's law)\n- Yield point (onset of plastic deformation)\n- Ultimate tensile strength (maximum stress)\n- Fracture point\nIt provides essential data like Young's modulus, yield strength, and ductility."
-                    },
-                    {
-                        question: "What are the main advantages of composite materials?",
-                        answer: "Composites combine the best properties of their constituents:\n1. High strength-to-weight ratio\n2. Tailorable properties\n3. Corrosion resistance\n4. Design flexibility\n5. Often better fatigue properties than metals"
-                    }
-                ],
-                practiceProblems: [
-                    {
-                        question: "A steel rod with diameter 10mm and length 1m is subjected to a tensile load of 10kN. Calculate the stress and elongation (E=200GPa).",
-                        answer: "Solution:\nStress σ = F/A = 10000N / (π×(0.005m)²) ≈ 127.3 MPa\nStrain ε = σ/E = 127.3×10⁶ / 200×10⁹ = 0.0006365\nElongation ΔL = ε×L₀ = 0.0006365 × 1m = 0.6365 mm"
-                    },
-                    {
-                        question: "Compare the theoretical density of FCC aluminum (atomic radius 0.143nm, atomic weight 26.98g/mol) with its actual density of 2.71g/cm³.",
-                        answer: "Solution:\nFCC has 4 atoms per unit cell\nVolume of unit cell a³ = (4r/√2)³ = (4×0.143×10⁻⁷cm/√2)³ ≈ 6.616×10⁻²³ cm³\nMass of unit cell = 4 atoms × 26.98g/(6.022×10²³) ≈ 1.792×10⁻²² g\nTheoretical density = mass/volume ≈ 2.71 g/cm³\nThis matches the actual density perfectly."
-                    }
-                ],
-                realExamples: [
-                    {
-                        title: "Aircraft Materials",
-                        content: "Modern aircraft use aluminum alloys for most structures, titanium for high-temperature components, and increasingly carbon fiber composites for their high strength-to-weight ratio."
-                    },
-                    {
-                        title: "Biomedical Implants",
-                        content: "Materials like titanium and cobalt-chrome alloys are used for implants due to their biocompatibility, corrosion resistance, and mechanical properties matching bone."
+                        question: 'Calculate the efficiency of a Carnot engine operating between 500K and 300K.',
+                        solution: 'η = 1 - (T_cold/T_hot) = 1 - (300/500) = 0.4 or 40%'
                     }
                 ]
             },
             {
                 id: 'mechanics',
-                title: "Mechanics",
-                description: "Statics and dynamics of particles and rigid bodies, with engineering applications.",
+                title: 'Mechanics',
+                description: 'Study of motion, forces, and energy in physical systems.',
                 topics: [
                     {
-                        title: "Statics",
-                        content: "Equilibrium of particles and rigid bodies, free-body diagrams, trusses, frames, friction."
+                        title: 'Newton\'s Laws of Motion',
+                        content: 'Three fundamental laws describing the relationship between motion and forces.'
                     },
                     {
-                        title: "Dynamics",
-                        content: "Kinematics and kinetics of particles, Newton's laws, work-energy methods, impulse and momentum."
+                        title: 'Kinematics',
+                        content: 'Description of motion without considering its causes (position, velocity, acceleration).'
                     },
                     {
-                        title: "Mechanical Vibrations",
-                        content: "Simple harmonic motion, damped and forced vibrations, natural frequency, resonance."
-                    },
-                    {
-                        title: "Mechanisms",
-                        content: "Analysis of linkages, gears, cams, and other mechanical systems."
+                        title: 'Dynamics',
+                        content: 'Study of forces and torques and their effect on motion.'
                     }
                 ],
-                flashcards: [
+                problems: [
                     {
-                        question: "What are the conditions for static equilibrium of a rigid body?",
-                        answer: "1. The sum of all forces acting on the body must be zero (ΣF = 0)\n2. The sum of all moments about any point must be zero (ΣM = 0)\nThese ensure no translational or rotational acceleration."
-                    },
-                    {
-                        question: "Explain the principle of work and energy in dynamics.",
-                        answer: "The work-energy principle states that the work done by all forces acting on a particle equals its change in kinetic energy: W = ΔKE = ½mv₂² - ½mv₁². This is useful for solving problems involving velocity and displacement without considering time."
-                    },
-                    {
-                        question: "What is the difference between kinematics and kinetics?",
-                        answer: "Kinematics studies motion without considering the forces that cause it (position, velocity, acceleration). Kinetics studies the relationship between forces and motion (Newton's laws, work-energy, impulse-momentum)."
-                    }
-                ],
-                practiceProblems: [
-                    {
-                        question: "A 5kg block slides down a 30° incline with coefficient of kinetic friction 0.2. Find its acceleration.",
-                        answer: "Solution:\nForces parallel to incline: mg sinθ - μmg cosθ = ma\ng sinθ - μg cosθ = a\n9.81×sin30° - 0.2×9.81×cos30° = a\n4.905 - 1.699 ≈ 3.206 m/s²"
-                    },
-                    {
-                        question: "Calculate the moment of inertia of a solid cylinder (mass 10kg, radius 0.5m) about its central axis.",
-                        answer: "Solution:\nFor solid cylinder: I = ½mr² = ½ × 10 × (0.5)² = 1.25 kg·m²"
-                    }
-                ],
-                realExamples: [
-                    {
-                        title: "Bridge Design",
-                        content: "Statics principles are fundamental in designing bridges to ensure they can support expected loads without collapsing or excessive deflection."
-                    },
-                    {
-                        title: "Vehicle Suspension",
-                        content: "Dynamics and vibration analysis help design vehicle suspension systems that provide a comfortable ride while maintaining control and stability."
+                        question: 'A 5kg box is pulled with a force of 20N across a frictionless surface. What is its acceleration?',
+                        solution: 'F = ma → a = F/m = 20N/5kg = 4 m/s²'
                     }
                 ]
             },
             {
-                id: 'programming',
-                title: "Introduction to Programming (Matlab, Python, C, Tinkercad)",
-                description: "Fundamentals of programming and computational thinking for engineering applications.",
+                id: 'materials',
+                title: 'Materials Science',
+                description: 'Study of the properties and applications of materials in engineering.',
                 topics: [
                     {
-                        title: "Programming Basics",
-                        content: "Variables, data types, control structures, functions, and algorithms."
+                        title: 'Crystal Structures',
+                        content: 'Ordered arrangements of atoms in crystalline materials (BCC, FCC, HCP).'
                     },
                     {
-                        title: "Numerical Methods",
-                        content: "Implementing numerical techniques for solving engineering problems."
+                        title: 'Stress-Strain Curves',
+                        content: 'Graphical representation of a material\'s response to applied forces.'
                     },
                     {
-                        title: "Data Visualization",
-                        content: "Creating plots and graphs to analyze and present engineering data."
-                    },
-                    {
-                        title: "Microcontrollers",
-                        content: "Programming embedded systems for sensing and control applications."
+                        title: 'Phase Diagrams',
+                        content: 'Maps showing the stability of phases under different conditions of composition and temperature.'
                     }
                 ],
-                flashcards: [
+                problems: [
                     {
-                        question: "What are the advantages of Python for engineering applications?",
-                        answer: "1. Easy to learn syntax\n2. Extensive libraries for scientific computing (NumPy, SciPy)\n3. Great for data analysis and visualization (Pandas, Matplotlib)\n4. Cross-platform compatibility\n5. Strong community support and documentation"
-                    },
-                    {
-                        question: "Explain the difference between compiled and interpreted languages.",
-                        answer: "Compiled languages (like C) are translated entirely to machine code before execution, resulting in faster programs. Interpreted languages (like Python) are translated line-by-line during execution, allowing for more flexibility and easier debugging."
-                    },
-                    {
-                        question: "What is the purpose of a PID controller in control systems?",
-                        answer: "A PID (Proportional-Integral-Derivative) controller continuously calculates an error value as the difference between a desired setpoint and a measured process variable, and applies a correction based on proportional, integral, and derivative terms to minimize the error over time."
-                    }
-                ],
-                practiceProblems: [
-                    {
-                        question: "Write a Python function to calculate the factorial of a number using recursion.",
-                        answer: "Solution:\ndef factorial(n):\n    if n == 0 or n == 1:\n        return 1\n    else:\n        return n * factorial(n-1)"
-                    },
-                    {
-                        question: "Write a MATLAB script to solve the system of equations: 2x + y = 5, x - 3y = -8",
-                        answer: "Solution:\nA = [2 1; 1 -3];\nb = [5; -8];\nx = A\\b;\ndisp(x);"
-                    }
-                ],
-                realExamples: [
-                    {
-                        title: "Data Analysis",
-                        content: "Python's Pandas library is widely used in engineering for cleaning, analyzing, and visualizing experimental data from sensors or simulations."
-                    },
-                    {
-                        title: "Control Systems",
-                        content: "MATLAB's Simulink is extensively used for modeling and simulating dynamic systems like vehicle dynamics, flight control systems, and industrial processes."
+                        question: 'Calculate the stress on a 10mm diameter rod subjected to a 5000N tensile load.',
+                        solution: 'σ = F/A = 5000N/(π*(0.005m)²) ≈ 63.66 MPa'
                     }
                 ]
             },
             {
-                id: 'design',
-                title: "Sustainable Design, Creativity and Professionalism",
-                description: "Principles of engineering design, sustainability, and professional practice.",
+                id: 'fluids',
+                title: 'Fluid Mechanics',
+                description: 'Study of fluids (liquids and gases) and the forces on them.',
                 topics: [
                     {
-                        title: "Design Process",
-                        content: "Stages of engineering design from problem definition to final solution, including brainstorming and evaluation."
+                        title: 'Bernoulli\'s Equation',
+                        content: 'Relates pressure, velocity, and elevation in a flowing fluid.'
                     },
                     {
-                        title: "Sustainability",
-                        content: "Life cycle assessment, green materials, energy efficiency, and sustainable manufacturing practices."
+                        title: 'Reynolds Number',
+                        content: 'Dimensionless number predicting flow patterns (laminar vs turbulent).'
                     },
                     {
-                        title: "Professional Ethics",
-                        content: "Engineering codes of ethics, professional responsibility, and case studies of ethical dilemmas."
-                    },
-                    {
-                        title: "Project Management",
-                        content: "Planning, scheduling, risk management, and teamwork in engineering projects."
+                        title: 'Navier-Stokes Equations',
+                        content: 'Fundamental equations describing fluid motion.'
                     }
                 ],
-                flashcards: [
+                problems: [
                     {
-                        question: "What are the main stages of the engineering design process?",
-                        answer: "1. Problem definition\n2. Research and requirements\n3. Conceptual design (brainstorming)\n4. Preliminary design\n5. Detailed design\n6. Testing and evaluation\n7. Production/implementation\n8. Maintenance and disposal"
+                        question: 'Water flows through a pipe that narrows from 0.1m to 0.05m diameter. If the velocity in the wide section is 2m/s, what is it in the narrow section?',
+                        solution: 'A1V1 = A2V2 → V2 = (A1/A2)V1 = (D1²/D2²)V1 = (0.1²/0.05²)*2 = 8 m/s'
+                    }
+                ]
+            },
+            {
+                id: 'dynamics',
+                title: 'Dynamics',
+                description: 'Study of motion considering the forces that cause it.',
+                topics: [
+                    {
+                        title: 'Kinetics',
+                        content: 'Study of forces causing motion.'
                     },
                     {
-                        question: "Explain the concept of 'cradle-to-cradle' design.",
-                        answer: "Cradle-to-cradle design models human industry on natural processes where materials are viewed as nutrients circulating in healthy, safe metabolisms. It emphasizes designing products so materials can be fully reclaimed or reused, eliminating waste."
+                        title: 'Vibration Analysis',
+                        content: 'Study of oscillatory motion in mechanical systems.'
                     },
                     {
-                        question: "What are the four fundamental principles of engineering ethics according to most professional codes?",
-                        answer: "1. Hold paramount the safety, health and welfare of the public\n2. Perform only in areas of their competence\n3. Issue public statements only in an objective and truthful manner\n4. Act for each employer or client as faithful agents or trustees"
+                        title: 'Lagrangian Mechanics',
+                        content: 'Energy-based approach to analyzing mechanical systems.'
                     }
                 ],
-                practiceProblems: [
+                problems: [
                     {
-                        question: "Compare the environmental impacts of plastic vs. glass bottles using life cycle assessment criteria.",
-                        answer: "Plastic bottles:\n- Lower production energy\n- Lighter (lower transport emissions)\n- Non-biodegradable, recycling challenges\n\nGlass bottles:\n- Higher production energy\n- Heavier (higher transport emissions)\n- Infinitely recyclable without quality loss\n- Biodegradable if not recycled\n\nOverall impact depends on transport distance and recycling rates."
+                        question: 'A 2kg mass oscillates on a spring with k=200N/m. What is its natural frequency?',
+                        solution: 'ω = √(k/m) = √(200/2) = 10 rad/s → f = ω/2π ≈ 1.59 Hz'
+                    }
+                ]
+            },
+            {
+                id: 'maths',
+                title: 'Engineering Mathematics',
+                description: 'Mathematical methods for solving engineering problems.',
+                topics: [
+                    {
+                        title: 'Differential Equations',
+                        content: 'Equations involving derivatives, used to model dynamic systems.'
                     },
                     {
-                        question: "Develop a Gantt chart for a 3-month engineering project with the following phases: Research (2 weeks), Design (4 weeks), Prototyping (3 weeks), Testing (2 weeks), Final Report (1 week).",
-                        answer: "Solution:\nA Gantt chart would show these phases as horizontal bars on a timeline:\n- Research: Weeks 1-2\n- Design: Weeks 3-6\n- Prototyping: Weeks 7-9\n- Testing: Weeks 10-11\n- Final Report: Week 12\n\nSome overlap between phases is possible (e.g., starting prototyping while finalizing design)."
+                        title: 'Linear Algebra',
+                        content: 'Study of vectors, matrices, and linear transformations.'
+                    },
+                    {
+                        title: 'Fourier Analysis',
+                        content: 'Decomposition of functions into frequency components.'
                     }
                 ],
-                realExamples: [
+                problems: [
                     {
-                        title: "LEED Certification",
-                        content: "The Leadership in Energy and Environmental Design (LEED) rating system provides a framework for designing and constructing green buildings that are energy efficient and environmentally responsible."
-                    },
-                    {
-                        title: "Circular Economy",
-                        content: "Companies like Patagonia and Interface implement circular economy principles by designing products for disassembly, using recycled materials, and offering repair/recycling programs to minimize waste."
-                    }
-                ],
-                projects: [
-                    {
-                        title: "Sustainable Product Design",
-                        content: "Students designed a low-cost water filtration system using locally available materials for developing communities, considering both technical performance and sustainable manufacturing."
-                    },
-                    {
-                        title: "Energy-Efficient Housing",
-                        content: "A team project to design a net-zero energy house incorporating passive solar design, high-efficiency appliances, and renewable energy systems."
+                        question: 'Solve the differential equation dy/dx = 3x² with y(0) = 1.',
+                        solution: 'y = ∫3x² dx = x³ + C → y(0) = 1 = 0 + C → y = x³ + 1'
                     }
                 ]
             }
         ];
-
-        // Load modules
-        function loadModules() {
-            const container = document.getElementById('module-container');
+        
+        // Render modules
+        const moduleContainer = document.getElementById('module-container');
+        const moduleDetailsContainer = document.getElementById('module-details-container');
+        
+        function renderModules() {
+            moduleContainer.innerHTML = '';
             
-            // Show loading state
-            container.innerHTML = '<div class="loader"></div>';
-            
-            // Simulate loading delay (in real app, this would be an API call)
-            setTimeout(() => {
-                container.innerHTML = '';
-                
-                modules.forEach(module => {
-                    const card = document.createElement('div');
-                    card.className = 'module-card';
-                    card.innerHTML = `
-                        <div class="module-header">
-                            <h3>${module.title}</h3>
-                        </div>
-                        <div class="module-body">
-                            <p>${module.description}</p>
-                            <button class="view-module-btn" data-module="${module.id}">
-                                View Module
-                            </button>
-                        </div>
-                    `;
-                    container.appendChild(card);
-                });
-
-                // Add event listeners to module buttons
-                document.querySelectorAll('.view-module-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const moduleId = e.target.getAttribute('data-module');
-                        showModuleDetails(moduleId);
-                    });
-                });
-            }, 500);
+            modules.forEach(module => {
+                const moduleCard = document.createElement('div');
+                moduleCard.className = 'module-card';
+                moduleCard.innerHTML = `
+                    <div class="module-card-header">
+                        <h3>${module.title}</h3>
+                    </div>
+                    <div class="module-card-body">
+                        <p>${module.description}</p>
+                    </div>
+                    <div class="module-card-footer">
+                        <button class="btn btn-outline btn-sm" onclick="showModuleDetails('${module.id}')">View Details</button>
+                    </div>
+                `;
+                moduleContainer.appendChild(moduleCard);
+            });
         }
-
-        // Show module details
+        
         function showModuleDetails(moduleId) {
             const module = modules.find(m => m.id === moduleId);
-            const container = document.getElementById('module-details-container');
+            if (!module) return;
             
-            // Show loading state
-            container.innerHTML = '<div class="loader"></div>';
-            
-            // Simulate loading delay
-            setTimeout(() => {
-                // Create back button
-                const backButton = document.createElement('a');
-                backButton.className = 'back-button';
-                backButton.href = '#';
-                backButton.textContent = 'Back to Modules';
-                backButton.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    container.innerHTML = '';
-                    document.getElementById('modules-content').scrollIntoView({ behavior: 'smooth' });
-                });
-
-                // Create module details
-                const details = document.createElement('div');
-                details.className = 'module-details';
-                
-                let projectsHTML = '';
-                if (module.projects) {
-                    projectsHTML = `
-                        <h3>Projects</h3>
-                        ${module.projects.map(project => `
-                            <div class="real-example">
-                                <h4>${project.title}</h4>
-                                <p>${project.content}</p>
+            moduleDetailsContainer.innerHTML = `
+                <div class="card">
+                    <div class="card-header">
+                        <h2>${module.title}</h2>
+                        <p>${module.description}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3>Topics</h3>
+                                <ul class="topic-list">
+                                    ${module.topics.map(topic => `
+                                        <li class="topic-item">
+                                            <button class="topic-btn" onclick="toggleTopic(this)" aria-expanded="false">
+                                                <span>${topic.title}</span>
+                                                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                                            </button>
+                                            <div class="topic-content">
+                                                <p>${topic.content}</p>
+                                            </div>
+                                        </li>
+                                    `).join('')}
+                                </ul>
                             </div>
-                        `).join('')}
-                    `;
-                }
-                
-                details.innerHTML = `
-                    <h2>${module.title}</h2>
-                    <p>${module.description}</p>
-                    
-                    <h3>Topics</h3>
-                    <ul class="topic-list">
-                        ${module.topics.map(topic => `
-                            <li onclick="toggleTopicContent(this)" tabindex="0" role="button" aria-expanded="false">
-                                <span>${topic.title}</span>
-                                <span>+</span>
-                                <div class="topic-content">
-                                    <p>${topic.content}</p>
-                                </div>
-                            </li>
-                        `).join('')}
-                    </ul>
-                    
-                    <h3>Flashcards</h3>
-                    <div class="flashcard-container" id="${moduleId}-flashcards">
-                        <div class="flashcard" onclick="flipFlashcard(this)" id="${moduleId}-flashcard-0" tabindex="0" role="button" aria-label="Click to flip">
-                            <div class="flashcard-front">
-                                <p>${module.flashcards[0].question}</p>
-                                <small>Click to flip</small>
+                            <div>
+                                <h3>Practice Problems</h3>
+                                ${module.problems.map((problem, index) => `
+                                    <div class="practice-problem">
+                                        <p><strong>Problem ${index + 1}:</strong> ${problem.question}</p>
+                                        <button class="btn btn-outline btn-sm mt-2" onclick="toggleSolution(this)">Show Solution</button>
+                                        <div class="solution">
+                                            <p><strong>Solution:</strong> ${problem.solution}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
                             </div>
-                            <div class="flashcard-back">
-                                <p>${module.flashcards[0].answer}</p>
-                            </div>
-                        </div>
-                        <div class="flashcard-feedback">
-                            <button class="feedback-btn easy-btn" onclick="rateFlashcard('${moduleId}', 'easy')">Easy</button>
-                            <button class="feedback-btn hard-btn" onclick="rateFlashcard('${moduleId}', 'hard')">Hard</button>
-                        </div>
-                        <div class="flashcard-navigation">
-                            <button class="flashcard-btn" onclick="prevFlashcard('${moduleId}')" disabled id="${moduleId}-prev-btn">←</button>
-                            <button class="flashcard-btn" onclick="nextFlashcard('${moduleId}')" ${module.flashcards.length > 1 ? '' : 'disabled'} id="${moduleId}-next-btn">→</button>
                         </div>
                     </div>
-                    
-                    <h3>Practice Problems</h3>
-                    ${module.practiceProblems.map((problem, index) => `
-                        <div class="practice-question">
-                            <p><strong>Problem ${index + 1}:</strong> ${problem.question}</p>
-                            <button class="show-solution-btn" onclick="toggleSolution(this)">
-                                <span>Show Solution</span>
-                            </button>
-                            <div class="solution" style="display: none;">
-                                <p><strong>Solution:</strong> ${problem.answer}</p>
-                            </div>
-                        </div>
-                    `).join('')}
-                    
-                    <h3>Real-World Applications</h3>
-                    ${module.realExamples.map(example => `
-                        <div class="real-example">
-                            <h4>${example.title}</h4>
-                            <p>${example.content}</p>
-                        </div>
-                    `).join('')}
-                    
-                    ${projectsHTML}
-                `;
-
-                container.innerHTML = '';
-                container.appendChild(backButton);
-                container.appendChild(details);
-                container.scrollIntoView({ behavior: 'smooth' });
-                
-                // Initialize flashcards
-                currentFlashcards[moduleId] = {
-                    index: 0,
-                    total: module.flashcards.length,
-                    completed: []
-                };
-                
-                // Add keyboard support for topic items
-                document.querySelectorAll('.topic-list li').forEach(item => {
-                    item.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            toggleTopicContent(item);
-                        }
-                    });
-                });
-                
-                // Add keyboard support for flashcards
-                document.querySelectorAll('.flashcard').forEach(card => {
-                    card.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            flipFlashcard(card);
-                        }
-                    });
-                });
-            }, 500);
-        }
-
-        // Toggle topic content
-        window.toggleTopicContent = function(element) {
-            const content = element.querySelector('.topic-content');
-            const toggleIcon = element.querySelector('span:last-child');
-            const isExpanded = content.classList.toggle('active');
+                </div>
+            `;
             
-            toggleIcon.textContent = isExpanded ? '−' : '+';
-            element.setAttribute('aria-expanded', isExpanded);
-        };
-
-        // Flip flashcard
-        window.flipFlashcard = function(element) {
-            element.classList.toggle('flipped');
-        };
-
-        // Flashcard navigation
-        let currentFlashcards = {};
+            // Scroll to the details
+            moduleDetailsContainer.scrollIntoView({ behavior: 'smooth' });
+        }
         
-        window.nextFlashcard = function(moduleId) {
-            const module = modules.find(m => m.id === moduleId);
-            const state = currentFlashcards[moduleId];
+        function toggleTopic(button) {
+            const expanded = button.getAttribute('aria-expanded') === 'true';
+            button.setAttribute('aria-expanded', !expanded);
             
-            if (state.index < module.flashcards.length - 1) {
-                state.index++;
-                updateFlashcard(moduleId);
-            } else if (state.completed.length < module.flashcards.length) {
-                // Find first uncompleted card
-                for (let i = 0; i < module.flashcards.length; i++) {
-                    if (!state.completed.includes(i)) {
-                        state.index = i;
-                        updateFlashcard(moduleId);
-                        break;
-                    }
-                }
-            } else {
-                // All cards completed
-                const container = document.getElementById(`${moduleId}-flashcards`);
-                container.innerHTML = `
-                    <div class="completion-message">
-                        <h3>All Flashcards Completed!</h3>
-                        <p>You've reviewed all flashcards for this module. Refresh the page to start again.</p>
-                    </div>
-                `;
-            }
-        };
-
-        window.prevFlashcard = function(moduleId) {
-            const state = currentFlashcards[moduleId];
-            
-            if (state.index > 0) {
-                state.index--;
-                updateFlashcard(moduleId);
-            }
-        };
-
-        window.rateFlashcard = function(moduleId, difficulty) {
-            const state = currentFlashcards[moduleId];
-            if (difficulty === 'easy') {
-                // Mark as completed if rated easy
-                if (!state.completed.includes(state.index)) {
-                    state.completed.push(state.index);
-                }
-            }
-            // Move to next card
-            nextFlashcard(moduleId);
-        };
-
-        function updateFlashcard(moduleId) {
-            const module = modules.find(m => m.id === moduleId);
-            const state = currentFlashcards[moduleId];
-            const currentIndex = state.index;
-            const flashcard = document.getElementById(`${moduleId}-flashcard-${currentIndex}`);
-            
-            // Create new flashcard if it doesn't exist
-            if (!flashcard) {
-                const container = document.getElementById(`${moduleId}-flashcards`);
-                const newFlashcard = document.createElement('div');
-                newFlashcard.className = 'flashcard';
-                newFlashcard.id = `${moduleId}-flashcard-${currentIndex}`;
-                newFlashcard.tabIndex = 0;
-                newFlashcard.setAttribute('role', 'button');
-                newFlashcard.setAttribute('aria-label', 'Click to flip');
-                newFlashcard.onclick = function() { flipFlashcard(this); };
-                newFlashcard.onkeydown = function(e) {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        flipFlashcard(this);
-                    }
-                };
-                newFlashcard.innerHTML = `
-                    <div class="flashcard-front">
-                        <p>${module.flashcards[currentIndex].question}</p>
-                        <small>Click to flip</small>
-                    </div>
-                    <div class="flashcard-back">
-                        <p>${module.flashcards[currentIndex].answer}</p>
-                    </div>
-                `;
-                
-                // Replace the current flashcard
-                const oldFlashcard = container.querySelector('.flashcard');
-                container.insertBefore(newFlashcard, oldFlashcard);
-                container.removeChild(oldFlashcard);
-            }
-            
-            // Update button states
-            document.getElementById(`${moduleId}-prev-btn`).disabled = currentIndex === 0;
-            document.getElementById(`${moduleId}-next-btn`).disabled = 
-                currentIndex === module.flashcards.length - 1 && 
-                state.completed.length === module.flashcards.length;
+            const content = button.nextElementSibling;
+            content.classList.toggle('active');
         }
-
-        // Toggle solution visibility
-        window.toggleSolution = function(button) {
+        
+        function toggleSolution(button) {
             const solution = button.nextElementSibling;
+            solution.classList.toggle('active');
             
-            if (solution.style.display === 'none') {
-                solution.style.display = 'block';
-                button.innerHTML = `<span>Hide Solution</span>`;
+            if (solution.classList.contains('active')) {
+                button.textContent = 'Hide Solution';
             } else {
-                solution.style.display = 'none';
-                button.innerHTML = `<span>Show Solution</span>`;
+                button.textContent = 'Show Solution';
             }
-        };
-
+        }
+        
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
-            loadModules();
+            renderModules();
             
-            // Open first section by default
-            toggleSection('about-content');
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
         });
     </script>
 </body>
