@@ -1,0 +1,73 @@
+/* Engineering-themed colors */
+:root {
+  --primary: #005f87; /* Deep engineering blue */
+  --primary-dark: #003d5b;
+  --secondary: #e37222; /* Engineering orange */
+  --accent: #a2a2a2; /* Metallic gray */
+  --light: #f8f9fa;
+  --dark: #212529;
+  
+  /* Engineering-inspired accents */
+  --gear-gray: #6c757d;
+  --circuit-blue: #0dcaf0;
+  --mechanical-red: #dc3545;
+}
+
+/* Engineering-themed elements */
+.engineering-badge {
+  background: radial-gradient(circle, var(--gear-gray) 0%, var(--dark) 100%);
+  color: white;
+  border: 2px solid var(--accent);
+}
+
+.module-card {
+  border-left: 4px solid var(--secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.module-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--circuit-blue);
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  opacity: 0.7;
+}
+
+/* Compact module layout */
+.compact-module {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.compact-module .card-body {
+  padding: 1rem;
+}
+
+/* Integrated flashcards */
+.module-flashcard {
+  border: 1px solid var(--circuit-blue);
+  background: rgba(13, 202, 240, 0.05);
+}
+
+/* Final test section */
+.final-test {
+  border-top: 2px dashed var(--mechanical-red);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.test-question {
+  counter-increment: question;
+  margin-bottom: 1rem;
+}
+
+.test-question::before {
+  content: counter(question) ". ";
+  font-weight: bold;
+  color: var(--mechanical-red);
+}
